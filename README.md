@@ -34,7 +34,7 @@ This repo is a fork/derivative of **PathNet**. We keep upstream scripts, dataset
 
 ```bash
 conda env create -f env.yml
-conda activate pathnet
+conda activate rare3d
 ```
 
 ### Option B — Modern toolchain (CUDA 12.1 / PyTorch 2.1.2)
