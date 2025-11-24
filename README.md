@@ -1,7 +1,3 @@
-아래를 그대로 README.md에 붙여넣어 쓰면 된다. Ubuntu 22.04 LTS + RTX 5000(쿠다 12.x) 환경에 맞춰 정리했다. 공식 레포의 예제 스케줄(200/300 epoch)과 논문 설정(150/100 epoch, Adam 1e-6, batch 64)을 모두 명시했다.
-
----
-
 # RARE-3D: Reinforcement Learning–based Adaptive Path Selection for Efficient Point-Cloud Restoration
 
 **TL;DR.** We modernize **PathNet** (point-wise path selection for denoising) by replacing its **LSTM + REINFORCE** routing with a **Transformer encoder + PPO (with GAE)**. We keep the original 2-stage training protocol and loss design, aiming for better stability, equal-or-better quality, and lower use of complex paths.
