@@ -191,6 +191,6 @@ def main(args,test_data_dir):
             print('time2:', time.time()-start_time)
 if __name__ == '__main__':
     args = parse_args()
-    test_data_dir =  'benchmark81_20000' # test dir ['benchmark81_10000','benchmark81_20000','benchmark81_50000','kinect_fusion','kinect_v1','kinect_v2']
+    test_data_dir =  'Synth-A/benchmark81_20000' # test dir ['benchmark81_10000','benchmark81_20000','benchmark81_50000','kinect_fusion','kinect_v1','kinect_v2']
     main(args,test_data_dir)
 
