@@ -3,6 +3,7 @@
 import os
 import numpy as np
 import torch
+from tqdm import trange
 
 from config import Config
 from envs.doom_env import DoomEnv
@@ -32,7 +33,10 @@ def evaluate(ckpt_path=None, num_episodes=10):
     net.load_state_dict(ckpt["online_state_dict"])
     net.eval()
 
-    for ep in range(num_episodes):
+    episode_rewards = []
+
+    # tqdm over episodes
+    for ep in trange(num_episodes, desc="Evaluating"):
         state = env.reset()
         total_reward = 0.0
         done = False
@@ -47,7 +51,16 @@ def evaluate(ckpt_path=None, num_episodes=10):
             total_reward += reward
             state = next_state
 
-        print("[EVAL] Episode {}/{} reward={:.2f}".format(ep + 1, num_episodes, total_reward))
+        episode_rewards.append(total_reward)
+        print(
+            "[EVAL] Episode {}/{} reward={:.2f}".format(
+                ep + 1, num_episodes, total_reward
+            )
+        )
+
+    mean_r = float(np.mean(episode_rewards))
+    std_r = float(np.std(episode_rewards))
+    print("[EVAL] mean_reward={:.2f} ± {:.2f}".format(mean_r, std_r))
 
     env.close()
 

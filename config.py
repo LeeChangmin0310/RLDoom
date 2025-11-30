@@ -19,8 +19,8 @@ class Config:
     learning_rate = 2.5e-4
     gamma = 0.95
 
-    total_episodes = 1000
-    max_steps_per_episode = 3000
+    total_episodes = 5000
+    max_steps_per_episode = 5000
 
     # Epsilon-greedy
     eps_start = 1.0
@@ -29,7 +29,7 @@ class Config:
 
     # Replay memory
     memory_size = 100000
-    pretrain_length = 50000
+    pretrain_length = 100000
     learn_start = 1000
 
     # Target network

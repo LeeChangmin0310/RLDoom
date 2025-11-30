@@ -15,4 +15,4 @@ export CUDA_VISIBLE_DEVICES=3
 mkdir -p logs
 
 # Run evaluation and save console output
-python eval.py 2>&1 | tee logs/eval.log
+python eval.py "$@"

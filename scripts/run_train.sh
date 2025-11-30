@@ -23,4 +23,4 @@ export CUDA_VISIBLE_DEVICES=3
 mkdir -p "${WANDB_DIR:-${PWD}/logs/wandb}"
 mkdir -p logs
 
-python train.py 2>&1 | tee logs/train.log
+python train.py "$@"

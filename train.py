@@ -104,8 +104,10 @@ def train():
 
     global_step = 0
     epsilon = cfg.eps_start
+    best_reward = -np.inf  # track best episode reward
 
-    for episode in range(1, cfg.total_episodes + 1):
+    pbar = trange(1, cfg.total_episodes + 1, desc="Training episodes")
+    for episode in pbar:
         state = env.reset()
         episode_reward = 0.0
         losses = []
@@ -188,12 +190,36 @@ def train():
                 break
 
         avg_loss = float(np.mean(losses)) if losses else 0.0
-
-        print(
-            "[EP {:05d}] reward={:.2f} loss={:.4f} epsilon={:.4f}".format(
-                episode, episode_reward, avg_loss, epsilon
-            )
+        
+        pbar.set_postfix(
+            reward=f"{episode_reward:.2f}",
+            loss=f"{avg_loss:.4f}",
+            eps=f"{epsilon:.3f}",
         )
+
+        if episode_reward > best_reward:
+            best_reward = episode_reward
+            print(
+                "[BEST] EP {:05d} reward={:.2f} loss={:.4f} epsilon={:.4f}".format(
+                    episode, episode_reward, avg_loss, epsilon
+                )
+            )
+
+            # 2) save best checkpoint
+            best_path = os.path.join(cfg.checkpoint_dir, "dddqn_best.pt")
+            ckpt = {
+                "episode": episode,
+                "global_step": global_step,
+                "online_state_dict": online_net.state_dict(),
+                "target_state_dict": target_net.state_dict(),
+                "optimizer_state_dict": optimizer.state_dict(),
+                "epsilon": epsilon,
+                "best_reward": best_reward,
+            }
+            torch.save(ckpt, best_path)
+            # W&B summary에 최고 값 기록
+            wandb.run.summary["best_reward"] = best_reward
+            wandb.save(best_path, base_path=cfg.base_dir)
 
         # wandb logging
         wandb.log(
@@ -227,7 +253,8 @@ def train():
             torch.save(ckpt, latest_path)
 
             # Upload checkpoint to wandb (optional)
-            wandb.save(ckpt_path)
+            # Use base_path to preserve folder structure in W&B
+            wandb.save(ckpt_path, base_path=cfg.base_dir)
             print("[INFO] Saved checkpoint to {}".format(ckpt_path))
 
     env.close()
