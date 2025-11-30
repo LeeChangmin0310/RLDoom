@@ -1,5 +1,6 @@
 import os
 import random
+import time
 import numpy as np
 from tqdm import tqdm
 import tensorflow.compat.v1 as tf
@@ -123,6 +124,7 @@ def main():
     tf.summary.scalar("Loss", DQNetwork.loss)
     write_op = tf.summary.merge_all()
 
+    global_step = 0
     decay_step = 0
     tau = 0
 
@@ -148,6 +150,7 @@ def main():
             while step < MAX_STEPS:
                 step += 1
                 tau += 1
+                global_step += 1
 
                 if EPISODE_RENDER:
                     game.render()
@@ -175,6 +178,7 @@ def main():
                     memory.store(error=1.0, sample=(state, action, reward, next_state_stacked, done))
                     state = next_state_stacked
 
+                t0 = time.time()
                 # 학습
                 tree_idx, batch, ISWeights = memory.sample(BATCH_SIZE)
 
@@ -197,6 +201,7 @@ def main():
                     idx = possible_actions.index(list(act))
                     actions_one_hot[i, idx] = 1.0
 
+                t1 = time.time()
                 _, abs_errors, loss, summary = sess.run(
                     [DQNetwork.optimizer, DQNetwork.absolute_errors, DQNetwork.loss, write_op],
                     feed_dict={
@@ -206,21 +211,23 @@ def main():
                         DQNetwork.ISWeights_: ISWeights,
                     },
                 )
+                t2 = time.time()
 
                 # PER priority 업데이트
                 memory.batch_update(tree_idx, abs_errors)
 
-                writer.add_summary(summary, episode)
-                writer.flush()
-
+                if global_step % 100 == 0:
+                    writer.add_summary(summary, global_step)
+                    
                 # 타깃 네트워크 일정 주기마다 동기화
                 if tau > MAX_TAU:
                     sess.run(update_ops)
                     tau = 0
 
+            writer.flush()
             print(f"Episode: {episode} Total reward: {episode_reward:.2f} Explore P: {explore_prob:.4f}")
 
-            if TRAINING and (episode + 1) % 100 == 0:
+            if TRAINING and (episode + 1) % 20 == 0:
                 saver.save(sess, MODEL_PATH)
                 print("Model saved at episode", episode + 1)
 

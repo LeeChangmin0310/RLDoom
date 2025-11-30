@@ -23,7 +23,7 @@ def main():
         game = create_environment()[0]
 
         # 테스트용 cfg / wad 사용하고 싶으면 여기를 수정
-        game.load_config("deadly_corridor_testing.cfg")
+        game.load_config("deadly_corridor.cfg")
         game.set_doom_scenario_path("deadly_corridor.wad")
         game.init()
 
