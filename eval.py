@@ -1,6 +1,7 @@
 # eval.py
 
 import os
+import argparse
 import numpy as np
 import torch
 from tqdm import trange
@@ -10,10 +11,10 @@ from envs.doom_env import DoomEnv
 from models.dddqn import DuelingDQN
 
 
-def evaluate(ckpt_path=None, num_episodes=10):
+def evaluate(ckpt_path, num_episodes=10):
     """Evaluate trained agent in Doom environment."""
     cfg = Config()
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:3" if torch.cuda.is_available() else "cpu")
 
     env = DoomEnv(
         config_path=cfg.config_path,
@@ -26,16 +27,12 @@ def evaluate(ckpt_path=None, num_episodes=10):
 
     net = DuelingDQN(cfg.stack_size, num_actions).to(device)
 
-    if ckpt_path is None:
-        ckpt_path = os.path.join(cfg.checkpoint_dir, "dddqn_latest.pt")
-
     ckpt = torch.load(ckpt_path, map_location=device)
     net.load_state_dict(ckpt["online_state_dict"])
     net.eval()
 
     episode_rewards = []
 
-    # tqdm over episodes
     for ep in trange(num_episodes, desc="Evaluating"):
         state = env.reset()
         total_reward = 0.0
@@ -66,4 +63,20 @@ def evaluate(ckpt_path=None, num_episodes=10):
 
 
 if __name__ == "__main__":
-    evaluate()
+    cfg = Config()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--ckpt",
+        type=str,
+        default=os.path.join(cfg.checkpoint_dir, "dddqn_last.pt"),
+        help="checkpoint path (default: best checkpoint)",
+    )
+    parser.add_argument(
+        "--episodes",
+        type=int,
+        default=10,
+        help="number of evaluation episodes",
+    )
+    args = parser.parse_args()
+
+    evaluate(ckpt_path=args.ckpt, num_episodes=args.episodes)
