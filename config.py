@@ -38,7 +38,7 @@ class Config:
 
     # Optimization
     grad_clip = 10.0
-    batch_size = 64
+    batch_size = 256
 
     # Logging & checkpoints
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -47,5 +47,5 @@ class Config:
     checkpoint_interval = 50  # in episodes
 
     # wandb
-    wandb_project = "doom-dddqn"
+    wandb_project = "RLDoom"
     wandb_run_name = "dddqn_deadly_corridor"

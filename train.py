@@ -76,6 +76,7 @@ def train():
     # wandb
     wandb.init(
         project=cfg.wandb_project,
+        entity=os.environ.get("WANDB_ENTITY", None),
         name=cfg.wandb_run_name,
         config={
             "learning_rate": cfg.learning_rate,
