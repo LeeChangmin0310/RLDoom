@@ -1,1 +1,6 @@
-.env
+.envcheckpoints/
+logs/
+logs/wandb/
+*.pt
+*.h5
+*.zip
