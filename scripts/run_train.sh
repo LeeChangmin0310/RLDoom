@@ -1,3 +1,4 @@
+# scripts/run_train.sh
 #!/usr/bin/env bash
 set -e
 
@@ -14,9 +15,6 @@ if [ -f ".env" ]; then
   source .env
   set +a
 fi
-
-# Use specific GPU
-export CUDA_VISIBLE_DEVICES=3
 
 mkdir -p logs
 
