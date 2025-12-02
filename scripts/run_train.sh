@@ -23,5 +23,5 @@ mkdir -p logs
 ALGO=${1:-dqn}
 SEED=${2:-0}
 
-python -u train.py --algo "${ALGO}" --seed "${SEED}" --mode train \
+python -u train.py --algo "${ALGO}" --seed "${SEED}" \
   2>&1 | tee "logs/train_${ALGO}_seed${SEED}.log"
