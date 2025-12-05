@@ -10,7 +10,7 @@ JOBS = [
     ("rainbow", 0),
     ("reinforce", 0),
     ("a2c", 0),
-    ("a3c", 0),
+    # ("a3c", 0),
     ("ppo", 0),
     ("trpo", 0),
 ]
