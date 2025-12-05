@@ -21,18 +21,19 @@ All algorithms act on the **same discrete 7-action space** and stacked grayscale
 - **DQN**
 - **DDQN** (Double DQN)
 - **DDDQN** (Dueling Double DQN)
-- **Rainbow-style DQN**
-  - Dueling architecture
-  - Distributional head (if enabled)
+- **Rainbow-style DQN (Rainbow-lite)**
+  - Dueling Q-head
+  - Double DQN target update
   - Prioritized Experience Replay (PER) via a dedicated buffer
+  - No noisy nets / no distributional head (simplified Rainbow variant)
 
 ### On-policy (policy gradient & actor-critic)
 
-- **REINFORCE** (Monte Carlo Policy Gradient)
+- **REINFORCE** (Monte Carlo policy gradient, with optional value baseline)
 - **A2C** (Advantage Actor-Critic, synchronous)
-- **A3C** (Advantage Actor-Critic, asynchronous-style loop)
+- **A3C** (Advantage Actor-Critic, asynchronous-style loop in a single process)
 - **PPO** (Proximal Policy Optimization)
-- **TRPO** (Trust Region Policy Optimization, simplified)
+- **TRPO** (Trust Region Policy Optimization, simplified with a KL penalty)
 
 The goal is a **clean, reproducible toy benchmark** that can run on a lab server (SSH + tmux) without touching global system packages.
 
@@ -43,7 +44,7 @@ The goal is a **clean, reproducible toy benchmark** that can run on a lab server
 - **Scenario:** VizDoom – *Deadly Corridor*
 - **Goal:** Reach the vest at the end of the corridor **without dying**.
 - **Map:** narrow corridor with 6 monsters on both sides.
-- **Reward:**
+- **Reward (shaped):**
   - `+dX` for getting closer to the vest
   - `-dX` for moving away
   - `-100` death penalty
@@ -105,9 +106,9 @@ RLDoom/
 
     buffers/
       __init__.py
-      replay_buffer.py     # Standard experience replay buffer
-      per_buffer.py        # Prioritized Experience Replay (Rainbow etc.)
-      rollout_buffer.py    # On-policy rollout storage for PPO/TRPO/A2C/A3C
+      replay_buffer.py         # Standard experience replay buffer
+      prioritized_replay.py    # Prioritized Experience Replay (Rainbow)
+      rollout_buffer.py        # On-policy rollout storage for PPO/TRPO/A2C/A3C
 
     agents/
       __init__.py
@@ -115,8 +116,8 @@ RLDoom/
       dqn.py               # Vanilla DQN
       ddqn.py              # Double DQN
       dddqn.py             # Dueling Double DQN
-      rainbow.py           # Rainbow-style DQN with PER
-      reinforce.py         # REINFORCE (Monte Carlo Policy Gradient)
+      rainbow.py           # Rainbow-lite DQN with PER
+      reinforce.py         # REINFORCE (MC policy gradient, optional baseline)
       a2c.py               # Advantage Actor-Critic
       a3c.py               # A3C-style agent (single-process version)
       ppo.py               # PPO agent
@@ -134,8 +135,9 @@ RLDoom/
       misc.py              # Small utilities (path helpers, etc.)
 
   scripts/
-    run_train.sh           # tmux-friendly training launcher
+    run_train.sh           # tmux-friendly single-algorithm launcher
     run_eval.sh            # tmux-friendly evaluation launcher
+    launch_queue.py        # Helper to launch multiple algorithms on different GPUs
 
   checkpoints/             # Saved model checkpoints (created at runtime)
   logs/                    # Text logs + wandb local cache (created at runtime)
@@ -223,7 +225,7 @@ rldoom/configs/deadly_corridor.yaml
 rldoom/configs/__init__.py  (make_config)
 ```
 
-### YAML layout (high-level)
+### YAML layout (high-level example)
 
 ```yaml
 env:
@@ -234,9 +236,10 @@ env:
   frame_skip: 4
 
 train:
-  num_episodes: 1000
+  num_episodes: 2000
+  max_steps_per_episode: 3000
   checkpoint_dir: "checkpoints"
-  checkpoint_interval: 50
+  checkpoint_interval: 100
   logs_dir: "logs"
 
 defaults:
@@ -250,7 +253,8 @@ logging:
   wandb_entity: "lee_changmin-sangmyung-uni"
 
 algos:
-  dqn:    # algo-specific hyperparameters...
+  dqn:
+    # algo-specific hyperparameters...
   ddqn:
   dddqn:
   rainbow:
@@ -277,6 +281,7 @@ cfg.stack_size      # 4
 cfg.frame_skip      # 4
 
 cfg.num_episodes
+cfg.max_steps_per_episode
 cfg.checkpoint_dir
 cfg.logs_dir
 cfg.feature_dim
@@ -296,6 +301,52 @@ cfg.target_update_every
 ```
 
 All agents and trainers use this same `cfg` object.
+
+---
+
+## Logged metrics (wandb)
+
+Every algorithm logs per episode:
+
+* `episode`: 1-based episode index (used as wandb step)
+* `return`: sum of rewards in the episode
+* `length`: number of environment steps in the episode
+* `global_step`: total environment steps so far
+
+Algorithm-specific losses:
+
+* **Off-policy (DQN, DDQN, DDDQN, Rainbow)**
+
+  * `loss`: TD loss (total, identical to `value_loss`)
+  * `value_loss`: same scalar for clarity
+
+* **REINFORCE**
+
+  * `loss`: total loss (policy + value baseline term)
+  * `policy_loss`
+  * `value_loss` (baseline fitting; optional, can be disabled)
+
+* **A2C**
+
+  * `loss`: total (policy + vf_coef * value_loss − ent_coef * entropy)
+  * `policy_loss`
+  * `value_loss`
+  * `entropy`
+
+* **PPO**
+
+  * `loss`: total (clipped objective + value term − entropy)
+  * `policy_loss`
+  * `value_loss`
+
+* **TRPO (simplified)**
+
+  * `loss`: total (policy + KL penalty + value term − entropy)
+  * `policy_loss`
+  * `value_loss`
+  * `kl`: mean KL divergence between old and new policies
+
+This makes it easy to compare **return curves** and **loss dynamics** across algorithms under a unified logging schema.
 
 ---
 
@@ -407,6 +458,14 @@ ALGO=dddqn SEED=0 bash scripts/run_train.sh
 # attach: tmux attach -t doomrl
 ```
 
+### Multi-algorithm launcher
+
+`scripts/launch_queue.py` (example usage):
+
+* Assigns different GPUs to different algorithms
+* Launches multiple training runs (e.g., DQN / DDQN / REINFORCE / PPO / TRPO) in parallel
+* Designed to be run inside tmux on a shared lab server
+
 ---
 
 ## Evaluation
@@ -419,7 +478,7 @@ cd /home/cia/disk1/bci_intern/AAAI2026/RLDoom
 
 python eval.py \
   --algo dddqn \
-  --checkpoint checkpoints/dddqn_ep_000500.pt \
+  --checkpoint checkpoints/dddqn_ep000500.pth \
   --episodes 10
 ```
 
@@ -431,10 +490,10 @@ python eval.py \
 * Creates `env = make_env(cfg)` (headless VizDoom, safe over SSH)
 * Runs evaluation episodes with **deterministic actions** (`epsilon=0` or greedy policy)
 * Uses `tqdm` to show progress over evaluation episodes
-* Prints per-episode return:
+* Prints per-episode return, e.g.:
 
 ```text
-[EVAL] algo=dddqn episode=1 reward=123.45
+[EVAL] algo=dddqn episode=1 return=123.45
 ...
 ```
 
@@ -454,8 +513,8 @@ and then systematically compare:
 
 1. **Value-based methods**
 
-   * DQN → DDQN → DDDQN → Rainbow
-   * How do Double / Dueling / PER / distributional tricks affect:
+   * DQN → DDQN → DDDQN → Rainbow-lite
+   * How do Double / Dueling / PER tricks affect:
 
      * sample efficiency
      * stability
@@ -528,6 +587,3 @@ All original Doom assets belong to their respective copyright holders.
     </td>
   </tr>
 </table>
-
-
----
