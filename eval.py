@@ -50,7 +50,7 @@ def main():
     args = parser.parse_args()
 
     cfg = make_config(args.algo, args.seed)
-    cfg.use_wandb = False  # eval에서는 꺼버리기
+    cfg.use_wandb = False  # not in eval
 
     set_seed(cfg.seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

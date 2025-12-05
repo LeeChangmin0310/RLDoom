@@ -47,11 +47,19 @@ def make_config(algo: str, seed: int) -> Config:
     # Basic meta fields
     cfg["algo"] = algo
     cfg["seed"] = int(seed)
-
+    
+    train_cfg = root.get("train", {})  
+    
     # Flatten sections
     for section in ("env", "train", "defaults", "logging"):
         if section in root and isinstance(root[section], dict):
             cfg.update(root[section])
+
+    cfg["train_episodes"] = train_cfg.get("num_episodes", 5000)
+    cfg["max_steps_per_episode"] = train_cfg.get("max_steps_per_episode", 3000)
+    cfg["checkpoint_dir"] = train_cfg.get("checkpoint_dir", "checkpoints")
+    cfg["checkpoint_interval"] = train_cfg.get("checkpoint_interval", 200)
+    cfg["logs_dir"] = train_cfg.get("logs_dir", "logs")
 
     # Algorithm type: offpolicy / onpolicy
     cfg["algo_type"] = algo_cfg.get("type", "offpolicy")

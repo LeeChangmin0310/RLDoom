@@ -1,0 +1,9 @@
+rainbow train:   0%|          | 0/2000 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/cia/disk1/bci_intern/AAAI2026/RLDoom/train.py", line 87, in <module>
+    main()
+  File "/home/cia/disk1/bci_intern/AAAI2026/RLDoom/train.py", line 78, in main
+    train_offpolicy(agent, cfg, logger)
+  File "/home/cia/disk1/bci_intern/AAAI2026/RLDoom/rldoom/trainers/offpolicy.py", line 57, in train_offpolicy
+    "episode": ep_idx,
+UnboundLocalError: local variable 'ep_idx' referenced before assignment

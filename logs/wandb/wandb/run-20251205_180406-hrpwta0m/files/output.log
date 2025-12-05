@@ -1,0 +1,11 @@
+dqn train:   0%|          | 0/2000 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/cia/disk1/bci_intern/AAAI2026/RLDoom/train.py", line 87, in <module>
+    main()
+  File "/home/cia/disk1/bci_intern/AAAI2026/RLDoom/train.py", line 78, in main
+    train_offpolicy(agent, cfg, logger)
+  File "/home/cia/disk1/bci_intern/AAAI2026/RLDoom/rldoom/trainers/offpolicy.py", line 39, in train_offpolicy
+    agent.observe(transition)
+  File "/home/cia/disk1/bci_intern/AAAI2026/RLDoom/rldoom/agents/dqn.py", line 78, in observe
+    obs, action, reward, next_obs, done, _ = transition
+ValueError: not enough values to unpack (expected 6, got 5)

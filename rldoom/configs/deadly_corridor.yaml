@@ -8,10 +8,10 @@ env:
   frame_skip: 4
 
 train:
-  num_episodes: 5000              
+  num_episodes: 2000              
   max_steps_per_episode: 3000     # ← both off/on 
   checkpoint_dir: "checkpoints"
-  checkpoint_interval: 200        # ← 5000/200 = 25 ckpts
+  checkpoint_interval: 100        # ← 2000/100 = 20 ckpts
   logs_dir: "logs"
 
 defaults:

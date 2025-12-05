@@ -55,6 +55,7 @@ def train_onpolicy(agent, cfg, logger):
 
         # -------- logging --------
         log_dict: Dict[str, float] = {
+            "episode": ep_idx,
             "return": episode_return,
             "length": episode_len,
             "global_step": float(global_step),

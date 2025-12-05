@@ -33,8 +33,8 @@ class Agent(ABC):
     def observe(self, transition) -> None:
         """
         Receive one environment transition.
-        Transition format is up to the caller, but in this project we use:
-        (obs, action, reward, next_obs, done, info).
+        In this project we use:
+        (obs, action, reward, next_obs, done).
         """
         raise NotImplementedError
 
