@@ -78,9 +78,11 @@ class RainbowAgent(Agent):
         return int(q.argmax(dim=1).item())
 
     def observe(self, transition):
-        # (obs, action, reward, next_obs, done)
+        """Store transition in replay buffer."""
+        # Before: obs, action, reward, next_obs, done, _ = transition
         obs, action, reward, next_obs, done = transition
         self.buffer.add(obs, action, reward, next_obs, done)
+
 
 
     def update(self):
