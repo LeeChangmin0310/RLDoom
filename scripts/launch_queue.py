@@ -5,19 +5,21 @@ import subprocess
 
 # Jobs to run: (algo, seed)
 JOBS = [
+    ("reinforce", 0),
     ("dqn", 0),
     ("ddqn", 0),
     ("dddqn", 0),
     ("rainbow", 0),
     ("ppo", 0),
-    ("reinforce", 0),
     ("trpo", 0),
     ("a2c", 0),
     # ("a3c", 0),
 ]
 
 # GPUs you want to use
-GPUS = ["1", "2", "3"]  # cuda:1,2,3
+GPUS = ["1", "2", "3"]  # cuda:1 (GeForce RTX 3090)
+                        # cuda:2 (RTX A5000),
+                        # cuda:3 (RTX A5000),
 
 PYTHON_BIN = "python"  # or full path
 PROJECT_ROOT = "/home/cia/disk1/bci_intern/AAAI2026/RLDoom"
