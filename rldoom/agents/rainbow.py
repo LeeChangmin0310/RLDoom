@@ -122,4 +122,27 @@ class RainbowAgent(Agent):
             self.target_backbone.load_state_dict(self.online_backbone.state_dict())
             self.target_head.load_state_dict(self.online_head.state_dict())
 
-        return {"loss": float(loss.item())}
+        return {
+            "loss": float(loss.item()),          # total (for backward compat)
+            "value_loss": float(loss.item()),    # explicit value loss
+        }
+
+    def state_dict(self):
+        """Return state dict for checkpointing."""
+        return {
+            "online_backbone": self.online_backbone.state_dict(),
+            "online_head": self.online_head.state_dict(),
+            "target_backbone": self.target_backbone.state_dict(),
+            "target_head": self.target_head.state_dict(),
+            "optimizer": self.optimizer.state_dict(),
+            "global_step": self.global_step,
+        }
+
+    def load_state_dict(self, state_dict):
+        """Load state dict from checkpoint."""
+        self.online_backbone.load_state_dict(state_dict["online_backbone"])
+        self.online_head.load_state_dict(state_dict["online_head"])
+        self.target_backbone.load_state_dict(state_dict["target_backbone"])
+        self.target_head.load_state_dict(state_dict["target_head"])
+        self.optimizer.load_state_dict(state_dict["optimizer"])
+        self.global_step = state_dict.get("global_step", 0)

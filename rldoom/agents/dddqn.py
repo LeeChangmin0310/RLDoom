@@ -111,7 +111,10 @@ class DDDQNAgent(Agent):
             self.target_backbone.load_state_dict(self.online_backbone.state_dict())
             self.target_head.load_state_dict(self.online_head.state_dict())
 
-        return {"loss": float(loss.item())}
+        return {
+            "loss": float(loss.item()),          # total (for backward compat)
+            "value_loss": float(loss.item()),    # explicit value loss
+        }
 
     def state_dict(self):
         """Return state dict for checkpointing."""

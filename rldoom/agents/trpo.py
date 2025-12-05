@@ -99,14 +99,12 @@ class TRPOAgent(Agent):
             self.buffer.reset()
             return {}
 
-        # 3) Compute old policy, values, advantages, returns
+        # 3) Old policy/value + advantages/returns
         with torch.no_grad():
-            # Old policy and value predictions (frozen during update)
             logits_old, values = self._forward(obs)
             dist_old = torch.distributions.Categorical(logits=logits_old)
             old_log_probs = dist_old.log_prob(actions)
 
-            # Bootstrap value for the last state
             last_obs = next_obs[-1].unsqueeze(0)
             _, last_value = self._forward(last_obs)
             last_value = last_value.squeeze(0)
@@ -135,16 +133,14 @@ class TRPOAgent(Agent):
                 mb_returns = returns_all[mb_idx]
                 mb_old_log_probs = old_log_probs_all[mb_idx]
 
-                # Current policy/value
                 logits, values_mb = self._forward(mb_obs)
                 dist = torch.distributions.Categorical(logits=logits)
                 log_probs = dist.log_prob(mb_actions)
                 entropy = dist.entropy().mean()
 
-                # Old probs subset for KL
+                # KL divergence with frozen old policy
                 with torch.no_grad():
                     probs_old_mb = dist_old.probs[mb_idx]
-
                 kl = torch.distributions.kl.kl_divergence(
                     torch.distributions.Categorical(probs=probs_old_mb),
                     dist,
@@ -161,12 +157,27 @@ class TRPOAgent(Agent):
                 nn.utils.clip_grad_norm_(self.backbone.parameters(), self.cfg.grad_clip)
                 self.optimizer.step()
 
-        # 5) Reset buffer for the next rollout
         self.buffer.reset()
 
         return {
+            "loss": float(loss.item()),
             "policy_loss": float(policy_loss.item()),
             "value_loss": float(value_loss.item()),
             "kl": float(kl.item()),
-            "loss": float(loss.item()),
         }
+
+    def state_dict(self):
+        """Return state dict for checkpointing."""
+        return {
+            "backbone": self.backbone.state_dict(),
+            "policy_head": self.policy_head.state_dict(),
+            "value_head": self.value_head.state_dict(),
+            "optimizer": self.optimizer.state_dict(),
+        }
+
+    def load_state_dict(self, state_dict):
+        """Load state dict from checkpoint."""
+        self.backbone.load_state_dict(state_dict["backbone"])
+        self.policy_head.load_state_dict(state_dict["policy_head"])
+        self.value_head.load_state_dict(state_dict["value_head"])
+        self.optimizer.load_state_dict(state_dict["optimizer"])

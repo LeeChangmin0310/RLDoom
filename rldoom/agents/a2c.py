@@ -82,7 +82,7 @@ class A2CAgent(Agent):
         log_probs = dist.log_prob(actions)
         entropy = dist.entropy().mean()
 
-        # GAE 없이 simple n-step return
+        # simple n-step return (without GAE)
         returns = []
         R = last_value
         for r, d in zip(reversed(rewards), reversed(dones)):
@@ -104,8 +104,24 @@ class A2CAgent(Agent):
         self.buffer.reset()
 
         return {
-            "loss": float(loss.item()),
+            "loss": float(loss.item()),                 # total
             "policy_loss": float(policy_loss.item()),
             "value_loss": float(value_loss.item()),
             "entropy": float(entropy.item()),
         }
+
+    def state_dict(self):
+        """Return state dict for checkpointing."""
+        return {
+            "backbone": self.backbone.state_dict(),
+            "policy_head": self.policy_head.state_dict(),
+            "value_head": self.value_head.state_dict(),
+            "optimizer": self.optimizer.state_dict(),
+        }
+
+    def load_state_dict(self, state_dict):
+        """Load state dict from checkpoint."""
+        self.backbone.load_state_dict(state_dict["backbone"])
+        self.policy_head.load_state_dict(state_dict["policy_head"])
+        self.value_head.load_state_dict(state_dict["value_head"])
+        self.optimizer.load_state_dict(state_dict["optimizer"])

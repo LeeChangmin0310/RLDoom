@@ -1,5 +1,5 @@
 # rldoom/agents/dqn.py
-from typing import Dict, Tuple, Any
+from typing import Dict
 import numpy as np
 import torch
 import torch.nn as nn
@@ -18,18 +18,21 @@ class DQNAgent(Agent):
     def __init__(self, obs_shape, num_actions, cfg, device):
         super().__init__(obs_shape, num_actions, cfg, device)
 
-        c, h, w = obs_shape
-        self.net = DoomCNN(in_channels=c, feature_dim=cfg.feature_dim).to(device)
-        self.q_head = QHead(cfg.feature_dim, num_actions).to(device)
+        c, _, _ = obs_shape
+        # Online Q-network
+        self.online_backbone = DoomCNN(in_channels=c, feature_dim=cfg.feature_dim).to(device)
+        self.online_head = QHead(cfg.feature_dim, num_actions).to(device)
 
-        self.target_net = DoomCNN(in_channels=c, feature_dim=cfg.feature_dim).to(device)
-        self.target_q_head = QHead(cfg.feature_dim, num_actions).to(device)
+        # Target Q-network
+        self.target_backbone = DoomCNN(in_channels=c, feature_dim=cfg.feature_dim).to(device)
+        self.target_head = QHead(cfg.feature_dim, num_actions).to(device)
 
-        self.target_net.load_state_dict(self.net.state_dict())
-        self.target_q_head.load_state_dict(self.q_head.state_dict())
+        # Initialize target with online params
+        self.target_backbone.load_state_dict(self.online_backbone.state_dict())
+        self.target_head.load_state_dict(self.online_head.state_dict())
 
         self.optimizer = optim.Adam(
-            list(self.net.parameters()) + list(self.q_head.parameters()),
+            list(self.online_backbone.parameters()) + list(self.online_head.parameters()),
             lr=cfg.lr,
         )
 
@@ -58,49 +61,78 @@ class DQNAgent(Agent):
         )
 
     def act(self, obs: np.ndarray, deterministic: bool = False) -> int:
+        """Epsilon-greedy action selection using online network."""
         self.global_step += 1
         eps = 0.0 if deterministic else self._epsilon()
 
         if np.random.rand() < eps:
             return int(np.random.randint(self.num_actions))
 
-        obs_t = torch.from_numpy(obs).unsqueeze(0).to(self.device)  # (1,C,H,W)
+        obs_t = torch.from_numpy(obs).unsqueeze(0).to(self.device)  # (1, C, H, W)
         with torch.no_grad():
-            feat = self.net(obs_t)
-            q = self.q_head(feat)
+            feat = self.online_backbone(obs_t)
+            q = self.online_head(feat)
         action = int(q.argmax(dim=1).item())
         return action
 
     def observe(self, transition):
         """Store transition in replay buffer."""
-        # Before: obs, action, reward, next_obs, done, _ = transition
         obs, action, reward, next_obs, done = transition
         self.buffer.add(obs, action, reward, next_obs, done)
 
-
     def update(self) -> Dict[str, float]:
+        """One TD update step for DQN."""
         if self.buffer.size < self.learn_start:
             return {}
 
         obs, actions, rewards, next_obs, dones = self.buffer.sample(self.batch_size)
 
-        q = self.q_head(self.net(obs))                # (B,A)
-        q = q.gather(1, actions.view(-1, 1)).squeeze(1)
+        # Q(s,a) from online network
+        q_all = self.online_head(self.online_backbone(obs))  # (B, A)
+        q = q_all.gather(1, actions.view(-1, 1)).squeeze(1)  # (B,)
 
+        # Target: r + gamma * max_a' Q_target(s', a')
         with torch.no_grad():
-            next_q = self.target_q_head(self.target_net(next_obs))
-            next_q_max = next_q.max(dim=1)[0]
+            next_q_all = self.target_head(self.target_backbone(next_obs))
+            next_q_max = next_q_all.max(dim=1)[0]
             target = rewards + self.gamma * (1.0 - dones) * next_q_max
 
         loss = F.mse_loss(q, target)
 
         self.optimizer.zero_grad()
         loss.backward()
-        nn.utils.clip_grad_norm_(self.net.parameters(), self.cfg.grad_clip)
+        nn.utils.clip_grad_norm_(
+            list(self.online_backbone.parameters()) + list(self.online_head.parameters()),
+            self.cfg.grad_clip,
+        )
         self.optimizer.step()
 
+        # Periodic target update
         if self.global_step % self.update_target_every == 0:
-            self.target_net.load_state_dict(self.net.state_dict())
-            self.target_q_head.load_state_dict(self.q_head.state_dict())
+            self.target_backbone.load_state_dict(self.online_backbone.state_dict())
+            self.target_head.load_state_dict(self.online_head.state_dict())
 
-        return {"loss": float(loss.item())}
+        return {
+            "loss": float(loss.item()),          # total loss (same as value loss here)
+            "value_loss": float(loss.item()),
+        }
+
+    def state_dict(self):
+        """Return state dict for checkpointing."""
+        return {
+            "online_backbone": self.online_backbone.state_dict(),
+            "online_head": self.online_head.state_dict(),
+            "target_backbone": self.target_backbone.state_dict(),
+            "target_head": self.target_head.state_dict(),
+            "optimizer": self.optimizer.state_dict(),
+            "global_step": self.global_step,
+        }
+
+    def load_state_dict(self, state_dict):
+        """Load state dict from checkpoint."""
+        self.online_backbone.load_state_dict(state_dict["online_backbone"])
+        self.online_head.load_state_dict(state_dict["online_head"])
+        self.target_backbone.load_state_dict(state_dict["target_backbone"])
+        self.target_head.load_state_dict(state_dict["target_head"])
+        self.optimizer.load_state_dict(state_dict["optimizer"])
+        self.global_step = state_dict.get("global_step", 0)
