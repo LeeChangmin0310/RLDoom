@@ -1,0 +1,12 @@
+{"time":"2025-12-05T22:52:30.982585397+09:00","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-12-05T22:52:31.335267119+09:00","level":"INFO","msg":"stream: created new stream","id":"iptcu44n"}
+{"time":"2025-12-05T22:52:31.335427323+09:00","level":"INFO","msg":"stream: started","id":"iptcu44n"}
+{"time":"2025-12-05T22:52:31.336388947+09:00","level":"INFO","msg":"handler: started","stream_id":"iptcu44n"}
+{"time":"2025-12-05T22:52:31.336415778+09:00","level":"INFO","msg":"writer: started","stream_id":"iptcu44n"}
+{"time":"2025-12-05T22:52:31.336478599+09:00","level":"INFO","msg":"sender: started","stream_id":"iptcu44n"}
+{"time":"2025-12-06T00:06:16.215674243+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-06T00:06:16.515016478+09:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-12-06T00:06:16.518389686+09:00","level":"INFO","msg":"stream: closing","id":"iptcu44n"}
+{"time":"2025-12-06T00:06:16.518400827+09:00","level":"INFO","msg":"handler: closed","stream_id":"iptcu44n"}
+{"time":"2025-12-06T00:06:16.518446648+09:00","level":"INFO","msg":"sender: closed","stream_id":"iptcu44n"}
+{"time":"2025-12-06T00:06:16.518460838+09:00","level":"INFO","msg":"stream: closed","id":"iptcu44n"}

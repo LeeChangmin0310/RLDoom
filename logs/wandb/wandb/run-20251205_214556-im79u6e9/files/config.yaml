@@ -1,0 +1,82 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            p6q0abisxeps65j7caul1ixcxwmkfpks:
+                args:
+                    - --algo
+                    - ddqn
+                    - --seed
+                    - "0"
+                codePath: train.py
+                codePathLocal: train.py
+                cpu_count: 32
+                cpu_count_logical: 32
+                cudaVersion: "12.4"
+                disk:
+                    /:
+                        total: "943412031488"
+                        used: "481309687808"
+                email: ckdals1380@gmail.com
+                executable: /home/cia/anaconda3/envs/doomrl/bin/python
+                git:
+                    commit: 37cdaf7a6acd03130612f172400fdc8a5cba2fe7
+                    remote: https://github.com/LeeChangmin0310/RLDoom.git
+                gpu: NVIDIA RTX A5000
+                gpu_count: 4
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 8192
+                      memoryTotal: "25757220864"
+                      name: NVIDIA RTX A5000
+                      uuid: GPU-da54b68f-f703-2291-9922-e5ab87cef079
+                    - architecture: Ampere
+                      cudaCores: 8192
+                      memoryTotal: "25757220864"
+                      name: NVIDIA RTX A5000
+                      uuid: GPU-a00836bf-0f8e-e3ef-7193-9d040c386f06
+                    - architecture: Ampere
+                      cudaCores: 10496
+                      memoryTotal: "25769803776"
+                      name: NVIDIA GeForce RTX 3090
+                      uuid: GPU-85b00e48-2694-9d7d-8002-85b1daa7be8a
+                    - architecture: Ampere
+                      cudaCores: 10496
+                      memoryTotal: "25769803776"
+                      name: NVIDIA GeForce RTX 3090
+                      uuid: GPU-86a8460e-3319-f4c7-a4d6-5a059bd5505a
+                host: cia
+                memory:
+                    total: "540641603584"
+                os: Linux-6.8.0-48-generic-x86_64-with-glibc2.35
+                program: /home/cia/disk1/bci_intern/AAAI2026/RLDoom/train.py
+                python: CPython 3.9.25
+                root: /home/cia/disk1/bci_intern/AAAI2026/RLDoom/logs/wandb
+                startedAt: "2025-12-05T12:45:56.570163Z"
+                writerId: p6q0abisxeps65j7caul1ixcxwmkfpks
+        m: []
+        python_version: 3.9.25
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+            "3":
+                - 2
+                - 13
+                - 16
+                - 61
+            "4": 3.9.25
+            "5": 0.23.0
+            "12": 0.23.0
+            "13": linux-x86_64
+algo:
+    value: ddqn
+frame_size:
+    value: 84
+gamma:
+    value: 0.99
+seed:
+    value: 0
+stack_size:
+    value: 4
