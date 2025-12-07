@@ -4,17 +4,28 @@ import time
 import subprocess
 
 # Jobs to run: (algo, seed)
-JOBS = [
-    ("reinforce", 0),
-    ("dqn", 0),
-    ("ddqn", 0),
-    ("dddqn", 0),
-    ("rainbow", 0),
-    ("ppo", 0),
-    ("trpo", 0),
-    ("a2c", 0),
+BASE_JOBS = [
+    # ("reinforce", 0),
+    # ("dqn", 0),
+    # ("ddqn", 0),
+    # ("dddqn", 0),
+    # ("rainbow", 0),
+    # ("ppo", 0),
+    # ("trpo", 0),
+    # ("a2c", 0),
     # ("a3c", 0),
 ]
+
+# Tuned jobs (separated by algo name)
+TUNED_JOBS = [
+    ("reinforce_tuned", 0),
+    ("a2c_tuned", 0),
+    ("dddqn_tuned", 0),
+    ("ppo_tuned", 0),
+]
+
+# Final job queue
+JOBS = BASE_JOBS + TUNED_JOBS
 
 # GPUs you want to use
 GPUS = ["1", "2", "3"]  # cuda:1 (GeForce RTX 3090)
@@ -27,21 +38,21 @@ PROJECT_ROOT = "/home/cia/disk1/bci_intern/AAAI2026/RLDoom"
 running = []  # list of (process, gpu, algo, seed)
 
 def launch_job(algo, seed, gpu):
+    """Launch a single training job on a specific GPU."""
     env = os.environ.copy()
     env["CUDA_VISIBLE_DEVICES"] = gpu
-    # load .env inside run_train.sh, so just call that
     cmd = ["bash", "scripts/run_train.sh", algo, str(seed)]
     print(f"[LAUNCH] algo={algo} seed={seed} on GPU={gpu}")
     p = subprocess.Popen(cmd, cwd=PROJECT_ROOT, env=env)
     return p
 
+
 def main():
     jobs = list(JOBS)
     while jobs or running:
-        # fill free GPUs
+        # Fill free GPUs with new jobs
         while jobs and len(running) < len(GPUS):
             algo, seed = jobs.pop(0)
-            # pick a free gpu index
             used_gpus = {gpu for _, gpu, _, _ in running}
             free_gpus = [g for g in GPUS if g not in used_gpus]
             if not free_gpus:
@@ -50,7 +61,7 @@ def main():
             p = launch_job(algo, seed, gpu)
             running.append((p, gpu, algo, seed))
 
-        # check running processes
+        # Check running processes
         still_running = []
         for p, gpu, algo, seed in running:
             ret = p.poll()
@@ -64,6 +75,7 @@ def main():
             time.sleep(10)
 
     print("All jobs finished.")
+
 
 if __name__ == "__main__":
     main()

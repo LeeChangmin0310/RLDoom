@@ -8,10 +8,10 @@ env:
   frame_skip: 4
 
 train:
-  num_episodes: 2000              
+  num_episodes: 3000              
   max_steps_per_episode: 3000     # ← both off/on 
   checkpoint_dir: "checkpoints"
-  checkpoint_interval: 100        # ← 2000/100 = 20 ckpts
+  checkpoint_interval: 150        # ← 2000/100 = 20 ckpts
   logs_dir: "logs"
 
 defaults:
@@ -25,7 +25,7 @@ logging:
   wandb_entity: "lee_changmin-sangmyung-uni"
 
 algos:
-  # ---------- Off-policy ----------
+  # ---------- Off-policy (baseline) ----------
   dqn:
     type: "offpolicy"
     lr: 0.0001
@@ -73,13 +73,13 @@ algos:
     per_beta_start: 0.4
     per_beta_frames: 1000000
 
-  # ---------- On-policy ----------
+  # ---------- On-policy (baseline) ----------
   reinforce:
     type: "onpolicy"
     lr: 0.0001
     gamma: 0.99
     ent_coef: 0.0
-    batch_size: 128
+    batch_size: 1   # effectively "per episode" update
 
   a2c:
     type: "onpolicy"
@@ -126,3 +126,55 @@ algos:
     batch_size: 128
     trpo_epochs: 4
     kl_coef: 0.5
+
+  # ---------- Tuned variants (based on your logs + typical RL defaults) ----------
+  # The four algorithms below are newly added "promising + tuned versions".
+  # They can be used to compare with the existing baselines.
+
+  reinforce_tuned:
+    type: "onpolicy"
+    # Smaller LR is usually more stable for Monte Carlo PG with baseline
+    lr: 0.00005       # 5e-5
+    gamma: 0.99
+    ent_coef: 0.0
+    batch_size: 1
+    vf_coef: 0.5      # used in ReinforceAgent as baseline weight
+
+  a2c_tuned:
+    type: "onpolicy"
+    # Standard A2C-style settings (Atari-style):
+    # - 5-step returns
+    # - lr ~ 7e-4
+    lr_actor: 0.0007  # 7e-4
+    lr_critic: 0.0007
+    ent_coef: 0.01
+    vf_coef: 0.5
+    gamma: 0.99
+    rollout_len: 5    # n-step
+    batch_size: 5     # one rollout as a batch (not heavily used in code)
+
+  dddqn_tuned:
+    type: "offpolicy"
+    # Dueling Double DQN typical settings for Doom-like tasks
+    lr: 0.00025       # 2.5e-4
+    buffer_size: 200000
+    batch_size: 64
+    learn_start: 20000
+    eps_start: 1.0
+    eps_end: 0.02
+    eps_decay: 500000
+    target_update_every: 500
+
+  ppo_tuned:
+    type: "onpolicy"
+    # PPO defaults close to OpenAI baselines
+    lr_actor: 0.00025   # 2.5e-4
+    lr_critic: 0.00025
+    ent_coef: 0.01
+    vf_coef: 0.5
+    gamma: 0.99
+    gae_lambda: 0.95
+    rollout_len: 128
+    batch_size: 64       # smaller minibatch
+    ppo_epochs: 4
+    clip_range: 0.1      # slightly more conservative clipping

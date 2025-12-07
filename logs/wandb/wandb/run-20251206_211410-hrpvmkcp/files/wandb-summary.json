@@ -1,0 +1,1 @@
+{"loss":0,"entropy":1.1177972991660567e-09,"_runtime":3475.647962616,"_timestamp":1.76502672666541e+09,"policy_loss":0,"return":45.44032287597656,"global_step":48706,"_step":3000,"_wandb":{"runtime":3475},"episode":3000,"length":11}

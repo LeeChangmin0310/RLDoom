@@ -1,0 +1,1 @@
+{"length":20,"global_step":66063,"_timestamp":1.7650305449435604e+09,"value_loss":1361.66796875,"loss":680.859619140625,"_step":3000,"_runtime":3800.296926822,"policy_loss":0.0378931388258934,"return":117.37059020996094,"_wandb":{"runtime":3800},"episode":3000}

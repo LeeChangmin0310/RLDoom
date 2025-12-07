@@ -23,43 +23,77 @@ from rldoom.trainers.onpolicy import train_onpolicy
 
 
 def build_agent(algo: str, obs_shape, num_actions: int, cfg, device):
-    """Factory for all supported agents."""
+    """Factory method that maps algo string to the corresponding Agent class."""
+    # --- Off-policy family ---
     if algo == "dqn":
         return DQNAgent(obs_shape, num_actions, cfg, device)
     if algo == "ddqn":
         return DDQNAgent(obs_shape, num_actions, cfg, device)
-    if algo == "dddqn":
+    if algo in ("dddqn", "dddqn_tuned"):
+        # Tuned variant uses the same agent class but different hyperparameters in cfg.
         return DDDQNAgent(obs_shape, num_actions, cfg, device)
     if algo == "rainbow":
         return RainbowAgent(obs_shape, num_actions, cfg, device)
-    if algo == "reinforce":
+
+    # --- On-policy family ---
+    if algo in ("reinforce", "reinforce_tuned"):
         return ReinforceAgent(obs_shape, num_actions, cfg, device)
-    if algo == "a2c":
+    if algo in ("a2c", "a2c_tuned"):
         return A2CAgent(obs_shape, num_actions, cfg, device)
     if algo == "a3c":
         return A3CAgent(obs_shape, num_actions, cfg, device)
-    if algo == "ppo":
+    if algo in ("ppo", "ppo_tuned"):
         return PPOAgent(obs_shape, num_actions, cfg, device)
     if algo == "trpo":
         return TRPOAgent(obs_shape, num_actions, cfg, device)
+
     raise ValueError(f"Unknown algorithm: {algo}")
 
 
 def main():
+    """Main training entrypoint.
+
+    - Parses CLI arguments.
+    - Builds config from YAML.
+    - Sets random seeds and selects device.
+    - Instantiates the requested Agent.
+    - Dispatches to on-policy or off-policy trainer.
+    """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--algo", type=str, default="dqn",
-                        choices=["dqn", "ddqn", "dddqn", "rainbow",
-                                 "reinforce", "a2c", "a3c", "ppo", "trpo"])
-    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument(
+        "--algo",
+        type=str,
+        default="dqn",
+        choices=[
+            # baseline off-policy
+            "dqn",
+            "ddqn",
+            "dddqn",
+            "rainbow",
+            # baseline on-policy
+            "reinforce",
+            "a2c",
+            "a3c",
+            "ppo",
+            "trpo",
+            # tuned variants
+            "reinforce_tuned",
+            "a2c_tuned",
+            "dddqn_tuned",
+            "ppo_tuned",
+        ],
+        help="Name of the RL algorithm to train.",
+    )
+    parser.add_argument("--seed", type=int, default=0, help="Random seed.")
     args = parser.parse_args()
 
-    # Build config from YAML + selected algo + seed
+    # Build config object from YAML (env + train + logging + algo hyperparams)
     cfg = make_config(args.algo, args.seed)
 
-    # Seeding
+    # Set all random seeds (Python, NumPy, Torch, envs if needed)
     set_seed(cfg.seed)
 
-    # Device
+    # Select device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Observation shape (C, H, W)
@@ -67,13 +101,13 @@ def main():
     # Deadly Corridor has 7 discrete actions
     num_actions = 7
 
-    # Agent
+    # Instantiate Agent
     agent = build_agent(cfg.algo, obs_shape, num_actions, cfg, device)
 
-    # Logger (handles wandb / tensorboard inside)
+    # Logger wrapper (handles wandb + console)
     logger = Logger(cfg)
 
-    # Choose trainer by algo_type from YAML
+    # Dispatch to the appropriate trainer
     if cfg.algo_type == "offpolicy":
         train_offpolicy(agent, cfg, logger)
     elif cfg.algo_type == "onpolicy":
@@ -83,5 +117,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # Make sure we run from project root, so 'rldoom' is importable
     main()
