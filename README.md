@@ -11,7 +11,6 @@ All agents share:
 so that we can focus on **algorithmic differences** in sample efficiency and final performance.
 
 <p align="center">
-  <!-- Replace this path with your actual GIF file -->
   <img src="images/doom_corridor_demo.gif" alt="RLDoom Deadly Corridor demo" width="480"/>
 </p>
 
