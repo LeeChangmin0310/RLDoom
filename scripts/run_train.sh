@@ -16,10 +16,16 @@ if [ -f ".env" ]; then
   set +a
 fi
 
-mkdir -p logs
+mkdir -p logs checkpoints
 
-ALGO=${1:-dqn}
-SEED=${2:-0}
+# 1st arg: algo name (e.g., dqn, a2c_tuned)
+# 2nd arg: seed
+ALGO=${1:-${ALGO:-dddqn}}
+SEED=${2:-${SEED:-0}}
 
-python -u train.py --algo "${ALGO}" --seed "${SEED}" \
+echo "[INFO] Running algo=${ALGO}, seed=${SEED}"
+
+python train.py \
+  --algo "${ALGO}" \
+  --seed "${SEED}" \
   2>&1 | tee "logs/train_${ALGO}_seed${SEED}.log"
