@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=reinforce_tuned seed=0 ckpt=checkpoints/reinforce_tuned_seed0_ep003000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+reinforce_tuned eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=reinforce_tuned episode=1 reward=232.95
+reinforce_tuned eval_10ep:  10%|█         | 1/10 [00:01<00:13,  1.45s/it][EVAL] algo=reinforce_tuned episode=2 reward=389.89
+reinforce_tuned eval_10ep:  20%|██        | 2/10 [00:02<00:11,  1.41s/it][EVAL] algo=reinforce_tuned episode=3 reward=379.19
+reinforce_tuned eval_10ep:  30%|███       | 3/10 [00:04<00:10,  1.48s/it][EVAL] algo=reinforce_tuned episode=4 reward=60.80
+reinforce_tuned eval_10ep:  40%|████      | 4/10 [00:05<00:07,  1.24s/it][EVAL] algo=reinforce_tuned episode=5 reward=82.43
+reinforce_tuned eval_10ep:  50%|█████     | 5/10 [00:06<00:05,  1.12s/it][EVAL] algo=reinforce_tuned episode=6 reward=64.49
+reinforce_tuned eval_10ep:  60%|██████    | 6/10 [00:07<00:04,  1.02s/it][EVAL] algo=reinforce_tuned episode=7 reward=116.71
+reinforce_tuned eval_10ep:  70%|███████   | 7/10 [00:07<00:02,  1.02it/s][EVAL] algo=reinforce_tuned episode=8 reward=386.33
+reinforce_tuned eval_10ep:  80%|████████  | 8/10 [00:09<00:02,  1.12s/it][EVAL] algo=reinforce_tuned episode=9 reward=82.24
+reinforce_tuned eval_10ep:  90%|█████████ | 9/10 [00:10<00:01,  1.02s/it][EVAL] algo=reinforce_tuned episode=10 reward=69.05
+reinforce_tuned eval_10ep: 100%|██████████| 10/10 [00:11<00:00,  1.02it/s]reinforce_tuned eval_10ep: 100%|██████████| 10/10 [00:11<00:00,  1.10s/it]
+[EVAL] algo=reinforce_tuned mean_reward=186.41 over 10 episodes
+[SUMMARY] algo=reinforce_tuned simple_mean_reward=186.41 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=65.41
+[EVAL] algo=reinforce_tuned episode=2 reward=57.65
+[EVAL] algo=reinforce_tuned episode=3 reward=373.82
+[EVAL] algo=reinforce_tuned episode=4 reward=9.57
+[EVAL] algo=reinforce_tuned episode=5 reward=66.84
+[EVAL] algo=reinforce_tuned episode=6 reward=140.50
+[EVAL] algo=reinforce_tuned episode=7 reward=162.76
+[EVAL] algo=reinforce_tuned episode=8 reward=88.37
+[EVAL] algo=reinforce_tuned episode=9 reward=62.19
+[EVAL] algo=reinforce_tuned episode=10 reward=339.02
+[EVAL] algo=reinforce_tuned episode=11 reward=40.72
+[EVAL] algo=reinforce_tuned episode=12 reward=46.29
+[EVAL] algo=reinforce_tuned episode=13 reward=65.98
+[EVAL] algo=reinforce_tuned episode=14 reward=81.86
+[EVAL] algo=reinforce_tuned episode=15 reward=399.03
+[EVAL] algo=reinforce_tuned episode=16 reward=149.88
+[EVAL] algo=reinforce_tuned episode=17 reward=86.30
+[EVAL] algo=reinforce_tuned episode=18 reward=351.34
+[EVAL] algo=reinforce_tuned episode=19 reward=107.43
+[EVAL] algo=reinforce_tuned episode=20 reward=67.01
+[EVAL] algo=reinforce_tuned episode=21 reward=119.77
+[EVAL] algo=reinforce_tuned episode=22 reward=33.14
+[EVAL] algo=reinforce_tuned episode=23 reward=294.94
+[EVAL] algo=reinforce_tuned episode=24 reward=73.53
+[EVAL] algo=reinforce_tuned episode=25 reward=85.17
+[EVAL] algo=reinforce_tuned episode=26 reward=134.55
+[EVAL] algo=reinforce_tuned episode=27 reward=467.29
+[EVAL] algo=reinforce_tuned episode=28 reward=423.95
+[EVAL] algo=reinforce_tuned episode=29 reward=22.59
+[EVAL] algo=reinforce_tuned episode=30 reward=461.87
+[EVAL] algo=reinforce_tuned mean_reward=162.63 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=1 mean_reward=162.63
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=52.54
+[EVAL] algo=reinforce_tuned episode=2 reward=98.28
+[EVAL] algo=reinforce_tuned episode=3 reward=324.89
+[EVAL] algo=reinforce_tuned episode=4 reward=377.56
+[EVAL] algo=reinforce_tuned episode=5 reward=92.88
+[EVAL] algo=reinforce_tuned episode=6 reward=115.86
+[EVAL] algo=reinforce_tuned episode=7 reward=155.79
+[EVAL] algo=reinforce_tuned episode=8 reward=23.54
+[EVAL] algo=reinforce_tuned episode=9 reward=81.15
+[EVAL] algo=reinforce_tuned episode=10 reward=77.42
+[EVAL] algo=reinforce_tuned episode=11 reward=548.10
+[EVAL] algo=reinforce_tuned episode=12 reward=29.28
+[EVAL] algo=reinforce_tuned episode=13 reward=448.36
+[EVAL] algo=reinforce_tuned episode=14 reward=73.61
+[EVAL] algo=reinforce_tuned episode=15 reward=39.71
+[EVAL] algo=reinforce_tuned episode=16 reward=113.59
+[EVAL] algo=reinforce_tuned episode=17 reward=75.48
+[EVAL] algo=reinforce_tuned episode=18 reward=92.58
+[EVAL] algo=reinforce_tuned episode=19 reward=137.24
+[EVAL] algo=reinforce_tuned episode=20 reward=342.97
+[EVAL] algo=reinforce_tuned episode=21 reward=338.19
+[EVAL] algo=reinforce_tuned episode=22 reward=119.77
+[EVAL] algo=reinforce_tuned episode=23 reward=85.39
+[EVAL] algo=reinforce_tuned episode=24 reward=405.30
+[EVAL] algo=reinforce_tuned episode=25 reward=93.20
+[EVAL] algo=reinforce_tuned episode=26 reward=316.33
+[EVAL] algo=reinforce_tuned episode=27 reward=75.44
+[EVAL] algo=reinforce_tuned episode=28 reward=122.36
+[EVAL] algo=reinforce_tuned episode=29 reward=426.42
+[EVAL] algo=reinforce_tuned episode=30 reward=89.00
+[EVAL] algo=reinforce_tuned mean_reward=179.07 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=2 mean_reward=179.07
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=419.11
+[EVAL] algo=reinforce_tuned episode=2 reward=748.55
+[EVAL] algo=reinforce_tuned episode=3 reward=103.44
+[EVAL] algo=reinforce_tuned episode=4 reward=50.25
+[EVAL] algo=reinforce_tuned episode=5 reward=169.02
+[EVAL] algo=reinforce_tuned episode=6 reward=365.28
+[EVAL] algo=reinforce_tuned episode=7 reward=401.48
+[EVAL] algo=reinforce_tuned episode=8 reward=89.54
+[EVAL] algo=reinforce_tuned episode=9 reward=83.33
+[EVAL] algo=reinforce_tuned episode=10 reward=310.13
+[EVAL] algo=reinforce_tuned episode=11 reward=352.89
+[EVAL] algo=reinforce_tuned episode=12 reward=54.75
+[EVAL] algo=reinforce_tuned episode=13 reward=73.87
+[EVAL] algo=reinforce_tuned episode=14 reward=116.41
+[EVAL] algo=reinforce_tuned episode=15 reward=111.11
+[EVAL] algo=reinforce_tuned episode=16 reward=407.75
+[EVAL] algo=reinforce_tuned episode=17 reward=295.08
+[EVAL] algo=reinforce_tuned episode=18 reward=522.45
+[EVAL] algo=reinforce_tuned episode=19 reward=17.90
+[EVAL] algo=reinforce_tuned episode=20 reward=470.89
+[EVAL] algo=reinforce_tuned episode=21 reward=125.15
+[EVAL] algo=reinforce_tuned episode=22 reward=92.04
+[EVAL] algo=reinforce_tuned episode=23 reward=89.82
+[EVAL] algo=reinforce_tuned episode=24 reward=61.69
+[EVAL] algo=reinforce_tuned episode=25 reward=396.74
+[EVAL] algo=reinforce_tuned episode=26 reward=114.24
+[EVAL] algo=reinforce_tuned episode=27 reward=48.38
+[EVAL] algo=reinforce_tuned episode=28 reward=5.00
+[EVAL] algo=reinforce_tuned episode=29 reward=291.18
+[EVAL] algo=reinforce_tuned episode=30 reward=85.99
+[EVAL] algo=reinforce_tuned mean_reward=215.78 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=3 mean_reward=215.78
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=261.02
+[EVAL] algo=reinforce_tuned episode=2 reward=382.60
+[EVAL] algo=reinforce_tuned episode=3 reward=12.81
+[EVAL] algo=reinforce_tuned episode=4 reward=88.24
+[EVAL] algo=reinforce_tuned episode=5 reward=101.95
+[EVAL] algo=reinforce_tuned episode=6 reward=45.18
+[EVAL] algo=reinforce_tuned episode=7 reward=234.56
+[EVAL] algo=reinforce_tuned episode=8 reward=142.85
+[EVAL] algo=reinforce_tuned episode=9 reward=360.34
+[EVAL] algo=reinforce_tuned episode=10 reward=815.70
+[EVAL] algo=reinforce_tuned episode=11 reward=109.94
+[EVAL] algo=reinforce_tuned episode=12 reward=441.13
+[EVAL] algo=reinforce_tuned episode=13 reward=276.88
+[EVAL] algo=reinforce_tuned episode=14 reward=401.73
+[EVAL] algo=reinforce_tuned episode=15 reward=56.59
+[EVAL] algo=reinforce_tuned episode=16 reward=287.97
+[EVAL] algo=reinforce_tuned episode=17 reward=23.41
+[EVAL] algo=reinforce_tuned episode=18 reward=121.25
+[EVAL] algo=reinforce_tuned episode=19 reward=390.56
+[EVAL] algo=reinforce_tuned episode=20 reward=103.68
+[EVAL] algo=reinforce_tuned episode=21 reward=87.07
+[EVAL] algo=reinforce_tuned episode=22 reward=420.63
+[EVAL] algo=reinforce_tuned episode=23 reward=86.62
+[EVAL] algo=reinforce_tuned episode=24 reward=406.99
+[EVAL] algo=reinforce_tuned episode=25 reward=76.03
+[EVAL] algo=reinforce_tuned episode=26 reward=447.63
+[EVAL] algo=reinforce_tuned episode=27 reward=335.68
+[EVAL] algo=reinforce_tuned episode=28 reward=121.17
+[EVAL] algo=reinforce_tuned episode=29 reward=95.55
+[EVAL] algo=reinforce_tuned episode=30 reward=133.08
+[EVAL] algo=reinforce_tuned mean_reward=228.96 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=4 mean_reward=228.96
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=500.82
+[EVAL] algo=reinforce_tuned episode=2 reward=423.61
+[EVAL] algo=reinforce_tuned episode=3 reward=69.66
+[EVAL] algo=reinforce_tuned episode=4 reward=124.96
+[EVAL] algo=reinforce_tuned episode=5 reward=353.64
+[EVAL] algo=reinforce_tuned episode=6 reward=395.82
+[EVAL] algo=reinforce_tuned episode=7 reward=76.88
+[EVAL] algo=reinforce_tuned episode=8 reward=372.30
+[EVAL] algo=reinforce_tuned episode=9 reward=76.54
+[EVAL] algo=reinforce_tuned episode=10 reward=123.11
+[EVAL] algo=reinforce_tuned episode=11 reward=158.39
+[EVAL] algo=reinforce_tuned episode=12 reward=113.96
+[EVAL] algo=reinforce_tuned episode=13 reward=116.98
+[EVAL] algo=reinforce_tuned episode=14 reward=463.78
+[EVAL] algo=reinforce_tuned episode=15 reward=114.48
+[EVAL] algo=reinforce_tuned episode=16 reward=127.02
+[EVAL] algo=reinforce_tuned episode=17 reward=414.90
+[EVAL] algo=reinforce_tuned episode=18 reward=90.62
+[EVAL] algo=reinforce_tuned episode=19 reward=388.89
+[EVAL] algo=reinforce_tuned episode=20 reward=69.19
+[EVAL] algo=reinforce_tuned episode=21 reward=79.61
+[EVAL] algo=reinforce_tuned episode=22 reward=402.03
+[EVAL] algo=reinforce_tuned episode=23 reward=75.43
+[EVAL] algo=reinforce_tuned episode=24 reward=161.95
+[EVAL] algo=reinforce_tuned episode=25 reward=127.01
+[EVAL] algo=reinforce_tuned episode=26 reward=117.11
+[EVAL] algo=reinforce_tuned episode=27 reward=68.05
+[EVAL] algo=reinforce_tuned episode=28 reward=88.64
+[EVAL] algo=reinforce_tuned episode=29 reward=468.85
+[EVAL] algo=reinforce_tuned episode=30 reward=218.68
+[EVAL] algo=reinforce_tuned mean_reward=212.76 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=5 mean_reward=212.76
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=176.11
+[EVAL] algo=reinforce_tuned episode=2 reward=113.20
+[EVAL] algo=reinforce_tuned episode=3 reward=72.39
+[EVAL] algo=reinforce_tuned episode=4 reward=68.23
+[EVAL] algo=reinforce_tuned episode=5 reward=300.07
+[EVAL] algo=reinforce_tuned episode=6 reward=392.08
+[EVAL] algo=reinforce_tuned episode=7 reward=60.47
+[EVAL] algo=reinforce_tuned episode=8 reward=162.82
+[EVAL] algo=reinforce_tuned episode=9 reward=69.69
+[EVAL] algo=reinforce_tuned episode=10 reward=139.42
+[EVAL] algo=reinforce_tuned episode=11 reward=486.57
+[EVAL] algo=reinforce_tuned episode=12 reward=76.46
+[EVAL] algo=reinforce_tuned episode=13 reward=119.41
+[EVAL] algo=reinforce_tuned episode=14 reward=96.82
+[EVAL] algo=reinforce_tuned episode=15 reward=48.66
+[EVAL] algo=reinforce_tuned episode=16 reward=80.52
+[EVAL] algo=reinforce_tuned episode=17 reward=110.61
+[EVAL] algo=reinforce_tuned episode=18 reward=64.24
+[EVAL] algo=reinforce_tuned episode=19 reward=144.16
+[EVAL] algo=reinforce_tuned episode=20 reward=381.89
+[EVAL] algo=reinforce_tuned episode=21 reward=248.32
+[EVAL] algo=reinforce_tuned episode=22 reward=522.33
+[EVAL] algo=reinforce_tuned episode=23 reward=356.65
+[EVAL] algo=reinforce_tuned episode=24 reward=416.97
+[EVAL] algo=reinforce_tuned episode=25 reward=100.82
+[EVAL] algo=reinforce_tuned episode=26 reward=172.59
+[EVAL] algo=reinforce_tuned episode=27 reward=92.68
+[EVAL] algo=reinforce_tuned episode=28 reward=411.86
+[EVAL] algo=reinforce_tuned episode=29 reward=419.49
+[EVAL] algo=reinforce_tuned episode=30 reward=369.40
+[EVAL] algo=reinforce_tuned mean_reward=209.16 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=6 mean_reward=209.16
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=282.69
+[EVAL] algo=reinforce_tuned episode=2 reward=79.05
+[EVAL] algo=reinforce_tuned episode=3 reward=103.86
+[EVAL] algo=reinforce_tuned episode=4 reward=429.03
+[EVAL] algo=reinforce_tuned episode=5 reward=-3.04
+[EVAL] algo=reinforce_tuned episode=6 reward=352.24
+[EVAL] algo=reinforce_tuned episode=7 reward=366.77
+[EVAL] algo=reinforce_tuned episode=8 reward=391.88
+[EVAL] algo=reinforce_tuned episode=9 reward=101.52
+[EVAL] algo=reinforce_tuned episode=10 reward=112.23
+[EVAL] algo=reinforce_tuned episode=11 reward=98.34
+[EVAL] algo=reinforce_tuned episode=12 reward=435.96
+[EVAL] algo=reinforce_tuned episode=13 reward=448.58
+[EVAL] algo=reinforce_tuned episode=14 reward=80.01
+[EVAL] algo=reinforce_tuned episode=15 reward=45.20
+[EVAL] algo=reinforce_tuned episode=16 reward=332.58
+[EVAL] algo=reinforce_tuned episode=17 reward=99.67
+[EVAL] algo=reinforce_tuned episode=18 reward=226.90
+[EVAL] algo=reinforce_tuned episode=19 reward=348.12
+[EVAL] algo=reinforce_tuned episode=20 reward=212.73
+[EVAL] algo=reinforce_tuned episode=21 reward=113.92
+[EVAL] algo=reinforce_tuned episode=22 reward=126.88
+[EVAL] algo=reinforce_tuned episode=23 reward=148.23
+[EVAL] algo=reinforce_tuned episode=24 reward=86.59
+[EVAL] algo=reinforce_tuned episode=25 reward=152.07
+[EVAL] algo=reinforce_tuned episode=26 reward=324.71
+[EVAL] algo=reinforce_tuned episode=27 reward=72.01
+[EVAL] algo=reinforce_tuned episode=28 reward=219.94
+[EVAL] algo=reinforce_tuned episode=29 reward=130.44
+[EVAL] algo=reinforce_tuned episode=30 reward=63.40
+[EVAL] algo=reinforce_tuned mean_reward=199.42 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=7 mean_reward=199.42
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=320.52
+[EVAL] algo=reinforce_tuned episode=2 reward=117.23
+[EVAL] algo=reinforce_tuned episode=3 reward=312.96
+[EVAL] algo=reinforce_tuned episode=4 reward=396.31
+[EVAL] algo=reinforce_tuned episode=5 reward=417.73
+[EVAL] algo=reinforce_tuned episode=6 reward=347.95
+[EVAL] algo=reinforce_tuned episode=7 reward=111.22
+[EVAL] algo=reinforce_tuned episode=8 reward=108.06
+[EVAL] algo=reinforce_tuned episode=9 reward=462.67
+[EVAL] algo=reinforce_tuned episode=10 reward=388.81
+[EVAL] algo=reinforce_tuned episode=11 reward=346.61
+[EVAL] algo=reinforce_tuned episode=12 reward=86.92
+[EVAL] algo=reinforce_tuned episode=13 reward=29.77
+[EVAL] algo=reinforce_tuned episode=14 reward=386.02
+[EVAL] algo=reinforce_tuned episode=15 reward=88.20
+[EVAL] algo=reinforce_tuned episode=16 reward=311.54
+[EVAL] algo=reinforce_tuned episode=17 reward=87.58
+[EVAL] algo=reinforce_tuned episode=18 reward=69.44
+[EVAL] algo=reinforce_tuned episode=19 reward=46.15
+[EVAL] algo=reinforce_tuned episode=20 reward=45.44
+[EVAL] algo=reinforce_tuned episode=21 reward=404.29
+[EVAL] algo=reinforce_tuned episode=22 reward=63.22
+[EVAL] algo=reinforce_tuned episode=23 reward=256.65
+[EVAL] algo=reinforce_tuned episode=24 reward=24.81
+[EVAL] algo=reinforce_tuned episode=25 reward=734.14
+[EVAL] algo=reinforce_tuned episode=26 reward=101.74
+[EVAL] algo=reinforce_tuned episode=27 reward=60.25
+[EVAL] algo=reinforce_tuned episode=28 reward=84.54
+[EVAL] algo=reinforce_tuned episode=29 reward=102.67
+[EVAL] algo=reinforce_tuned episode=30 reward=17.24
+[EVAL] algo=reinforce_tuned mean_reward=211.02 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=8 mean_reward=211.02
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=435.54
+[EVAL] algo=reinforce_tuned episode=2 reward=96.93
+[EVAL] algo=reinforce_tuned episode=3 reward=415.96
+[EVAL] algo=reinforce_tuned episode=4 reward=406.47
+[EVAL] algo=reinforce_tuned episode=5 reward=49.32
+[EVAL] algo=reinforce_tuned episode=6 reward=307.24
+[EVAL] algo=reinforce_tuned episode=7 reward=101.79
+[EVAL] algo=reinforce_tuned episode=8 reward=353.98
+[EVAL] algo=reinforce_tuned episode=9 reward=396.98
+[EVAL] algo=reinforce_tuned episode=10 reward=346.15
+[EVAL] algo=reinforce_tuned episode=11 reward=59.80
+[EVAL] algo=reinforce_tuned episode=12 reward=303.00
+[EVAL] algo=reinforce_tuned episode=13 reward=127.77
+[EVAL] algo=reinforce_tuned episode=14 reward=404.27
+[EVAL] algo=reinforce_tuned episode=15 reward=60.56
+[EVAL] algo=reinforce_tuned episode=16 reward=59.55
+[EVAL] algo=reinforce_tuned episode=17 reward=857.37
+[EVAL] algo=reinforce_tuned episode=18 reward=67.64
+[EVAL] algo=reinforce_tuned episode=19 reward=39.71
+[EVAL] algo=reinforce_tuned episode=20 reward=103.45
+[EVAL] algo=reinforce_tuned episode=21 reward=57.96
+[EVAL] algo=reinforce_tuned episode=22 reward=822.48
+[EVAL] algo=reinforce_tuned episode=23 reward=275.43
+[EVAL] algo=reinforce_tuned episode=24 reward=114.95
+[EVAL] algo=reinforce_tuned episode=25 reward=63.45
+[EVAL] algo=reinforce_tuned episode=26 reward=91.17
+[EVAL] algo=reinforce_tuned episode=27 reward=38.62
+[EVAL] algo=reinforce_tuned episode=28 reward=445.02
+[EVAL] algo=reinforce_tuned episode=29 reward=84.68
+[EVAL] algo=reinforce_tuned episode=30 reward=75.62
+[EVAL] algo=reinforce_tuned mean_reward=235.43 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=9 mean_reward=235.43
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=reinforce_tuned episode=1 reward=507.47
+[EVAL] algo=reinforce_tuned episode=2 reward=75.43
+[EVAL] algo=reinforce_tuned episode=3 reward=96.81
+[EVAL] algo=reinforce_tuned episode=4 reward=59.13
+[EVAL] algo=reinforce_tuned episode=5 reward=114.32
+[EVAL] algo=reinforce_tuned episode=6 reward=449.72
+[EVAL] algo=reinforce_tuned episode=7 reward=409.13
+[EVAL] algo=reinforce_tuned episode=8 reward=132.32
+[EVAL] algo=reinforce_tuned episode=9 reward=375.43
+[EVAL] algo=reinforce_tuned episode=10 reward=63.24
+[EVAL] algo=reinforce_tuned episode=11 reward=111.93
+[EVAL] algo=reinforce_tuned episode=12 reward=-83.78
+[EVAL] algo=reinforce_tuned episode=13 reward=288.98
+[EVAL] algo=reinforce_tuned episode=14 reward=77.81
+[EVAL] algo=reinforce_tuned episode=15 reward=272.01
+[EVAL] algo=reinforce_tuned episode=16 reward=445.89
+[EVAL] algo=reinforce_tuned episode=17 reward=114.27
+[EVAL] algo=reinforce_tuned episode=18 reward=393.70
+[EVAL] algo=reinforce_tuned episode=19 reward=127.56
+[EVAL] algo=reinforce_tuned episode=20 reward=520.29
+[EVAL] algo=reinforce_tuned episode=21 reward=327.47
+[EVAL] algo=reinforce_tuned episode=22 reward=313.58
+[EVAL] algo=reinforce_tuned episode=23 reward=79.71
+[EVAL] algo=reinforce_tuned episode=24 reward=97.73
+[EVAL] algo=reinforce_tuned episode=25 reward=68.73
+[EVAL] algo=reinforce_tuned episode=26 reward=413.30
+[EVAL] algo=reinforce_tuned episode=27 reward=75.77
+[EVAL] algo=reinforce_tuned episode=28 reward=87.78
+[EVAL] algo=reinforce_tuned episode=29 reward=102.00
+[EVAL] algo=reinforce_tuned episode=30 reward=63.94
+[EVAL] algo=reinforce_tuned mean_reward=206.06 over 30 episodes
+[CHUNK RESULT] algo=reinforce_tuned chunk=10 mean_reward=206.06
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=reinforce_tuned chunk_means (len=10):
+  chunk 01: 162.63
+  chunk 02: 179.07
+  chunk 03: 215.78
+  chunk 04: 228.96
+  chunk 05: 212.76
+  chunk 06: 209.16
+  chunk 07: 199.42
+  chunk 08: 211.02
+  chunk 09: 235.43
+  chunk 10: 206.06
+[SUMMARY] algo=reinforce_tuned overall_mean_of_chunk_means=206.03

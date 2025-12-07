@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=a2c seed=0 ckpt=checkpoints/a2c_seed0_ep002000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+a2c eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=a2c episode=1 reward=470.48
+a2c eval_10ep:  10%|█         | 1/10 [00:01<00:14,  1.61s/it][EVAL] algo=a2c episode=2 reward=481.73
+a2c eval_10ep:  20%|██        | 2/10 [00:03<00:12,  1.60s/it][EVAL] algo=a2c episode=3 reward=405.43
+a2c eval_10ep:  30%|███       | 3/10 [00:04<00:11,  1.60s/it][EVAL] algo=a2c episode=4 reward=324.35
+a2c eval_10ep:  40%|████      | 4/10 [00:06<00:09,  1.51s/it][EVAL] algo=a2c episode=5 reward=58.23
+a2c eval_10ep:  50%|█████     | 5/10 [00:06<00:06,  1.23s/it][EVAL] algo=a2c episode=6 reward=404.33
+a2c eval_10ep:  60%|██████    | 6/10 [00:08<00:05,  1.26s/it][EVAL] algo=a2c episode=7 reward=76.25
+a2c eval_10ep:  70%|███████   | 7/10 [00:09<00:03,  1.11s/it][EVAL] algo=a2c episode=8 reward=129.50
+a2c eval_10ep:  80%|████████  | 8/10 [00:09<00:02,  1.03s/it][EVAL] algo=a2c episode=9 reward=321.73
+a2c eval_10ep:  90%|█████████ | 9/10 [00:10<00:01,  1.04s/it][EVAL] algo=a2c episode=10 reward=72.83
+a2c eval_10ep: 100%|██████████| 10/10 [00:11<00:00,  1.01it/s]a2c eval_10ep: 100%|██████████| 10/10 [00:11<00:00,  1.18s/it]
+[EVAL] algo=a2c mean_reward=274.49 over 10 episodes
+[SUMMARY] algo=a2c simple_mean_reward=274.49 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=379.82
+[EVAL] algo=a2c episode=2 reward=98.60
+[EVAL] algo=a2c episode=3 reward=53.84
+[EVAL] algo=a2c episode=4 reward=440.50
+[EVAL] algo=a2c episode=5 reward=302.28
+[EVAL] algo=a2c episode=6 reward=548.78
+[EVAL] algo=a2c episode=7 reward=27.43
+[EVAL] algo=a2c episode=8 reward=97.34
+[EVAL] algo=a2c episode=9 reward=67.96
+[EVAL] algo=a2c episode=10 reward=42.50
+[EVAL] algo=a2c episode=11 reward=564.04
+[EVAL] algo=a2c episode=12 reward=62.87
+[EVAL] algo=a2c episode=13 reward=1.94
+[EVAL] algo=a2c episode=14 reward=116.26
+[EVAL] algo=a2c episode=15 reward=111.98
+[EVAL] algo=a2c episode=16 reward=133.32
+[EVAL] algo=a2c episode=17 reward=145.73
+[EVAL] algo=a2c episode=18 reward=58.05
+[EVAL] algo=a2c episode=19 reward=147.26
+[EVAL] algo=a2c episode=20 reward=455.89
+[EVAL] algo=a2c episode=21 reward=663.84
+[EVAL] algo=a2c episode=22 reward=29.85
+[EVAL] algo=a2c episode=23 reward=22.09
+[EVAL] algo=a2c episode=24 reward=138.74
+[EVAL] algo=a2c episode=25 reward=508.74
+[EVAL] algo=a2c episode=26 reward=455.37
+[EVAL] algo=a2c episode=27 reward=429.11
+[EVAL] algo=a2c episode=28 reward=59.97
+[EVAL] algo=a2c episode=29 reward=562.53
+[EVAL] algo=a2c episode=30 reward=392.53
+[EVAL] algo=a2c mean_reward=237.31 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=1 mean_reward=237.31
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=103.26
+[EVAL] algo=a2c episode=2 reward=284.40
+[EVAL] algo=a2c episode=3 reward=75.81
+[EVAL] algo=a2c episode=4 reward=145.46
+[EVAL] algo=a2c episode=5 reward=311.52
+[EVAL] algo=a2c episode=6 reward=304.08
+[EVAL] algo=a2c episode=7 reward=94.80
+[EVAL] algo=a2c episode=8 reward=91.70
+[EVAL] algo=a2c episode=9 reward=-88.35
+[EVAL] algo=a2c episode=10 reward=312.44
+[EVAL] algo=a2c episode=11 reward=394.31
+[EVAL] algo=a2c episode=12 reward=476.17
+[EVAL] algo=a2c episode=13 reward=176.84
+[EVAL] algo=a2c episode=14 reward=404.88
+[EVAL] algo=a2c episode=15 reward=428.74
+[EVAL] algo=a2c episode=16 reward=580.89
+[EVAL] algo=a2c episode=17 reward=268.87
+[EVAL] algo=a2c episode=18 reward=126.68
+[EVAL] algo=a2c episode=19 reward=537.09
+[EVAL] algo=a2c episode=20 reward=403.24
+[EVAL] algo=a2c episode=21 reward=86.83
+[EVAL] algo=a2c episode=22 reward=381.85
+[EVAL] algo=a2c episode=23 reward=10.07
+[EVAL] algo=a2c episode=24 reward=437.35
+[EVAL] algo=a2c episode=25 reward=347.09
+[EVAL] algo=a2c episode=26 reward=397.51
+[EVAL] algo=a2c episode=27 reward=107.41
+[EVAL] algo=a2c episode=28 reward=112.00
+[EVAL] algo=a2c episode=29 reward=101.52
+[EVAL] algo=a2c episode=30 reward=96.63
+[EVAL] algo=a2c mean_reward=250.37 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=2 mean_reward=250.37
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=36.89
+[EVAL] algo=a2c episode=2 reward=90.71
+[EVAL] algo=a2c episode=3 reward=473.94
+[EVAL] algo=a2c episode=4 reward=513.15
+[EVAL] algo=a2c episode=5 reward=44.92
+[EVAL] algo=a2c episode=6 reward=312.62
+[EVAL] algo=a2c episode=7 reward=102.66
+[EVAL] algo=a2c episode=8 reward=361.44
+[EVAL] algo=a2c episode=9 reward=318.79
+[EVAL] algo=a2c episode=10 reward=69.69
+[EVAL] algo=a2c episode=11 reward=82.80
+[EVAL] algo=a2c episode=12 reward=109.38
+[EVAL] algo=a2c episode=13 reward=459.43
+[EVAL] algo=a2c episode=14 reward=473.17
+[EVAL] algo=a2c episode=15 reward=406.84
+[EVAL] algo=a2c episode=16 reward=62.86
+[EVAL] algo=a2c episode=17 reward=91.44
+[EVAL] algo=a2c episode=18 reward=104.52
+[EVAL] algo=a2c episode=19 reward=397.18
+[EVAL] algo=a2c episode=20 reward=154.72
+[EVAL] algo=a2c episode=21 reward=16.08
+[EVAL] algo=a2c episode=22 reward=84.00
+[EVAL] algo=a2c episode=23 reward=52.30
+[EVAL] algo=a2c episode=24 reward=396.72
+[EVAL] algo=a2c episode=25 reward=72.33
+[EVAL] algo=a2c episode=26 reward=75.01
+[EVAL] algo=a2c episode=27 reward=84.96
+[EVAL] algo=a2c episode=28 reward=354.66
+[EVAL] algo=a2c episode=29 reward=96.66
+[EVAL] algo=a2c episode=30 reward=361.44
+[EVAL] algo=a2c mean_reward=208.71 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=3 mean_reward=208.71
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=394.66
+[EVAL] algo=a2c episode=2 reward=45.26
+[EVAL] algo=a2c episode=3 reward=397.14
+[EVAL] algo=a2c episode=4 reward=370.12
+[EVAL] algo=a2c episode=5 reward=80.68
+[EVAL] algo=a2c episode=6 reward=386.24
+[EVAL] algo=a2c episode=7 reward=53.45
+[EVAL] algo=a2c episode=8 reward=485.76
+[EVAL] algo=a2c episode=9 reward=436.28
+[EVAL] algo=a2c episode=10 reward=387.94
+[EVAL] algo=a2c episode=11 reward=97.96
+[EVAL] algo=a2c episode=12 reward=263.32
+[EVAL] algo=a2c episode=13 reward=393.93
+[EVAL] algo=a2c episode=14 reward=451.86
+[EVAL] algo=a2c episode=15 reward=54.83
+[EVAL] algo=a2c episode=16 reward=37.96
+[EVAL] algo=a2c episode=17 reward=59.92
+[EVAL] algo=a2c episode=18 reward=361.22
+[EVAL] algo=a2c episode=19 reward=85.52
+[EVAL] algo=a2c episode=20 reward=57.20
+[EVAL] algo=a2c episode=21 reward=296.06
+[EVAL] algo=a2c episode=22 reward=393.18
+[EVAL] algo=a2c episode=23 reward=72.85
+[EVAL] algo=a2c episode=24 reward=31.09
+[EVAL] algo=a2c episode=25 reward=53.19
+[EVAL] algo=a2c episode=26 reward=46.79
+[EVAL] algo=a2c episode=27 reward=445.34
+[EVAL] algo=a2c episode=28 reward=68.96
+[EVAL] algo=a2c episode=29 reward=382.54
+[EVAL] algo=a2c episode=30 reward=69.69
+[EVAL] algo=a2c mean_reward=225.36 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=4 mean_reward=225.36
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=409.81
+[EVAL] algo=a2c episode=2 reward=499.56
+[EVAL] algo=a2c episode=3 reward=52.09
+[EVAL] algo=a2c episode=4 reward=90.45
+[EVAL] algo=a2c episode=5 reward=408.26
+[EVAL] algo=a2c episode=6 reward=101.25
+[EVAL] algo=a2c episode=7 reward=98.16
+[EVAL] algo=a2c episode=8 reward=127.75
+[EVAL] algo=a2c episode=9 reward=50.62
+[EVAL] algo=a2c episode=10 reward=367.12
+[EVAL] algo=a2c episode=11 reward=107.59
+[EVAL] algo=a2c episode=12 reward=359.41
+[EVAL] algo=a2c episode=13 reward=-5.36
+[EVAL] algo=a2c episode=14 reward=15.35
+[EVAL] algo=a2c episode=15 reward=323.89
+[EVAL] algo=a2c episode=16 reward=96.28
+[EVAL] algo=a2c episode=17 reward=498.26
+[EVAL] algo=a2c episode=18 reward=113.96
+[EVAL] algo=a2c episode=19 reward=84.29
+[EVAL] algo=a2c episode=20 reward=93.53
+[EVAL] algo=a2c episode=21 reward=790.50
+[EVAL] algo=a2c episode=22 reward=58.47
+[EVAL] algo=a2c episode=23 reward=112.49
+[EVAL] algo=a2c episode=24 reward=87.90
+[EVAL] algo=a2c episode=25 reward=117.40
+[EVAL] algo=a2c episode=26 reward=403.11
+[EVAL] algo=a2c episode=27 reward=426.29
+[EVAL] algo=a2c episode=28 reward=60.21
+[EVAL] algo=a2c episode=29 reward=312.65
+[EVAL] algo=a2c episode=30 reward=401.39
+[EVAL] algo=a2c mean_reward=222.09 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=5 mean_reward=222.09
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=130.71
+[EVAL] algo=a2c episode=2 reward=369.86
+[EVAL] algo=a2c episode=3 reward=141.63
+[EVAL] algo=a2c episode=4 reward=51.43
+[EVAL] algo=a2c episode=5 reward=71.96
+[EVAL] algo=a2c episode=6 reward=431.86
+[EVAL] algo=a2c episode=7 reward=777.25
+[EVAL] algo=a2c episode=8 reward=57.81
+[EVAL] algo=a2c episode=9 reward=135.40
+[EVAL] algo=a2c episode=10 reward=51.03
+[EVAL] algo=a2c episode=11 reward=580.00
+[EVAL] algo=a2c episode=12 reward=100.81
+[EVAL] algo=a2c episode=13 reward=386.86
+[EVAL] algo=a2c episode=14 reward=274.48
+[EVAL] algo=a2c episode=15 reward=269.74
+[EVAL] algo=a2c episode=16 reward=453.29
+[EVAL] algo=a2c episode=17 reward=101.92
+[EVAL] algo=a2c episode=18 reward=34.09
+[EVAL] algo=a2c episode=19 reward=411.17
+[EVAL] algo=a2c episode=20 reward=100.65
+[EVAL] algo=a2c episode=21 reward=13.16
+[EVAL] algo=a2c episode=22 reward=280.23
+[EVAL] algo=a2c episode=23 reward=51.81
+[EVAL] algo=a2c episode=24 reward=56.83
+[EVAL] algo=a2c episode=25 reward=108.45
+[EVAL] algo=a2c episode=26 reward=397.32
+[EVAL] algo=a2c episode=27 reward=147.08
+[EVAL] algo=a2c episode=28 reward=123.12
+[EVAL] algo=a2c episode=29 reward=118.08
+[EVAL] algo=a2c episode=30 reward=552.76
+[EVAL] algo=a2c mean_reward=226.03 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=6 mean_reward=226.03
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=7.69
+[EVAL] algo=a2c episode=2 reward=402.89
+[EVAL] algo=a2c episode=3 reward=135.78
+[EVAL] algo=a2c episode=4 reward=64.50
+[EVAL] algo=a2c episode=5 reward=437.33
+[EVAL] algo=a2c episode=6 reward=472.26
+[EVAL] algo=a2c episode=7 reward=93.53
+[EVAL] algo=a2c episode=8 reward=388.45
+[EVAL] algo=a2c episode=9 reward=412.05
+[EVAL] algo=a2c episode=10 reward=386.70
+[EVAL] algo=a2c episode=11 reward=131.53
+[EVAL] algo=a2c episode=12 reward=153.83
+[EVAL] algo=a2c episode=13 reward=183.00
+[EVAL] algo=a2c episode=14 reward=138.97
+[EVAL] algo=a2c episode=15 reward=147.21
+[EVAL] algo=a2c episode=16 reward=335.93
+[EVAL] algo=a2c episode=17 reward=321.77
+[EVAL] algo=a2c episode=18 reward=90.89
+[EVAL] algo=a2c episode=19 reward=327.41
+[EVAL] algo=a2c episode=20 reward=351.35
+[EVAL] algo=a2c episode=21 reward=73.52
+[EVAL] algo=a2c episode=22 reward=70.78
+[EVAL] algo=a2c episode=23 reward=127.07
+[EVAL] algo=a2c episode=24 reward=51.24
+[EVAL] algo=a2c episode=25 reward=426.84
+[EVAL] algo=a2c episode=26 reward=380.80
+[EVAL] algo=a2c episode=27 reward=276.77
+[EVAL] algo=a2c episode=28 reward=63.65
+[EVAL] algo=a2c episode=29 reward=28.21
+[EVAL] algo=a2c episode=30 reward=320.21
+[EVAL] algo=a2c mean_reward=226.74 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=7 mean_reward=226.74
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=78.50
+[EVAL] algo=a2c episode=2 reward=419.69
+[EVAL] algo=a2c episode=3 reward=59.13
+[EVAL] algo=a2c episode=4 reward=459.11
+[EVAL] algo=a2c episode=5 reward=87.08
+[EVAL] algo=a2c episode=6 reward=64.29
+[EVAL] algo=a2c episode=7 reward=44.04
+[EVAL] algo=a2c episode=8 reward=58.53
+[EVAL] algo=a2c episode=9 reward=81.18
+[EVAL] algo=a2c episode=10 reward=104.11
+[EVAL] algo=a2c episode=11 reward=94.38
+[EVAL] algo=a2c episode=12 reward=88.91
+[EVAL] algo=a2c episode=13 reward=140.27
+[EVAL] algo=a2c episode=14 reward=52.74
+[EVAL] algo=a2c episode=15 reward=-68.04
+[EVAL] algo=a2c episode=16 reward=111.16
+[EVAL] algo=a2c episode=17 reward=121.04
+[EVAL] algo=a2c episode=18 reward=105.25
+[EVAL] algo=a2c episode=19 reward=60.54
+[EVAL] algo=a2c episode=20 reward=93.58
+[EVAL] algo=a2c episode=21 reward=785.60
+[EVAL] algo=a2c episode=22 reward=443.10
+[EVAL] algo=a2c episode=23 reward=330.05
+[EVAL] algo=a2c episode=24 reward=760.30
+[EVAL] algo=a2c episode=25 reward=133.83
+[EVAL] algo=a2c episode=26 reward=96.60
+[EVAL] algo=a2c episode=27 reward=86.62
+[EVAL] algo=a2c episode=28 reward=385.51
+[EVAL] algo=a2c episode=29 reward=79.01
+[EVAL] algo=a2c episode=30 reward=59.81
+[EVAL] algo=a2c mean_reward=180.53 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=8 mean_reward=180.53
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=86.18
+[EVAL] algo=a2c episode=2 reward=356.19
+[EVAL] algo=a2c episode=3 reward=80.72
+[EVAL] algo=a2c episode=4 reward=396.59
+[EVAL] algo=a2c episode=5 reward=110.53
+[EVAL] algo=a2c episode=6 reward=314.27
+[EVAL] algo=a2c episode=7 reward=43.92
+[EVAL] algo=a2c episode=8 reward=4.15
+[EVAL] algo=a2c episode=9 reward=300.81
+[EVAL] algo=a2c episode=10 reward=385.16
+[EVAL] algo=a2c episode=11 reward=75.92
+[EVAL] algo=a2c episode=12 reward=524.35
+[EVAL] algo=a2c episode=13 reward=102.77
+[EVAL] algo=a2c episode=14 reward=352.18
+[EVAL] algo=a2c episode=15 reward=403.07
+[EVAL] algo=a2c episode=16 reward=86.46
+[EVAL] algo=a2c episode=17 reward=347.91
+[EVAL] algo=a2c episode=18 reward=128.05
+[EVAL] algo=a2c episode=19 reward=76.00
+[EVAL] algo=a2c episode=20 reward=350.12
+[EVAL] algo=a2c episode=21 reward=415.11
+[EVAL] algo=a2c episode=22 reward=347.61
+[EVAL] algo=a2c episode=23 reward=74.29
+[EVAL] algo=a2c episode=24 reward=92.57
+[EVAL] algo=a2c episode=25 reward=85.41
+[EVAL] algo=a2c episode=26 reward=365.05
+[EVAL] algo=a2c episode=27 reward=426.35
+[EVAL] algo=a2c episode=28 reward=252.57
+[EVAL] algo=a2c episode=29 reward=97.09
+[EVAL] algo=a2c episode=30 reward=83.20
+[EVAL] algo=a2c mean_reward=225.49 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=9 mean_reward=225.49
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=a2c episode=1 reward=98.72
+[EVAL] algo=a2c episode=2 reward=367.23
+[EVAL] algo=a2c episode=3 reward=100.35
+[EVAL] algo=a2c episode=4 reward=135.32
+[EVAL] algo=a2c episode=5 reward=319.90
+[EVAL] algo=a2c episode=6 reward=458.86
+[EVAL] algo=a2c episode=7 reward=328.03
+[EVAL] algo=a2c episode=8 reward=273.44
+[EVAL] algo=a2c episode=9 reward=64.40
+[EVAL] algo=a2c episode=10 reward=64.51
+[EVAL] algo=a2c episode=11 reward=91.74
+[EVAL] algo=a2c episode=12 reward=108.14
+[EVAL] algo=a2c episode=13 reward=489.99
+[EVAL] algo=a2c episode=14 reward=431.62
+[EVAL] algo=a2c episode=15 reward=121.27
+[EVAL] algo=a2c episode=16 reward=397.35
+[EVAL] algo=a2c episode=17 reward=356.60
+[EVAL] algo=a2c episode=18 reward=36.52
+[EVAL] algo=a2c episode=19 reward=135.66
+[EVAL] algo=a2c episode=20 reward=98.21
+[EVAL] algo=a2c episode=21 reward=127.64
+[EVAL] algo=a2c episode=22 reward=109.04
+[EVAL] algo=a2c episode=23 reward=101.83
+[EVAL] algo=a2c episode=24 reward=99.60
+[EVAL] algo=a2c episode=25 reward=131.35
+[EVAL] algo=a2c episode=26 reward=119.54
+[EVAL] algo=a2c episode=27 reward=93.60
+[EVAL] algo=a2c episode=28 reward=94.42
+[EVAL] algo=a2c episode=29 reward=314.99
+[EVAL] algo=a2c episode=30 reward=361.31
+[EVAL] algo=a2c mean_reward=201.04 over 30 episodes
+[CHUNK RESULT] algo=a2c chunk=10 mean_reward=201.04
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=a2c chunk_means (len=10):
+  chunk 01: 237.31
+  chunk 02: 250.37
+  chunk 03: 208.71
+  chunk 04: 225.36
+  chunk 05: 222.09
+  chunk 06: 226.03
+  chunk 07: 226.74
+  chunk 08: 180.53
+  chunk 09: 225.49
+  chunk 10: 201.04
+[SUMMARY] algo=a2c overall_mean_of_chunk_means=220.37

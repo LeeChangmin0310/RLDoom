@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=rainbow seed=0 ckpt=checkpoints/rainbow_seed0_ep002000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+rainbow eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=rainbow episode=1 reward=-98.95
+rainbow eval_10ep:  10%|█         | 1/10 [00:02<00:22,  2.53s/it][EVAL] algo=rainbow episode=2 reward=-52.96
+rainbow eval_10ep:  20%|██        | 2/10 [00:03<00:15,  1.88s/it][EVAL] algo=rainbow episode=3 reward=-104.06
+rainbow eval_10ep:  30%|███       | 3/10 [00:05<00:11,  1.69s/it][EVAL] algo=rainbow episode=4 reward=-115.98
+rainbow eval_10ep:  40%|████      | 4/10 [00:06<00:09,  1.56s/it][EVAL] algo=rainbow episode=5 reward=-93.79
+rainbow eval_10ep:  50%|█████     | 5/10 [00:09<00:09,  1.89s/it][EVAL] algo=rainbow episode=6 reward=-111.06
+rainbow eval_10ep:  60%|██████    | 6/10 [00:11<00:07,  1.92s/it][EVAL] algo=rainbow episode=7 reward=-95.56
+rainbow eval_10ep:  70%|███████   | 7/10 [00:13<00:06,  2.07s/it][EVAL] algo=rainbow episode=8 reward=-115.99
+rainbow eval_10ep:  80%|████████  | 8/10 [00:15<00:03,  1.90s/it][EVAL] algo=rainbow episode=9 reward=-116.00
+rainbow eval_10ep:  90%|█████████ | 9/10 [00:16<00:01,  1.71s/it][EVAL] algo=rainbow episode=10 reward=-115.73
+rainbow eval_10ep: 100%|██████████| 10/10 [00:18<00:00,  1.81s/it]rainbow eval_10ep: 100%|██████████| 10/10 [00:18<00:00,  1.85s/it]
+[EVAL] algo=rainbow mean_reward=-102.01 over 10 episodes
+[SUMMARY] algo=rainbow simple_mean_reward=-102.01 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-101.59
+[EVAL] algo=rainbow episode=2 reward=-96.90
+[EVAL] algo=rainbow episode=3 reward=-87.26
+[EVAL] algo=rainbow episode=4 reward=-44.53
+[EVAL] algo=rainbow episode=5 reward=-115.88
+[EVAL] algo=rainbow episode=6 reward=-114.28
+[EVAL] algo=rainbow episode=7 reward=-115.07
+[EVAL] algo=rainbow episode=8 reward=-67.65
+[EVAL] algo=rainbow episode=9 reward=-64.19
+[EVAL] algo=rainbow episode=10 reward=-115.98
+[EVAL] algo=rainbow episode=11 reward=-114.40
+[EVAL] algo=rainbow episode=12 reward=-98.96
+[EVAL] algo=rainbow episode=13 reward=169.97
+[EVAL] algo=rainbow episode=14 reward=-74.37
+[EVAL] algo=rainbow episode=15 reward=-116.00
+[EVAL] algo=rainbow episode=16 reward=-58.62
+[EVAL] algo=rainbow episode=17 reward=-106.77
+[EVAL] algo=rainbow episode=18 reward=-14.35
+[EVAL] algo=rainbow episode=19 reward=-97.39
+[EVAL] algo=rainbow episode=20 reward=-115.89
+[EVAL] algo=rainbow episode=21 reward=-86.15
+[EVAL] algo=rainbow episode=22 reward=-93.22
+[EVAL] algo=rainbow episode=23 reward=-53.22
+[EVAL] algo=rainbow episode=24 reward=-114.95
+[EVAL] algo=rainbow episode=25 reward=-100.45
+[EVAL] algo=rainbow episode=26 reward=-57.30
+[EVAL] algo=rainbow episode=27 reward=-114.48
+[EVAL] algo=rainbow episode=28 reward=-71.31
+[EVAL] algo=rainbow episode=29 reward=-115.92
+[EVAL] algo=rainbow episode=30 reward=-115.52
+[EVAL] algo=rainbow mean_reward=-82.42 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=1 mean_reward=-82.42
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-55.58
+[EVAL] algo=rainbow episode=2 reward=-84.45
+[EVAL] algo=rainbow episode=3 reward=-96.01
+[EVAL] algo=rainbow episode=4 reward=-39.75
+[EVAL] algo=rainbow episode=5 reward=-96.21
+[EVAL] algo=rainbow episode=6 reward=-82.60
+[EVAL] algo=rainbow episode=7 reward=-87.25
+[EVAL] algo=rainbow episode=8 reward=-64.12
+[EVAL] algo=rainbow episode=9 reward=-106.71
+[EVAL] algo=rainbow episode=10 reward=-115.98
+[EVAL] algo=rainbow episode=11 reward=-115.95
+[EVAL] algo=rainbow episode=12 reward=-87.88
+[EVAL] algo=rainbow episode=13 reward=-42.91
+[EVAL] algo=rainbow episode=14 reward=-77.80
+[EVAL] algo=rainbow episode=15 reward=-101.33
+[EVAL] algo=rainbow episode=16 reward=-66.99
+[EVAL] algo=rainbow episode=17 reward=-111.90
+[EVAL] algo=rainbow episode=18 reward=-75.59
+[EVAL] algo=rainbow episode=19 reward=-109.36
+[EVAL] algo=rainbow episode=20 reward=-45.07
+[EVAL] algo=rainbow episode=21 reward=-115.90
+[EVAL] algo=rainbow episode=22 reward=-110.45
+[EVAL] algo=rainbow episode=23 reward=-115.98
+[EVAL] algo=rainbow episode=24 reward=-50.96
+[EVAL] algo=rainbow episode=25 reward=-115.98
+[EVAL] algo=rainbow episode=26 reward=-107.31
+[EVAL] algo=rainbow episode=27 reward=-107.38
+[EVAL] algo=rainbow episode=28 reward=-116.00
+[EVAL] algo=rainbow episode=29 reward=-97.34
+[EVAL] algo=rainbow episode=30 reward=-115.99
+[EVAL] algo=rainbow mean_reward=-90.56 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=2 mean_reward=-90.56
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-100.36
+[EVAL] algo=rainbow episode=2 reward=-97.47
+[EVAL] algo=rainbow episode=3 reward=-102.83
+[EVAL] algo=rainbow episode=4 reward=-114.38
+[EVAL] algo=rainbow episode=5 reward=-115.27
+[EVAL] algo=rainbow episode=6 reward=-60.54
+[EVAL] algo=rainbow episode=7 reward=-91.72
+[EVAL] algo=rainbow episode=8 reward=-116.00
+[EVAL] algo=rainbow episode=9 reward=-116.00
+[EVAL] algo=rainbow episode=10 reward=-115.50
+[EVAL] algo=rainbow episode=11 reward=-115.99
+[EVAL] algo=rainbow episode=12 reward=-9.57
+[EVAL] algo=rainbow episode=13 reward=-14.30
+[EVAL] algo=rainbow episode=14 reward=-115.99
+[EVAL] algo=rainbow episode=15 reward=-110.98
+[EVAL] algo=rainbow episode=16 reward=-115.95
+[EVAL] algo=rainbow episode=17 reward=-113.07
+[EVAL] algo=rainbow episode=18 reward=-84.19
+[EVAL] algo=rainbow episode=19 reward=-115.99
+[EVAL] algo=rainbow episode=20 reward=-109.29
+[EVAL] algo=rainbow episode=21 reward=-86.97
+[EVAL] algo=rainbow episode=22 reward=-115.98
+[EVAL] algo=rainbow episode=23 reward=-68.98
+[EVAL] algo=rainbow episode=24 reward=-104.84
+[EVAL] algo=rainbow episode=25 reward=-115.97
+[EVAL] algo=rainbow episode=26 reward=-106.45
+[EVAL] algo=rainbow episode=27 reward=-97.54
+[EVAL] algo=rainbow episode=28 reward=-115.99
+[EVAL] algo=rainbow episode=29 reward=-83.87
+[EVAL] algo=rainbow episode=30 reward=-99.15
+[EVAL] algo=rainbow mean_reward=-97.70 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=3 mean_reward=-97.70
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-115.98
+[EVAL] algo=rainbow episode=2 reward=-78.82
+[EVAL] algo=rainbow episode=3 reward=-101.92
+[EVAL] algo=rainbow episode=4 reward=-65.44
+[EVAL] algo=rainbow episode=5 reward=-76.82
+[EVAL] algo=rainbow episode=6 reward=-115.98
+[EVAL] algo=rainbow episode=7 reward=9.29
+[EVAL] algo=rainbow episode=8 reward=-116.00
+[EVAL] algo=rainbow episode=9 reward=-87.55
+[EVAL] algo=rainbow episode=10 reward=-99.52
+[EVAL] algo=rainbow episode=11 reward=-104.24
+[EVAL] algo=rainbow episode=12 reward=-60.03
+[EVAL] algo=rainbow episode=13 reward=-92.22
+[EVAL] algo=rainbow episode=14 reward=-95.08
+[EVAL] algo=rainbow episode=15 reward=-107.56
+[EVAL] algo=rainbow episode=16 reward=-84.54
+[EVAL] algo=rainbow episode=17 reward=-89.77
+[EVAL] algo=rainbow episode=18 reward=-115.98
+[EVAL] algo=rainbow episode=19 reward=-108.63
+[EVAL] algo=rainbow episode=20 reward=-75.30
+[EVAL] algo=rainbow episode=21 reward=-115.98
+[EVAL] algo=rainbow episode=22 reward=-39.12
+[EVAL] algo=rainbow episode=23 reward=-98.74
+[EVAL] algo=rainbow episode=24 reward=-107.83
+[EVAL] algo=rainbow episode=25 reward=-60.17
+[EVAL] algo=rainbow episode=26 reward=-70.77
+[EVAL] algo=rainbow episode=27 reward=-109.40
+[EVAL] algo=rainbow episode=28 reward=-89.71
+[EVAL] algo=rainbow episode=29 reward=-111.72
+[EVAL] algo=rainbow episode=30 reward=-115.12
+[EVAL] algo=rainbow mean_reward=-90.02 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=4 mean_reward=-90.02
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-115.95
+[EVAL] algo=rainbow episode=2 reward=-84.82
+[EVAL] algo=rainbow episode=3 reward=-115.87
+[EVAL] algo=rainbow episode=4 reward=-108.15
+[EVAL] algo=rainbow episode=5 reward=-114.16
+[EVAL] algo=rainbow episode=6 reward=-115.93
+[EVAL] algo=rainbow episode=7 reward=-89.12
+[EVAL] algo=rainbow episode=8 reward=-107.60
+[EVAL] algo=rainbow episode=9 reward=-48.30
+[EVAL] algo=rainbow episode=10 reward=-59.04
+[EVAL] algo=rainbow episode=11 reward=-68.97
+[EVAL] algo=rainbow episode=12 reward=-86.26
+[EVAL] algo=rainbow episode=13 reward=-98.68
+[EVAL] algo=rainbow episode=14 reward=-88.45
+[EVAL] algo=rainbow episode=15 reward=-84.97
+[EVAL] algo=rainbow episode=16 reward=-111.78
+[EVAL] algo=rainbow episode=17 reward=-107.59
+[EVAL] algo=rainbow episode=18 reward=-59.73
+[EVAL] algo=rainbow episode=19 reward=-105.36
+[EVAL] algo=rainbow episode=20 reward=-38.58
+[EVAL] algo=rainbow episode=21 reward=-30.61
+[EVAL] algo=rainbow episode=22 reward=-93.42
+[EVAL] algo=rainbow episode=23 reward=-115.98
+[EVAL] algo=rainbow episode=24 reward=-110.20
+[EVAL] algo=rainbow episode=25 reward=-116.00
+[EVAL] algo=rainbow episode=26 reward=-90.33
+[EVAL] algo=rainbow episode=27 reward=-86.30
+[EVAL] algo=rainbow episode=28 reward=-93.90
+[EVAL] algo=rainbow episode=29 reward=-90.06
+[EVAL] algo=rainbow episode=30 reward=-116.00
+[EVAL] algo=rainbow mean_reward=-91.74 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=5 mean_reward=-91.74
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-115.17
+[EVAL] algo=rainbow episode=2 reward=-59.76
+[EVAL] algo=rainbow episode=3 reward=-115.98
+[EVAL] algo=rainbow episode=4 reward=-86.50
+[EVAL] algo=rainbow episode=5 reward=-116.00
+[EVAL] algo=rainbow episode=6 reward=-75.97
+[EVAL] algo=rainbow episode=7 reward=-115.96
+[EVAL] algo=rainbow episode=8 reward=-98.51
+[EVAL] algo=rainbow episode=9 reward=-99.42
+[EVAL] algo=rainbow episode=10 reward=-66.49
+[EVAL] algo=rainbow episode=11 reward=-82.56
+[EVAL] algo=rainbow episode=12 reward=-98.71
+[EVAL] algo=rainbow episode=13 reward=-116.00
+[EVAL] algo=rainbow episode=14 reward=-115.96
+[EVAL] algo=rainbow episode=15 reward=-13.82
+[EVAL] algo=rainbow episode=16 reward=-116.00
+[EVAL] algo=rainbow episode=17 reward=8.13
+[EVAL] algo=rainbow episode=18 reward=-86.41
+[EVAL] algo=rainbow episode=19 reward=-112.40
+[EVAL] algo=rainbow episode=20 reward=-88.89
+[EVAL] algo=rainbow episode=21 reward=-92.53
+[EVAL] algo=rainbow episode=22 reward=-97.24
+[EVAL] algo=rainbow episode=23 reward=-89.45
+[EVAL] algo=rainbow episode=24 reward=-115.98
+[EVAL] algo=rainbow episode=25 reward=-73.13
+[EVAL] algo=rainbow episode=26 reward=-78.11
+[EVAL] algo=rainbow episode=27 reward=-71.90
+[EVAL] algo=rainbow episode=28 reward=-115.87
+[EVAL] algo=rainbow episode=29 reward=-115.98
+[EVAL] algo=rainbow episode=30 reward=-115.16
+[EVAL] algo=rainbow mean_reward=-91.26 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=6 mean_reward=-91.26
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-56.51
+[EVAL] algo=rainbow episode=2 reward=-98.68
+[EVAL] algo=rainbow episode=3 reward=-64.83
+[EVAL] algo=rainbow episode=4 reward=-115.96
+[EVAL] algo=rainbow episode=5 reward=-57.24
+[EVAL] algo=rainbow episode=6 reward=-95.15
+[EVAL] algo=rainbow episode=7 reward=-104.26
+[EVAL] algo=rainbow episode=8 reward=-115.02
+[EVAL] algo=rainbow episode=9 reward=-83.44
+[EVAL] algo=rainbow episode=10 reward=-90.21
+[EVAL] algo=rainbow episode=11 reward=-115.99
+[EVAL] algo=rainbow episode=12 reward=-115.93
+[EVAL] algo=rainbow episode=13 reward=-115.94
+[EVAL] algo=rainbow episode=14 reward=0.64
+[EVAL] algo=rainbow episode=15 reward=-70.55
+[EVAL] algo=rainbow episode=16 reward=-15.51
+[EVAL] algo=rainbow episode=17 reward=-101.69
+[EVAL] algo=rainbow episode=18 reward=-97.01
+[EVAL] algo=rainbow episode=19 reward=-51.72
+[EVAL] algo=rainbow episode=20 reward=-113.79
+[EVAL] algo=rainbow episode=21 reward=-90.34
+[EVAL] algo=rainbow episode=22 reward=42.07
+[EVAL] algo=rainbow episode=23 reward=-51.01
+[EVAL] algo=rainbow episode=24 reward=-90.66
+[EVAL] algo=rainbow episode=25 reward=-29.48
+[EVAL] algo=rainbow episode=26 reward=-115.67
+[EVAL] algo=rainbow episode=27 reward=-115.89
+[EVAL] algo=rainbow episode=28 reward=-115.98
+[EVAL] algo=rainbow episode=29 reward=-77.10
+[EVAL] algo=rainbow episode=30 reward=-107.50
+[EVAL] algo=rainbow mean_reward=-81.01 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=7 mean_reward=-81.01
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-111.77
+[EVAL] algo=rainbow episode=2 reward=-115.96
+[EVAL] algo=rainbow episode=3 reward=-115.98
+[EVAL] algo=rainbow episode=4 reward=-107.10
+[EVAL] algo=rainbow episode=5 reward=-115.98
+[EVAL] algo=rainbow episode=6 reward=-115.99
+[EVAL] algo=rainbow episode=7 reward=-115.90
+[EVAL] algo=rainbow episode=8 reward=-38.05
+[EVAL] algo=rainbow episode=9 reward=-98.73
+[EVAL] algo=rainbow episode=10 reward=-115.79
+[EVAL] algo=rainbow episode=11 reward=-115.94
+[EVAL] algo=rainbow episode=12 reward=-116.00
+[EVAL] algo=rainbow episode=13 reward=-111.38
+[EVAL] algo=rainbow episode=14 reward=-106.07
+[EVAL] algo=rainbow episode=15 reward=-70.20
+[EVAL] algo=rainbow episode=16 reward=-115.99
+[EVAL] algo=rainbow episode=17 reward=-98.57
+[EVAL] algo=rainbow episode=18 reward=-115.98
+[EVAL] algo=rainbow episode=19 reward=-115.26
+[EVAL] algo=rainbow episode=20 reward=-116.00
+[EVAL] algo=rainbow episode=21 reward=-115.99
+[EVAL] algo=rainbow episode=22 reward=-100.81
+[EVAL] algo=rainbow episode=23 reward=-80.94
+[EVAL] algo=rainbow episode=24 reward=-115.99
+[EVAL] algo=rainbow episode=25 reward=-94.61
+[EVAL] algo=rainbow episode=26 reward=-115.84
+[EVAL] algo=rainbow episode=27 reward=-32.49
+[EVAL] algo=rainbow episode=28 reward=-109.14
+[EVAL] algo=rainbow episode=29 reward=-110.48
+[EVAL] algo=rainbow episode=30 reward=-107.60
+[EVAL] algo=rainbow mean_reward=-103.88 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=8 mean_reward=-103.88
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-97.51
+[EVAL] algo=rainbow episode=2 reward=-48.94
+[EVAL] algo=rainbow episode=3 reward=-93.44
+[EVAL] algo=rainbow episode=4 reward=-59.90
+[EVAL] algo=rainbow episode=5 reward=-57.96
+[EVAL] algo=rainbow episode=6 reward=-53.03
+[EVAL] algo=rainbow episode=7 reward=-115.89
+[EVAL] algo=rainbow episode=8 reward=-115.89
+[EVAL] algo=rainbow episode=9 reward=-89.78
+[EVAL] algo=rainbow episode=10 reward=-114.68
+[EVAL] algo=rainbow episode=11 reward=-115.82
+[EVAL] algo=rainbow episode=12 reward=-112.54
+[EVAL] algo=rainbow episode=13 reward=-115.99
+[EVAL] algo=rainbow episode=14 reward=-113.69
+[EVAL] algo=rainbow episode=15 reward=-41.38
+[EVAL] algo=rainbow episode=16 reward=-115.93
+[EVAL] algo=rainbow episode=17 reward=-110.76
+[EVAL] algo=rainbow episode=18 reward=-115.99
+[EVAL] algo=rainbow episode=19 reward=-115.97
+[EVAL] algo=rainbow episode=20 reward=-113.75
+[EVAL] algo=rainbow episode=21 reward=-85.05
+[EVAL] algo=rainbow episode=22 reward=-115.99
+[EVAL] algo=rainbow episode=23 reward=-109.94
+[EVAL] algo=rainbow episode=24 reward=-115.99
+[EVAL] algo=rainbow episode=25 reward=-98.82
+[EVAL] algo=rainbow episode=26 reward=-115.05
+[EVAL] algo=rainbow episode=27 reward=-95.65
+[EVAL] algo=rainbow episode=28 reward=-96.97
+[EVAL] algo=rainbow episode=29 reward=-96.76
+[EVAL] algo=rainbow episode=30 reward=-115.99
+[EVAL] algo=rainbow mean_reward=-98.84 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=9 mean_reward=-98.84
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=rainbow episode=1 reward=-73.05
+[EVAL] algo=rainbow episode=2 reward=-93.72
+[EVAL] algo=rainbow episode=3 reward=-59.83
+[EVAL] algo=rainbow episode=4 reward=-96.99
+[EVAL] algo=rainbow episode=5 reward=-115.96
+[EVAL] algo=rainbow episode=6 reward=-96.25
+[EVAL] algo=rainbow episode=7 reward=-115.93
+[EVAL] algo=rainbow episode=8 reward=-116.00
+[EVAL] algo=rainbow episode=9 reward=-56.67
+[EVAL] algo=rainbow episode=10 reward=-116.00
+[EVAL] algo=rainbow episode=11 reward=-113.97
+[EVAL] algo=rainbow episode=12 reward=-2.16
+[EVAL] algo=rainbow episode=13 reward=-82.86
+[EVAL] algo=rainbow episode=14 reward=-61.60
+[EVAL] algo=rainbow episode=15 reward=-55.15
+[EVAL] algo=rainbow episode=16 reward=-115.62
+[EVAL] algo=rainbow episode=17 reward=6.71
+[EVAL] algo=rainbow episode=18 reward=-115.75
+[EVAL] algo=rainbow episode=19 reward=-112.84
+[EVAL] algo=rainbow episode=20 reward=-85.86
+[EVAL] algo=rainbow episode=21 reward=-116.00
+[EVAL] algo=rainbow episode=22 reward=-109.40
+[EVAL] algo=rainbow episode=23 reward=-105.68
+[EVAL] algo=rainbow episode=24 reward=-52.14
+[EVAL] algo=rainbow episode=25 reward=-97.83
+[EVAL] algo=rainbow episode=26 reward=-116.00
+[EVAL] algo=rainbow episode=27 reward=-71.86
+[EVAL] algo=rainbow episode=28 reward=-111.77
+[EVAL] algo=rainbow episode=29 reward=-113.18
+[EVAL] algo=rainbow episode=30 reward=-115.72
+[EVAL] algo=rainbow mean_reward=-89.64 over 30 episodes
+[CHUNK RESULT] algo=rainbow chunk=10 mean_reward=-89.64
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=rainbow chunk_means (len=10):
+  chunk 01: -82.42
+  chunk 02: -90.56
+  chunk 03: -97.70
+  chunk 04: -90.02
+  chunk 05: -91.74
+  chunk 06: -91.26
+  chunk 07: -81.01
+  chunk 08: -103.88
+  chunk 09: -98.84
+  chunk 10: -89.64
+[SUMMARY] algo=rainbow overall_mean_of_chunk_means=-91.71

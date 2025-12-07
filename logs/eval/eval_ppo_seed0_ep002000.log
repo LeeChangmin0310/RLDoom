@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=ppo seed=0 ckpt=checkpoints/ppo_seed0_ep002000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+ppo eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=ppo episode=1 reward=-115.99
+ppo eval_10ep:  10%|█         | 1/10 [00:01<00:14,  1.60s/it][EVAL] algo=ppo episode=2 reward=-115.99
+ppo eval_10ep:  20%|██        | 2/10 [00:02<00:11,  1.45s/it][EVAL] algo=ppo episode=3 reward=-116.00
+ppo eval_10ep:  30%|███       | 3/10 [00:03<00:08,  1.17s/it][EVAL] algo=ppo episode=4 reward=-116.00
+ppo eval_10ep:  40%|████      | 4/10 [00:06<00:11,  1.91s/it][EVAL] algo=ppo episode=5 reward=-115.85
+ppo eval_10ep:  50%|█████     | 5/10 [00:07<00:07,  1.51s/it][EVAL] algo=ppo episode=6 reward=-115.99
+ppo eval_10ep:  60%|██████    | 6/10 [00:10<00:07,  1.97s/it][EVAL] algo=ppo episode=7 reward=-116.00
+ppo eval_10ep:  70%|███████   | 7/10 [00:11<00:05,  1.72s/it][EVAL] algo=ppo episode=8 reward=-116.00
+ppo eval_10ep:  80%|████████  | 8/10 [00:13<00:03,  1.76s/it][EVAL] algo=ppo episode=9 reward=-115.99
+ppo eval_10ep:  90%|█████████ | 9/10 [00:14<00:01,  1.47s/it][EVAL] algo=ppo episode=10 reward=-115.99
+ppo eval_10ep: 100%|██████████| 10/10 [00:16<00:00,  1.64s/it]ppo eval_10ep: 100%|██████████| 10/10 [00:16<00:00,  1.64s/it]
+[EVAL] algo=ppo mean_reward=-115.98 over 10 episodes
+[SUMMARY] algo=ppo simple_mean_reward=-115.98 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-116.00
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-116.00
+[EVAL] algo=ppo episode=4 reward=-115.99
+[EVAL] algo=ppo episode=5 reward=-116.00
+[EVAL] algo=ppo episode=6 reward=-115.99
+[EVAL] algo=ppo episode=7 reward=-116.00
+[EVAL] algo=ppo episode=8 reward=-115.90
+[EVAL] algo=ppo episode=9 reward=-115.96
+[EVAL] algo=ppo episode=10 reward=-115.99
+[EVAL] algo=ppo episode=11 reward=-115.96
+[EVAL] algo=ppo episode=12 reward=-115.96
+[EVAL] algo=ppo episode=13 reward=-115.99
+[EVAL] algo=ppo episode=14 reward=-115.94
+[EVAL] algo=ppo episode=15 reward=-115.99
+[EVAL] algo=ppo episode=16 reward=-116.00
+[EVAL] algo=ppo episode=17 reward=-115.99
+[EVAL] algo=ppo episode=18 reward=-116.00
+[EVAL] algo=ppo episode=19 reward=-116.00
+[EVAL] algo=ppo episode=20 reward=-116.00
+[EVAL] algo=ppo episode=21 reward=-115.97
+[EVAL] algo=ppo episode=22 reward=-115.99
+[EVAL] algo=ppo episode=23 reward=-115.99
+[EVAL] algo=ppo episode=24 reward=-115.83
+[EVAL] algo=ppo episode=25 reward=-115.98
+[EVAL] algo=ppo episode=26 reward=-115.95
+[EVAL] algo=ppo episode=27 reward=-115.98
+[EVAL] algo=ppo episode=28 reward=-115.99
+[EVAL] algo=ppo episode=29 reward=-116.00
+[EVAL] algo=ppo episode=30 reward=-115.99
+[EVAL] algo=ppo mean_reward=-115.98 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=1 mean_reward=-115.98
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-116.00
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-115.98
+[EVAL] algo=ppo episode=4 reward=-116.00
+[EVAL] algo=ppo episode=5 reward=-116.00
+[EVAL] algo=ppo episode=6 reward=-115.99
+[EVAL] algo=ppo episode=7 reward=-116.00
+[EVAL] algo=ppo episode=8 reward=-115.97
+[EVAL] algo=ppo episode=9 reward=-116.00
+[EVAL] algo=ppo episode=10 reward=-110.22
+[EVAL] algo=ppo episode=11 reward=-116.00
+[EVAL] algo=ppo episode=12 reward=-116.00
+[EVAL] algo=ppo episode=13 reward=-115.97
+[EVAL] algo=ppo episode=14 reward=-115.96
+[EVAL] algo=ppo episode=15 reward=-115.99
+[EVAL] algo=ppo episode=16 reward=-115.99
+[EVAL] algo=ppo episode=17 reward=-115.93
+[EVAL] algo=ppo episode=18 reward=-116.00
+[EVAL] algo=ppo episode=19 reward=-115.98
+[EVAL] algo=ppo episode=20 reward=-116.00
+[EVAL] algo=ppo episode=21 reward=-116.00
+[EVAL] algo=ppo episode=22 reward=-115.98
+[EVAL] algo=ppo episode=23 reward=-115.96
+[EVAL] algo=ppo episode=24 reward=-115.98
+[EVAL] algo=ppo episode=25 reward=-115.95
+[EVAL] algo=ppo episode=26 reward=-116.00
+[EVAL] algo=ppo episode=27 reward=-115.99
+[EVAL] algo=ppo episode=28 reward=-115.94
+[EVAL] algo=ppo episode=29 reward=-116.00
+[EVAL] algo=ppo episode=30 reward=-115.98
+[EVAL] algo=ppo mean_reward=-115.79 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=2 mean_reward=-115.79
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-116.00
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-116.00
+[EVAL] algo=ppo episode=4 reward=-116.00
+[EVAL] algo=ppo episode=5 reward=-115.97
+[EVAL] algo=ppo episode=6 reward=-115.77
+[EVAL] algo=ppo episode=7 reward=-115.99
+[EVAL] algo=ppo episode=8 reward=-115.98
+[EVAL] algo=ppo episode=9 reward=-115.99
+[EVAL] algo=ppo episode=10 reward=-116.00
+[EVAL] algo=ppo episode=11 reward=-116.00
+[EVAL] algo=ppo episode=12 reward=-116.00
+[EVAL] algo=ppo episode=13 reward=-116.00
+[EVAL] algo=ppo episode=14 reward=-115.98
+[EVAL] algo=ppo episode=15 reward=-116.00
+[EVAL] algo=ppo episode=16 reward=-116.00
+[EVAL] algo=ppo episode=17 reward=-115.99
+[EVAL] algo=ppo episode=18 reward=-115.98
+[EVAL] algo=ppo episode=19 reward=-116.00
+[EVAL] algo=ppo episode=20 reward=-115.99
+[EVAL] algo=ppo episode=21 reward=-116.00
+[EVAL] algo=ppo episode=22 reward=-116.00
+[EVAL] algo=ppo episode=23 reward=-115.98
+[EVAL] algo=ppo episode=24 reward=-115.98
+[EVAL] algo=ppo episode=25 reward=-115.99
+[EVAL] algo=ppo episode=26 reward=-116.00
+[EVAL] algo=ppo episode=27 reward=-116.00
+[EVAL] algo=ppo episode=28 reward=-116.00
+[EVAL] algo=ppo episode=29 reward=-116.00
+[EVAL] algo=ppo episode=30 reward=-115.98
+[EVAL] algo=ppo mean_reward=-115.99 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=3 mean_reward=-115.99
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-115.96
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-115.90
+[EVAL] algo=ppo episode=4 reward=-115.99
+[EVAL] algo=ppo episode=5 reward=-116.00
+[EVAL] algo=ppo episode=6 reward=-116.00
+[EVAL] algo=ppo episode=7 reward=-116.00
+[EVAL] algo=ppo episode=8 reward=-115.99
+[EVAL] algo=ppo episode=9 reward=-116.00
+[EVAL] algo=ppo episode=10 reward=-116.00
+[EVAL] algo=ppo episode=11 reward=-115.97
+[EVAL] algo=ppo episode=12 reward=-115.99
+[EVAL] algo=ppo episode=13 reward=-116.00
+[EVAL] algo=ppo episode=14 reward=-115.98
+[EVAL] algo=ppo episode=15 reward=-115.98
+[EVAL] algo=ppo episode=16 reward=-115.99
+[EVAL] algo=ppo episode=17 reward=-116.00
+[EVAL] algo=ppo episode=18 reward=-116.00
+[EVAL] algo=ppo episode=19 reward=-115.96
+[EVAL] algo=ppo episode=20 reward=-116.00
+[EVAL] algo=ppo episode=21 reward=-115.99
+[EVAL] algo=ppo episode=22 reward=-115.79
+[EVAL] algo=ppo episode=23 reward=-116.00
+[EVAL] algo=ppo episode=24 reward=-115.99
+[EVAL] algo=ppo episode=25 reward=-115.98
+[EVAL] algo=ppo episode=26 reward=-115.81
+[EVAL] algo=ppo episode=27 reward=-115.98
+[EVAL] algo=ppo episode=28 reward=-116.00
+[EVAL] algo=ppo episode=29 reward=-116.00
+[EVAL] algo=ppo episode=30 reward=-115.99
+[EVAL] algo=ppo mean_reward=-115.97 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=4 mean_reward=-115.97
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-115.90
+[EVAL] algo=ppo episode=2 reward=-115.96
+[EVAL] algo=ppo episode=3 reward=-116.00
+[EVAL] algo=ppo episode=4 reward=-115.99
+[EVAL] algo=ppo episode=5 reward=-115.79
+[EVAL] algo=ppo episode=6 reward=-115.91
+[EVAL] algo=ppo episode=7 reward=-116.00
+[EVAL] algo=ppo episode=8 reward=-116.00
+[EVAL] algo=ppo episode=9 reward=-115.99
+[EVAL] algo=ppo episode=10 reward=-116.00
+[EVAL] algo=ppo episode=11 reward=-115.76
+[EVAL] algo=ppo episode=12 reward=-115.89
+[EVAL] algo=ppo episode=13 reward=-115.83
+[EVAL] algo=ppo episode=14 reward=-115.98
+[EVAL] algo=ppo episode=15 reward=-115.96
+[EVAL] algo=ppo episode=16 reward=-115.99
+[EVAL] algo=ppo episode=17 reward=-116.00
+[EVAL] algo=ppo episode=18 reward=-115.99
+[EVAL] algo=ppo episode=19 reward=-115.98
+[EVAL] algo=ppo episode=20 reward=-115.99
+[EVAL] algo=ppo episode=21 reward=-116.00
+[EVAL] algo=ppo episode=22 reward=-115.99
+[EVAL] algo=ppo episode=23 reward=-116.00
+[EVAL] algo=ppo episode=24 reward=-116.00
+[EVAL] algo=ppo episode=25 reward=-115.99
+[EVAL] algo=ppo episode=26 reward=-115.97
+[EVAL] algo=ppo episode=27 reward=-115.87
+[EVAL] algo=ppo episode=28 reward=-115.96
+[EVAL] algo=ppo episode=29 reward=-116.00
+[EVAL] algo=ppo episode=30 reward=-115.99
+[EVAL] algo=ppo mean_reward=-115.96 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=5 mean_reward=-115.96
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-115.99
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-115.97
+[EVAL] algo=ppo episode=4 reward=-116.00
+[EVAL] algo=ppo episode=5 reward=-116.00
+[EVAL] algo=ppo episode=6 reward=-115.99
+[EVAL] algo=ppo episode=7 reward=-116.00
+[EVAL] algo=ppo episode=8 reward=-115.97
+[EVAL] algo=ppo episode=9 reward=-116.00
+[EVAL] algo=ppo episode=10 reward=-116.00
+[EVAL] algo=ppo episode=11 reward=-116.00
+[EVAL] algo=ppo episode=12 reward=-115.99
+[EVAL] algo=ppo episode=13 reward=-115.99
+[EVAL] algo=ppo episode=14 reward=-115.93
+[EVAL] algo=ppo episode=15 reward=-116.00
+[EVAL] algo=ppo episode=16 reward=-115.98
+[EVAL] algo=ppo episode=17 reward=-115.99
+[EVAL] algo=ppo episode=18 reward=-116.00
+[EVAL] algo=ppo episode=19 reward=-116.00
+[EVAL] algo=ppo episode=20 reward=-116.00
+[EVAL] algo=ppo episode=21 reward=-116.00
+[EVAL] algo=ppo episode=22 reward=-115.96
+[EVAL] algo=ppo episode=23 reward=-109.35
+[EVAL] algo=ppo episode=24 reward=-116.00
+[EVAL] algo=ppo episode=25 reward=-116.00
+[EVAL] algo=ppo episode=26 reward=-115.97
+[EVAL] algo=ppo episode=27 reward=-116.00
+[EVAL] algo=ppo episode=28 reward=-116.00
+[EVAL] algo=ppo episode=29 reward=-115.98
+[EVAL] algo=ppo episode=30 reward=-115.99
+[EVAL] algo=ppo mean_reward=-115.77 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=6 mean_reward=-115.77
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-115.88
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-115.95
+[EVAL] algo=ppo episode=4 reward=-116.00
+[EVAL] algo=ppo episode=5 reward=-116.00
+[EVAL] algo=ppo episode=6 reward=-115.98
+[EVAL] algo=ppo episode=7 reward=-115.98
+[EVAL] algo=ppo episode=8 reward=-116.00
+[EVAL] algo=ppo episode=9 reward=-115.86
+[EVAL] algo=ppo episode=10 reward=-116.00
+[EVAL] algo=ppo episode=11 reward=-115.99
+[EVAL] algo=ppo episode=12 reward=-115.98
+[EVAL] algo=ppo episode=13 reward=-116.00
+[EVAL] algo=ppo episode=14 reward=-116.00
+[EVAL] algo=ppo episode=15 reward=-116.00
+[EVAL] algo=ppo episode=16 reward=-116.00
+[EVAL] algo=ppo episode=17 reward=-116.00
+[EVAL] algo=ppo episode=18 reward=-115.97
+[EVAL] algo=ppo episode=19 reward=-115.99
+[EVAL] algo=ppo episode=20 reward=-115.99
+[EVAL] algo=ppo episode=21 reward=-116.00
+[EVAL] algo=ppo episode=22 reward=-116.00
+[EVAL] algo=ppo episode=23 reward=-115.93
+[EVAL] algo=ppo episode=24 reward=-116.00
+[EVAL] algo=ppo episode=25 reward=-116.00
+[EVAL] algo=ppo episode=26 reward=-115.82
+[EVAL] algo=ppo episode=27 reward=-115.96
+[EVAL] algo=ppo episode=28 reward=-116.00
+[EVAL] algo=ppo episode=29 reward=-116.00
+[EVAL] algo=ppo episode=30 reward=-115.98
+[EVAL] algo=ppo mean_reward=-115.97 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=7 mean_reward=-115.97
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-116.00
+[EVAL] algo=ppo episode=2 reward=-115.95
+[EVAL] algo=ppo episode=3 reward=-115.99
+[EVAL] algo=ppo episode=4 reward=-116.00
+[EVAL] algo=ppo episode=5 reward=-115.97
+[EVAL] algo=ppo episode=6 reward=-115.35
+[EVAL] algo=ppo episode=7 reward=-115.98
+[EVAL] algo=ppo episode=8 reward=-115.96
+[EVAL] algo=ppo episode=9 reward=-116.00
+[EVAL] algo=ppo episode=10 reward=-116.00
+[EVAL] algo=ppo episode=11 reward=-116.00
+[EVAL] algo=ppo episode=12 reward=-115.96
+[EVAL] algo=ppo episode=13 reward=-115.99
+[EVAL] algo=ppo episode=14 reward=-116.00
+[EVAL] algo=ppo episode=15 reward=-116.00
+[EVAL] algo=ppo episode=16 reward=-116.00
+[EVAL] algo=ppo episode=17 reward=-116.00
+[EVAL] algo=ppo episode=18 reward=-115.98
+[EVAL] algo=ppo episode=19 reward=-115.97
+[EVAL] algo=ppo episode=20 reward=-116.00
+[EVAL] algo=ppo episode=21 reward=-116.00
+[EVAL] algo=ppo episode=22 reward=-116.00
+[EVAL] algo=ppo episode=23 reward=-116.00
+[EVAL] algo=ppo episode=24 reward=-115.99
+[EVAL] algo=ppo episode=25 reward=-115.99
+[EVAL] algo=ppo episode=26 reward=-116.00
+[EVAL] algo=ppo episode=27 reward=-116.00
+[EVAL] algo=ppo episode=28 reward=-116.00
+[EVAL] algo=ppo episode=29 reward=-115.90
+[EVAL] algo=ppo episode=30 reward=-116.00
+[EVAL] algo=ppo mean_reward=-115.97 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=8 mean_reward=-115.97
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-116.00
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-115.37
+[EVAL] algo=ppo episode=4 reward=-116.00
+[EVAL] algo=ppo episode=5 reward=-115.99
+[EVAL] algo=ppo episode=6 reward=-115.81
+[EVAL] algo=ppo episode=7 reward=-115.98
+[EVAL] algo=ppo episode=8 reward=-116.00
+[EVAL] algo=ppo episode=9 reward=-116.00
+[EVAL] algo=ppo episode=10 reward=-115.98
+[EVAL] algo=ppo episode=11 reward=-114.70
+[EVAL] algo=ppo episode=12 reward=-116.00
+[EVAL] algo=ppo episode=13 reward=-115.99
+[EVAL] algo=ppo episode=14 reward=-116.00
+[EVAL] algo=ppo episode=15 reward=-115.98
+[EVAL] algo=ppo episode=16 reward=-115.91
+[EVAL] algo=ppo episode=17 reward=-116.00
+[EVAL] algo=ppo episode=18 reward=-116.00
+[EVAL] algo=ppo episode=19 reward=-115.90
+[EVAL] algo=ppo episode=20 reward=-116.00
+[EVAL] algo=ppo episode=21 reward=-116.00
+[EVAL] algo=ppo episode=22 reward=-115.99
+[EVAL] algo=ppo episode=23 reward=-115.99
+[EVAL] algo=ppo episode=24 reward=-115.99
+[EVAL] algo=ppo episode=25 reward=-116.00
+[EVAL] algo=ppo episode=26 reward=-115.96
+[EVAL] algo=ppo episode=27 reward=-116.00
+[EVAL] algo=ppo episode=28 reward=-115.97
+[EVAL] algo=ppo episode=29 reward=-115.99
+[EVAL] algo=ppo episode=30 reward=-115.98
+[EVAL] algo=ppo mean_reward=-115.92 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=9 mean_reward=-115.92
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=ppo episode=1 reward=-115.98
+[EVAL] algo=ppo episode=2 reward=-116.00
+[EVAL] algo=ppo episode=3 reward=-115.98
+[EVAL] algo=ppo episode=4 reward=-116.00
+[EVAL] algo=ppo episode=5 reward=-116.00
+[EVAL] algo=ppo episode=6 reward=-116.00
+[EVAL] algo=ppo episode=7 reward=-115.97
+[EVAL] algo=ppo episode=8 reward=-115.83
+[EVAL] algo=ppo episode=9 reward=-116.00
+[EVAL] algo=ppo episode=10 reward=-115.91
+[EVAL] algo=ppo episode=11 reward=-115.99
+[EVAL] algo=ppo episode=12 reward=-115.95
+[EVAL] algo=ppo episode=13 reward=-116.00
+[EVAL] algo=ppo episode=14 reward=-115.87
+[EVAL] algo=ppo episode=15 reward=-115.98
+[EVAL] algo=ppo episode=16 reward=-115.99
+[EVAL] algo=ppo episode=17 reward=-115.98
+[EVAL] algo=ppo episode=18 reward=-116.00
+[EVAL] algo=ppo episode=19 reward=-115.99
+[EVAL] algo=ppo episode=20 reward=-116.00
+[EVAL] algo=ppo episode=21 reward=-115.99
+[EVAL] algo=ppo episode=22 reward=-116.00
+[EVAL] algo=ppo episode=23 reward=-115.99
+[EVAL] algo=ppo episode=24 reward=-115.94
+[EVAL] algo=ppo episode=25 reward=-116.00
+[EVAL] algo=ppo episode=26 reward=-116.00
+[EVAL] algo=ppo episode=27 reward=-116.00
+[EVAL] algo=ppo episode=28 reward=-115.97
+[EVAL] algo=ppo episode=29 reward=-116.00
+[EVAL] algo=ppo episode=30 reward=-115.99
+[EVAL] algo=ppo mean_reward=-115.98 over 30 episodes
+[CHUNK RESULT] algo=ppo chunk=10 mean_reward=-115.98
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=ppo chunk_means (len=10):
+  chunk 01: -115.98
+  chunk 02: -115.79
+  chunk 03: -115.99
+  chunk 04: -115.97
+  chunk 05: -115.96
+  chunk 06: -115.77
+  chunk 07: -115.97
+  chunk 08: -115.97
+  chunk 09: -115.92
+  chunk 10: -115.98
+[SUMMARY] algo=ppo overall_mean_of_chunk_means=-115.93

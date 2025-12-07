@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=ppo_tuned seed=0 ckpt=checkpoints/ppo_tuned_seed0_ep003000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+ppo_tuned eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=ppo_tuned episode=1 reward=20.19
+ppo_tuned eval_10ep:  10%|█         | 1/10 [00:01<00:09,  1.02s/it][EVAL] algo=ppo_tuned episode=2 reward=51.43
+ppo_tuned eval_10ep:  20%|██        | 2/10 [00:01<00:07,  1.06it/s][EVAL] algo=ppo_tuned episode=3 reward=131.88
+ppo_tuned eval_10ep:  30%|███       | 3/10 [00:02<00:06,  1.14it/s][EVAL] algo=ppo_tuned episode=4 reward=125.19
+ppo_tuned eval_10ep:  40%|████      | 4/10 [00:03<00:05,  1.17it/s][EVAL] algo=ppo_tuned episode=5 reward=438.28
+ppo_tuned eval_10ep:  50%|█████     | 5/10 [00:05<00:05,  1.12s/it][EVAL] algo=ppo_tuned episode=6 reward=488.54
+ppo_tuned eval_10ep:  60%|██████    | 6/10 [00:06<00:04,  1.23s/it][EVAL] algo=ppo_tuned episode=7 reward=442.87
+ppo_tuned eval_10ep:  70%|███████   | 7/10 [00:07<00:03,  1.25s/it][EVAL] algo=ppo_tuned episode=8 reward=281.65
+ppo_tuned eval_10ep:  80%|████████  | 8/10 [00:09<00:02,  1.30s/it][EVAL] algo=ppo_tuned episode=9 reward=151.52
+ppo_tuned eval_10ep:  90%|█████████ | 9/10 [00:10<00:01,  1.15s/it][EVAL] algo=ppo_tuned episode=10 reward=110.97
+ppo_tuned eval_10ep: 100%|██████████| 10/10 [00:10<00:00,  1.04s/it]ppo_tuned eval_10ep: 100%|██████████| 10/10 [00:10<00:00,  1.09s/it]
+[EVAL] algo=ppo_tuned mean_reward=224.25 over 10 episodes
+[SUMMARY] algo=ppo_tuned simple_mean_reward=224.25 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=273.47
+[EVAL] algo=ppo_tuned episode=2 reward=77.99
+[EVAL] algo=ppo_tuned episode=3 reward=121.79
+[EVAL] algo=ppo_tuned episode=4 reward=486.84
+[EVAL] algo=ppo_tuned episode=5 reward=44.77
+[EVAL] algo=ppo_tuned episode=6 reward=31.86
+[EVAL] algo=ppo_tuned episode=7 reward=91.06
+[EVAL] algo=ppo_tuned episode=8 reward=395.70
+[EVAL] algo=ppo_tuned episode=9 reward=39.71
+[EVAL] algo=ppo_tuned episode=10 reward=572.84
+[EVAL] algo=ppo_tuned episode=11 reward=425.70
+[EVAL] algo=ppo_tuned episode=12 reward=86.97
+[EVAL] algo=ppo_tuned episode=13 reward=110.69
+[EVAL] algo=ppo_tuned episode=14 reward=833.75
+[EVAL] algo=ppo_tuned episode=15 reward=123.11
+[EVAL] algo=ppo_tuned episode=16 reward=67.41
+[EVAL] algo=ppo_tuned episode=17 reward=122.16
+[EVAL] algo=ppo_tuned episode=18 reward=387.43
+[EVAL] algo=ppo_tuned episode=19 reward=156.18
+[EVAL] algo=ppo_tuned episode=20 reward=80.92
+[EVAL] algo=ppo_tuned episode=21 reward=435.88
+[EVAL] algo=ppo_tuned episode=22 reward=373.09
+[EVAL] algo=ppo_tuned episode=23 reward=80.13
+[EVAL] algo=ppo_tuned episode=24 reward=201.41
+[EVAL] algo=ppo_tuned episode=25 reward=320.29
+[EVAL] algo=ppo_tuned episode=26 reward=82.78
+[EVAL] algo=ppo_tuned episode=27 reward=128.12
+[EVAL] algo=ppo_tuned episode=28 reward=120.77
+[EVAL] algo=ppo_tuned episode=29 reward=70.38
+[EVAL] algo=ppo_tuned episode=30 reward=-3.79
+[EVAL] algo=ppo_tuned mean_reward=211.31 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=1 mean_reward=211.31
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=372.54
+[EVAL] algo=ppo_tuned episode=2 reward=97.39
+[EVAL] algo=ppo_tuned episode=3 reward=123.83
+[EVAL] algo=ppo_tuned episode=4 reward=395.59
+[EVAL] algo=ppo_tuned episode=5 reward=43.87
+[EVAL] algo=ppo_tuned episode=6 reward=454.06
+[EVAL] algo=ppo_tuned episode=7 reward=428.78
+[EVAL] algo=ppo_tuned episode=8 reward=86.64
+[EVAL] algo=ppo_tuned episode=9 reward=114.13
+[EVAL] algo=ppo_tuned episode=10 reward=76.45
+[EVAL] algo=ppo_tuned episode=11 reward=336.60
+[EVAL] algo=ppo_tuned episode=12 reward=97.41
+[EVAL] algo=ppo_tuned episode=13 reward=315.62
+[EVAL] algo=ppo_tuned episode=14 reward=49.94
+[EVAL] algo=ppo_tuned episode=15 reward=330.82
+[EVAL] algo=ppo_tuned episode=16 reward=100.03
+[EVAL] algo=ppo_tuned episode=17 reward=517.63
+[EVAL] algo=ppo_tuned episode=18 reward=273.68
+[EVAL] algo=ppo_tuned episode=19 reward=370.15
+[EVAL] algo=ppo_tuned episode=20 reward=85.87
+[EVAL] algo=ppo_tuned episode=21 reward=764.84
+[EVAL] algo=ppo_tuned episode=22 reward=135.76
+[EVAL] algo=ppo_tuned episode=23 reward=94.42
+[EVAL] algo=ppo_tuned episode=24 reward=132.26
+[EVAL] algo=ppo_tuned episode=25 reward=333.64
+[EVAL] algo=ppo_tuned episode=26 reward=111.27
+[EVAL] algo=ppo_tuned episode=27 reward=420.29
+[EVAL] algo=ppo_tuned episode=28 reward=96.93
+[EVAL] algo=ppo_tuned episode=29 reward=102.91
+[EVAL] algo=ppo_tuned episode=30 reward=62.13
+[EVAL] algo=ppo_tuned mean_reward=230.85 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=2 mean_reward=230.85
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=72.36
+[EVAL] algo=ppo_tuned episode=2 reward=77.37
+[EVAL] algo=ppo_tuned episode=3 reward=55.56
+[EVAL] algo=ppo_tuned episode=4 reward=112.41
+[EVAL] algo=ppo_tuned episode=5 reward=127.67
+[EVAL] algo=ppo_tuned episode=6 reward=6.75
+[EVAL] algo=ppo_tuned episode=7 reward=74.34
+[EVAL] algo=ppo_tuned episode=8 reward=41.40
+[EVAL] algo=ppo_tuned episode=9 reward=354.35
+[EVAL] algo=ppo_tuned episode=10 reward=389.84
+[EVAL] algo=ppo_tuned episode=11 reward=67.71
+[EVAL] algo=ppo_tuned episode=12 reward=127.57
+[EVAL] algo=ppo_tuned episode=13 reward=73.49
+[EVAL] algo=ppo_tuned episode=14 reward=444.33
+[EVAL] algo=ppo_tuned episode=15 reward=249.26
+[EVAL] algo=ppo_tuned episode=16 reward=118.56
+[EVAL] algo=ppo_tuned episode=17 reward=168.18
+[EVAL] algo=ppo_tuned episode=18 reward=482.59
+[EVAL] algo=ppo_tuned episode=19 reward=108.46
+[EVAL] algo=ppo_tuned episode=20 reward=470.42
+[EVAL] algo=ppo_tuned episode=21 reward=187.63
+[EVAL] algo=ppo_tuned episode=22 reward=39.71
+[EVAL] algo=ppo_tuned episode=23 reward=434.87
+[EVAL] algo=ppo_tuned episode=24 reward=409.91
+[EVAL] algo=ppo_tuned episode=25 reward=55.99
+[EVAL] algo=ppo_tuned episode=26 reward=72.57
+[EVAL] algo=ppo_tuned episode=27 reward=101.14
+[EVAL] algo=ppo_tuned episode=28 reward=104.41
+[EVAL] algo=ppo_tuned episode=29 reward=381.18
+[EVAL] algo=ppo_tuned episode=30 reward=73.57
+[EVAL] algo=ppo_tuned mean_reward=182.79 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=3 mean_reward=182.79
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=137.47
+[EVAL] algo=ppo_tuned episode=2 reward=74.11
+[EVAL] algo=ppo_tuned episode=3 reward=122.66
+[EVAL] algo=ppo_tuned episode=4 reward=63.80
+[EVAL] algo=ppo_tuned episode=5 reward=444.50
+[EVAL] algo=ppo_tuned episode=6 reward=512.99
+[EVAL] algo=ppo_tuned episode=7 reward=360.03
+[EVAL] algo=ppo_tuned episode=8 reward=387.60
+[EVAL] algo=ppo_tuned episode=9 reward=393.98
+[EVAL] algo=ppo_tuned episode=10 reward=352.97
+[EVAL] algo=ppo_tuned episode=11 reward=318.24
+[EVAL] algo=ppo_tuned episode=12 reward=100.33
+[EVAL] algo=ppo_tuned episode=13 reward=58.44
+[EVAL] algo=ppo_tuned episode=14 reward=111.75
+[EVAL] algo=ppo_tuned episode=15 reward=42.43
+[EVAL] algo=ppo_tuned episode=16 reward=424.07
+[EVAL] algo=ppo_tuned episode=17 reward=419.92
+[EVAL] algo=ppo_tuned episode=18 reward=479.29
+[EVAL] algo=ppo_tuned episode=19 reward=94.90
+[EVAL] algo=ppo_tuned episode=20 reward=84.80
+[EVAL] algo=ppo_tuned episode=21 reward=412.95
+[EVAL] algo=ppo_tuned episode=22 reward=416.25
+[EVAL] algo=ppo_tuned episode=23 reward=134.38
+[EVAL] algo=ppo_tuned episode=24 reward=83.34
+[EVAL] algo=ppo_tuned episode=25 reward=109.93
+[EVAL] algo=ppo_tuned episode=26 reward=278.33
+[EVAL] algo=ppo_tuned episode=27 reward=49.76
+[EVAL] algo=ppo_tuned episode=28 reward=96.89
+[EVAL] algo=ppo_tuned episode=29 reward=103.91
+[EVAL] algo=ppo_tuned episode=30 reward=110.93
+[EVAL] algo=ppo_tuned mean_reward=226.03 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=4 mean_reward=226.03
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=406.76
+[EVAL] algo=ppo_tuned episode=2 reward=66.05
+[EVAL] algo=ppo_tuned episode=3 reward=39.10
+[EVAL] algo=ppo_tuned episode=4 reward=463.82
+[EVAL] algo=ppo_tuned episode=5 reward=47.82
+[EVAL] algo=ppo_tuned episode=6 reward=397.23
+[EVAL] algo=ppo_tuned episode=7 reward=349.28
+[EVAL] algo=ppo_tuned episode=8 reward=399.89
+[EVAL] algo=ppo_tuned episode=9 reward=65.30
+[EVAL] algo=ppo_tuned episode=10 reward=47.36
+[EVAL] algo=ppo_tuned episode=11 reward=341.56
+[EVAL] algo=ppo_tuned episode=12 reward=413.47
+[EVAL] algo=ppo_tuned episode=13 reward=61.46
+[EVAL] algo=ppo_tuned episode=14 reward=487.42
+[EVAL] algo=ppo_tuned episode=15 reward=54.29
+[EVAL] algo=ppo_tuned episode=16 reward=91.59
+[EVAL] algo=ppo_tuned episode=17 reward=488.39
+[EVAL] algo=ppo_tuned episode=18 reward=45.09
+[EVAL] algo=ppo_tuned episode=19 reward=42.70
+[EVAL] algo=ppo_tuned episode=20 reward=398.34
+[EVAL] algo=ppo_tuned episode=21 reward=74.14
+[EVAL] algo=ppo_tuned episode=22 reward=416.13
+[EVAL] algo=ppo_tuned episode=23 reward=49.91
+[EVAL] algo=ppo_tuned episode=24 reward=790.86
+[EVAL] algo=ppo_tuned episode=25 reward=332.62
+[EVAL] algo=ppo_tuned episode=26 reward=52.11
+[EVAL] algo=ppo_tuned episode=27 reward=69.69
+[EVAL] algo=ppo_tuned episode=28 reward=110.32
+[EVAL] algo=ppo_tuned episode=29 reward=743.68
+[EVAL] algo=ppo_tuned episode=30 reward=386.46
+[EVAL] algo=ppo_tuned mean_reward=257.76 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=5 mean_reward=257.76
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=425.83
+[EVAL] algo=ppo_tuned episode=2 reward=81.77
+[EVAL] algo=ppo_tuned episode=3 reward=33.57
+[EVAL] algo=ppo_tuned episode=4 reward=468.39
+[EVAL] algo=ppo_tuned episode=5 reward=448.19
+[EVAL] algo=ppo_tuned episode=6 reward=81.88
+[EVAL] algo=ppo_tuned episode=7 reward=87.86
+[EVAL] algo=ppo_tuned episode=8 reward=82.79
+[EVAL] algo=ppo_tuned episode=9 reward=515.37
+[EVAL] algo=ppo_tuned episode=10 reward=73.46
+[EVAL] algo=ppo_tuned episode=11 reward=461.59
+[EVAL] algo=ppo_tuned episode=12 reward=335.47
+[EVAL] algo=ppo_tuned episode=13 reward=95.79
+[EVAL] algo=ppo_tuned episode=14 reward=445.85
+[EVAL] algo=ppo_tuned episode=15 reward=74.24
+[EVAL] algo=ppo_tuned episode=16 reward=73.94
+[EVAL] algo=ppo_tuned episode=17 reward=365.62
+[EVAL] algo=ppo_tuned episode=18 reward=134.16
+[EVAL] algo=ppo_tuned episode=19 reward=20.36
+[EVAL] algo=ppo_tuned episode=20 reward=307.10
+[EVAL] algo=ppo_tuned episode=21 reward=106.16
+[EVAL] algo=ppo_tuned episode=22 reward=75.39
+[EVAL] algo=ppo_tuned episode=23 reward=119.69
+[EVAL] algo=ppo_tuned episode=24 reward=103.80
+[EVAL] algo=ppo_tuned episode=25 reward=80.37
+[EVAL] algo=ppo_tuned episode=26 reward=58.55
+[EVAL] algo=ppo_tuned episode=27 reward=345.65
+[EVAL] algo=ppo_tuned episode=28 reward=107.02
+[EVAL] algo=ppo_tuned episode=29 reward=89.07
+[EVAL] algo=ppo_tuned episode=30 reward=127.66
+[EVAL] algo=ppo_tuned mean_reward=194.22 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=6 mean_reward=194.22
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=114.27
+[EVAL] algo=ppo_tuned episode=2 reward=347.34
+[EVAL] algo=ppo_tuned episode=3 reward=516.27
+[EVAL] algo=ppo_tuned episode=4 reward=46.62
+[EVAL] algo=ppo_tuned episode=5 reward=411.44
+[EVAL] algo=ppo_tuned episode=6 reward=399.94
+[EVAL] algo=ppo_tuned episode=7 reward=56.56
+[EVAL] algo=ppo_tuned episode=8 reward=355.72
+[EVAL] algo=ppo_tuned episode=9 reward=60.13
+[EVAL] algo=ppo_tuned episode=10 reward=343.41
+[EVAL] algo=ppo_tuned episode=11 reward=375.71
+[EVAL] algo=ppo_tuned episode=12 reward=87.89
+[EVAL] algo=ppo_tuned episode=13 reward=53.19
+[EVAL] algo=ppo_tuned episode=14 reward=68.01
+[EVAL] algo=ppo_tuned episode=15 reward=93.39
+[EVAL] algo=ppo_tuned episode=16 reward=52.17
+[EVAL] algo=ppo_tuned episode=17 reward=374.12
+[EVAL] algo=ppo_tuned episode=18 reward=178.78
+[EVAL] algo=ppo_tuned episode=19 reward=40.53
+[EVAL] algo=ppo_tuned episode=20 reward=38.98
+[EVAL] algo=ppo_tuned episode=21 reward=467.50
+[EVAL] algo=ppo_tuned episode=22 reward=462.85
+[EVAL] algo=ppo_tuned episode=23 reward=409.76
+[EVAL] algo=ppo_tuned episode=24 reward=477.92
+[EVAL] algo=ppo_tuned episode=25 reward=30.49
+[EVAL] algo=ppo_tuned episode=26 reward=354.79
+[EVAL] algo=ppo_tuned episode=27 reward=364.29
+[EVAL] algo=ppo_tuned episode=28 reward=125.00
+[EVAL] algo=ppo_tuned episode=29 reward=131.13
+[EVAL] algo=ppo_tuned episode=30 reward=48.81
+[EVAL] algo=ppo_tuned mean_reward=229.57 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=7 mean_reward=229.57
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=114.27
+[EVAL] algo=ppo_tuned episode=2 reward=87.33
+[EVAL] algo=ppo_tuned episode=3 reward=96.28
+[EVAL] algo=ppo_tuned episode=4 reward=394.07
+[EVAL] algo=ppo_tuned episode=5 reward=380.60
+[EVAL] algo=ppo_tuned episode=6 reward=39.16
+[EVAL] algo=ppo_tuned episode=7 reward=139.81
+[EVAL] algo=ppo_tuned episode=8 reward=328.82
+[EVAL] algo=ppo_tuned episode=9 reward=101.78
+[EVAL] algo=ppo_tuned episode=10 reward=313.23
+[EVAL] algo=ppo_tuned episode=11 reward=334.48
+[EVAL] algo=ppo_tuned episode=12 reward=82.89
+[EVAL] algo=ppo_tuned episode=13 reward=443.92
+[EVAL] algo=ppo_tuned episode=14 reward=399.16
+[EVAL] algo=ppo_tuned episode=15 reward=391.48
+[EVAL] algo=ppo_tuned episode=16 reward=408.24
+[EVAL] algo=ppo_tuned episode=17 reward=125.53
+[EVAL] algo=ppo_tuned episode=18 reward=37.95
+[EVAL] algo=ppo_tuned episode=19 reward=261.19
+[EVAL] algo=ppo_tuned episode=20 reward=104.32
+[EVAL] algo=ppo_tuned episode=21 reward=326.94
+[EVAL] algo=ppo_tuned episode=22 reward=113.79
+[EVAL] algo=ppo_tuned episode=23 reward=349.60
+[EVAL] algo=ppo_tuned episode=24 reward=334.88
+[EVAL] algo=ppo_tuned episode=25 reward=37.95
+[EVAL] algo=ppo_tuned episode=26 reward=480.18
+[EVAL] algo=ppo_tuned episode=27 reward=300.86
+[EVAL] algo=ppo_tuned episode=28 reward=104.77
+[EVAL] algo=ppo_tuned episode=29 reward=485.90
+[EVAL] algo=ppo_tuned episode=30 reward=81.94
+[EVAL] algo=ppo_tuned mean_reward=240.04 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=8 mean_reward=240.04
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=61.43
+[EVAL] algo=ppo_tuned episode=2 reward=102.33
+[EVAL] algo=ppo_tuned episode=3 reward=423.40
+[EVAL] algo=ppo_tuned episode=4 reward=275.03
+[EVAL] algo=ppo_tuned episode=5 reward=82.37
+[EVAL] algo=ppo_tuned episode=6 reward=766.89
+[EVAL] algo=ppo_tuned episode=7 reward=98.61
+[EVAL] algo=ppo_tuned episode=8 reward=372.19
+[EVAL] algo=ppo_tuned episode=9 reward=341.41
+[EVAL] algo=ppo_tuned episode=10 reward=280.18
+[EVAL] algo=ppo_tuned episode=11 reward=406.82
+[EVAL] algo=ppo_tuned episode=12 reward=47.75
+[EVAL] algo=ppo_tuned episode=13 reward=377.45
+[EVAL] algo=ppo_tuned episode=14 reward=500.01
+[EVAL] algo=ppo_tuned episode=15 reward=375.11
+[EVAL] algo=ppo_tuned episode=16 reward=424.92
+[EVAL] algo=ppo_tuned episode=17 reward=336.79
+[EVAL] algo=ppo_tuned episode=18 reward=96.25
+[EVAL] algo=ppo_tuned episode=19 reward=761.36
+[EVAL] algo=ppo_tuned episode=20 reward=56.43
+[EVAL] algo=ppo_tuned episode=21 reward=256.49
+[EVAL] algo=ppo_tuned episode=22 reward=344.55
+[EVAL] algo=ppo_tuned episode=23 reward=116.04
+[EVAL] algo=ppo_tuned episode=24 reward=142.26
+[EVAL] algo=ppo_tuned episode=25 reward=318.48
+[EVAL] algo=ppo_tuned episode=26 reward=104.31
+[EVAL] algo=ppo_tuned episode=27 reward=103.46
+[EVAL] algo=ppo_tuned episode=28 reward=92.83
+[EVAL] algo=ppo_tuned episode=29 reward=433.97
+[EVAL] algo=ppo_tuned episode=30 reward=101.32
+[EVAL] algo=ppo_tuned mean_reward=273.35 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=9 mean_reward=273.35
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=ppo_tuned episode=1 reward=116.95
+[EVAL] algo=ppo_tuned episode=2 reward=433.54
+[EVAL] algo=ppo_tuned episode=3 reward=149.41
+[EVAL] algo=ppo_tuned episode=4 reward=375.82
+[EVAL] algo=ppo_tuned episode=5 reward=86.24
+[EVAL] algo=ppo_tuned episode=6 reward=84.65
+[EVAL] algo=ppo_tuned episode=7 reward=94.96
+[EVAL] algo=ppo_tuned episode=8 reward=156.91
+[EVAL] algo=ppo_tuned episode=9 reward=235.11
+[EVAL] algo=ppo_tuned episode=10 reward=74.90
+[EVAL] algo=ppo_tuned episode=11 reward=356.21
+[EVAL] algo=ppo_tuned episode=12 reward=76.24
+[EVAL] algo=ppo_tuned episode=13 reward=669.76
+[EVAL] algo=ppo_tuned episode=14 reward=419.52
+[EVAL] algo=ppo_tuned episode=15 reward=165.01
+[EVAL] algo=ppo_tuned episode=16 reward=280.06
+[EVAL] algo=ppo_tuned episode=17 reward=406.44
+[EVAL] algo=ppo_tuned episode=18 reward=55.99
+[EVAL] algo=ppo_tuned episode=19 reward=473.72
+[EVAL] algo=ppo_tuned episode=20 reward=363.72
+[EVAL] algo=ppo_tuned episode=21 reward=351.96
+[EVAL] algo=ppo_tuned episode=22 reward=182.47
+[EVAL] algo=ppo_tuned episode=23 reward=90.23
+[EVAL] algo=ppo_tuned episode=24 reward=109.86
+[EVAL] algo=ppo_tuned episode=25 reward=108.06
+[EVAL] algo=ppo_tuned episode=26 reward=518.46
+[EVAL] algo=ppo_tuned episode=27 reward=440.18
+[EVAL] algo=ppo_tuned episode=28 reward=45.70
+[EVAL] algo=ppo_tuned episode=29 reward=374.34
+[EVAL] algo=ppo_tuned episode=30 reward=110.40
+[EVAL] algo=ppo_tuned mean_reward=246.89 over 30 episodes
+[CHUNK RESULT] algo=ppo_tuned chunk=10 mean_reward=246.89
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=ppo_tuned chunk_means (len=10):
+  chunk 01: 211.31
+  chunk 02: 230.85
+  chunk 03: 182.79
+  chunk 04: 226.03
+  chunk 05: 257.76
+  chunk 06: 194.22
+  chunk 07: 229.57
+  chunk 08: 240.04
+  chunk 09: 273.35
+  chunk 10: 246.89
+[SUMMARY] algo=ppo_tuned overall_mean_of_chunk_means=229.28

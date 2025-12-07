@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=a2c_tuned seed=0 ckpt=checkpoints/a2c_tuned_seed0_ep003000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+a2c_tuned eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=a2c_tuned episode=1 reward=-115.99
+a2c_tuned eval_10ep:  10%|█         | 1/10 [00:02<00:19,  2.11s/it][EVAL] algo=a2c_tuned episode=2 reward=-115.95
+a2c_tuned eval_10ep:  20%|██        | 2/10 [00:03<00:12,  1.60s/it][EVAL] algo=a2c_tuned episode=3 reward=-115.94
+a2c_tuned eval_10ep:  30%|███       | 3/10 [00:05<00:11,  1.69s/it][EVAL] algo=a2c_tuned episode=4 reward=-115.99
+a2c_tuned eval_10ep:  40%|████      | 4/10 [00:06<00:10,  1.70s/it][EVAL] algo=a2c_tuned episode=5 reward=-115.98
+a2c_tuned eval_10ep:  50%|█████     | 5/10 [00:08<00:07,  1.58s/it][EVAL] algo=a2c_tuned episode=6 reward=-115.95
+a2c_tuned eval_10ep:  60%|██████    | 6/10 [00:10<00:07,  1.85s/it][EVAL] algo=a2c_tuned episode=7 reward=-115.99
+a2c_tuned eval_10ep:  70%|███████   | 7/10 [00:12<00:05,  1.86s/it][EVAL] algo=a2c_tuned episode=8 reward=-116.00
+a2c_tuned eval_10ep:  80%|████████  | 8/10 [00:13<00:03,  1.74s/it][EVAL] algo=a2c_tuned episode=9 reward=-116.00
+a2c_tuned eval_10ep:  90%|█████████ | 9/10 [00:14<00:01,  1.42s/it][EVAL] algo=a2c_tuned episode=10 reward=-115.94
+a2c_tuned eval_10ep: 100%|██████████| 10/10 [00:17<00:00,  1.75s/it]a2c_tuned eval_10ep: 100%|██████████| 10/10 [00:17<00:00,  1.72s/it]
+[EVAL] algo=a2c_tuned mean_reward=-115.97 over 10 episodes
+[SUMMARY] algo=a2c_tuned simple_mean_reward=-115.97 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-115.77
+[EVAL] algo=a2c_tuned episode=2 reward=-116.00
+[EVAL] algo=a2c_tuned episode=3 reward=-115.87
+[EVAL] algo=a2c_tuned episode=4 reward=-115.73
+[EVAL] algo=a2c_tuned episode=5 reward=-115.99
+[EVAL] algo=a2c_tuned episode=6 reward=-115.86
+[EVAL] algo=a2c_tuned episode=7 reward=-115.99
+[EVAL] algo=a2c_tuned episode=8 reward=-115.98
+[EVAL] algo=a2c_tuned episode=9 reward=-115.89
+[EVAL] algo=a2c_tuned episode=10 reward=-115.89
+[EVAL] algo=a2c_tuned episode=11 reward=-115.97
+[EVAL] algo=a2c_tuned episode=12 reward=-116.00
+[EVAL] algo=a2c_tuned episode=13 reward=-115.88
+[EVAL] algo=a2c_tuned episode=14 reward=-115.98
+[EVAL] algo=a2c_tuned episode=15 reward=-116.00
+[EVAL] algo=a2c_tuned episode=16 reward=-116.00
+[EVAL] algo=a2c_tuned episode=17 reward=-115.77
+[EVAL] algo=a2c_tuned episode=18 reward=-115.99
+[EVAL] algo=a2c_tuned episode=19 reward=-115.98
+[EVAL] algo=a2c_tuned episode=20 reward=-115.99
+[EVAL] algo=a2c_tuned episode=21 reward=-115.94
+[EVAL] algo=a2c_tuned episode=22 reward=-115.80
+[EVAL] algo=a2c_tuned episode=23 reward=-115.98
+[EVAL] algo=a2c_tuned episode=24 reward=-116.00
+[EVAL] algo=a2c_tuned episode=25 reward=-115.98
+[EVAL] algo=a2c_tuned episode=26 reward=-115.92
+[EVAL] algo=a2c_tuned episode=27 reward=-115.95
+[EVAL] algo=a2c_tuned episode=28 reward=-115.98
+[EVAL] algo=a2c_tuned episode=29 reward=-115.98
+[EVAL] algo=a2c_tuned episode=30 reward=-115.94
+[EVAL] algo=a2c_tuned mean_reward=-115.93 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=1 mean_reward=-115.93
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-115.99
+[EVAL] algo=a2c_tuned episode=2 reward=-116.00
+[EVAL] algo=a2c_tuned episode=3 reward=-115.91
+[EVAL] algo=a2c_tuned episode=4 reward=-115.99
+[EVAL] algo=a2c_tuned episode=5 reward=-116.00
+[EVAL] algo=a2c_tuned episode=6 reward=-115.76
+[EVAL] algo=a2c_tuned episode=7 reward=-115.88
+[EVAL] algo=a2c_tuned episode=8 reward=-115.99
+[EVAL] algo=a2c_tuned episode=9 reward=-116.00
+[EVAL] algo=a2c_tuned episode=10 reward=-115.98
+[EVAL] algo=a2c_tuned episode=11 reward=-115.99
+[EVAL] algo=a2c_tuned episode=12 reward=-116.00
+[EVAL] algo=a2c_tuned episode=13 reward=-116.00
+[EVAL] algo=a2c_tuned episode=14 reward=-115.99
+[EVAL] algo=a2c_tuned episode=15 reward=-116.00
+[EVAL] algo=a2c_tuned episode=16 reward=-115.99
+[EVAL] algo=a2c_tuned episode=17 reward=-115.74
+[EVAL] algo=a2c_tuned episode=18 reward=-115.99
+[EVAL] algo=a2c_tuned episode=19 reward=-116.00
+[EVAL] algo=a2c_tuned episode=20 reward=-116.00
+[EVAL] algo=a2c_tuned episode=21 reward=-116.00
+[EVAL] algo=a2c_tuned episode=22 reward=-115.96
+[EVAL] algo=a2c_tuned episode=23 reward=-116.00
+[EVAL] algo=a2c_tuned episode=24 reward=-115.95
+[EVAL] algo=a2c_tuned episode=25 reward=-115.99
+[EVAL] algo=a2c_tuned episode=26 reward=-116.00
+[EVAL] algo=a2c_tuned episode=27 reward=-115.98
+[EVAL] algo=a2c_tuned episode=28 reward=-115.99
+[EVAL] algo=a2c_tuned episode=29 reward=-115.99
+[EVAL] algo=a2c_tuned episode=30 reward=-115.80
+[EVAL] algo=a2c_tuned mean_reward=-115.96 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=2 mean_reward=-115.96
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-115.98
+[EVAL] algo=a2c_tuned episode=2 reward=-115.94
+[EVAL] algo=a2c_tuned episode=3 reward=-115.99
+[EVAL] algo=a2c_tuned episode=4 reward=-116.00
+[EVAL] algo=a2c_tuned episode=5 reward=-115.99
+[EVAL] algo=a2c_tuned episode=6 reward=-115.84
+[EVAL] algo=a2c_tuned episode=7 reward=-115.89
+[EVAL] algo=a2c_tuned episode=8 reward=-116.00
+[EVAL] algo=a2c_tuned episode=9 reward=-115.76
+[EVAL] algo=a2c_tuned episode=10 reward=-115.77
+[EVAL] algo=a2c_tuned episode=11 reward=-115.99
+[EVAL] algo=a2c_tuned episode=12 reward=-115.99
+[EVAL] algo=a2c_tuned episode=13 reward=-115.99
+[EVAL] algo=a2c_tuned episode=14 reward=-115.96
+[EVAL] algo=a2c_tuned episode=15 reward=-115.83
+[EVAL] algo=a2c_tuned episode=16 reward=-115.98
+[EVAL] algo=a2c_tuned episode=17 reward=-116.00
+[EVAL] algo=a2c_tuned episode=18 reward=-116.00
+[EVAL] algo=a2c_tuned episode=19 reward=-115.99
+[EVAL] algo=a2c_tuned episode=20 reward=-115.86
+[EVAL] algo=a2c_tuned episode=21 reward=-115.74
+[EVAL] algo=a2c_tuned episode=22 reward=-116.00
+[EVAL] algo=a2c_tuned episode=23 reward=-115.98
+[EVAL] algo=a2c_tuned episode=24 reward=-115.97
+[EVAL] algo=a2c_tuned episode=25 reward=-115.99
+[EVAL] algo=a2c_tuned episode=26 reward=-115.98
+[EVAL] algo=a2c_tuned episode=27 reward=-115.93
+[EVAL] algo=a2c_tuned episode=28 reward=-116.00
+[EVAL] algo=a2c_tuned episode=29 reward=-115.99
+[EVAL] algo=a2c_tuned episode=30 reward=-115.99
+[EVAL] algo=a2c_tuned mean_reward=-115.94 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=3 mean_reward=-115.94
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-116.00
+[EVAL] algo=a2c_tuned episode=2 reward=-115.95
+[EVAL] algo=a2c_tuned episode=3 reward=-115.99
+[EVAL] algo=a2c_tuned episode=4 reward=-116.00
+[EVAL] algo=a2c_tuned episode=5 reward=-116.00
+[EVAL] algo=a2c_tuned episode=6 reward=-115.99
+[EVAL] algo=a2c_tuned episode=7 reward=-116.00
+[EVAL] algo=a2c_tuned episode=8 reward=-116.00
+[EVAL] algo=a2c_tuned episode=9 reward=-115.89
+[EVAL] algo=a2c_tuned episode=10 reward=-115.99
+[EVAL] algo=a2c_tuned episode=11 reward=-115.89
+[EVAL] algo=a2c_tuned episode=12 reward=-116.00
+[EVAL] algo=a2c_tuned episode=13 reward=-115.97
+[EVAL] algo=a2c_tuned episode=14 reward=-115.93
+[EVAL] algo=a2c_tuned episode=15 reward=-115.96
+[EVAL] algo=a2c_tuned episode=16 reward=-115.79
+[EVAL] algo=a2c_tuned episode=17 reward=-115.85
+[EVAL] algo=a2c_tuned episode=18 reward=-116.00
+[EVAL] algo=a2c_tuned episode=19 reward=-115.97
+[EVAL] algo=a2c_tuned episode=20 reward=-115.86
+[EVAL] algo=a2c_tuned episode=21 reward=-115.91
+[EVAL] algo=a2c_tuned episode=22 reward=-116.00
+[EVAL] algo=a2c_tuned episode=23 reward=-115.94
+[EVAL] algo=a2c_tuned episode=24 reward=-115.76
+[EVAL] algo=a2c_tuned episode=25 reward=-116.00
+[EVAL] algo=a2c_tuned episode=26 reward=-115.98
+[EVAL] algo=a2c_tuned episode=27 reward=-115.99
+[EVAL] algo=a2c_tuned episode=28 reward=-115.98
+[EVAL] algo=a2c_tuned episode=29 reward=-115.81
+[EVAL] algo=a2c_tuned episode=30 reward=-116.00
+[EVAL] algo=a2c_tuned mean_reward=-115.95 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=4 mean_reward=-115.95
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-116.00
+[EVAL] algo=a2c_tuned episode=2 reward=-115.99
+[EVAL] algo=a2c_tuned episode=3 reward=-116.00
+[EVAL] algo=a2c_tuned episode=4 reward=-115.98
+[EVAL] algo=a2c_tuned episode=5 reward=-115.92
+[EVAL] algo=a2c_tuned episode=6 reward=-116.00
+[EVAL] algo=a2c_tuned episode=7 reward=-116.00
+[EVAL] algo=a2c_tuned episode=8 reward=-115.99
+[EVAL] algo=a2c_tuned episode=9 reward=-115.91
+[EVAL] algo=a2c_tuned episode=10 reward=-116.00
+[EVAL] algo=a2c_tuned episode=11 reward=-116.00
+[EVAL] algo=a2c_tuned episode=12 reward=-115.99
+[EVAL] algo=a2c_tuned episode=13 reward=-115.99
+[EVAL] algo=a2c_tuned episode=14 reward=-115.98
+[EVAL] algo=a2c_tuned episode=15 reward=-115.96
+[EVAL] algo=a2c_tuned episode=16 reward=-115.91
+[EVAL] algo=a2c_tuned episode=17 reward=-115.98
+[EVAL] algo=a2c_tuned episode=18 reward=-116.00
+[EVAL] algo=a2c_tuned episode=19 reward=-116.00
+[EVAL] algo=a2c_tuned episode=20 reward=-115.99
+[EVAL] algo=a2c_tuned episode=21 reward=-116.00
+[EVAL] algo=a2c_tuned episode=22 reward=-115.87
+[EVAL] algo=a2c_tuned episode=23 reward=-115.98
+[EVAL] algo=a2c_tuned episode=24 reward=-116.00
+[EVAL] algo=a2c_tuned episode=25 reward=-115.89
+[EVAL] algo=a2c_tuned episode=26 reward=-116.00
+[EVAL] algo=a2c_tuned episode=27 reward=-115.98
+[EVAL] algo=a2c_tuned episode=28 reward=-115.98
+[EVAL] algo=a2c_tuned episode=29 reward=-115.83
+[EVAL] algo=a2c_tuned episode=30 reward=-115.99
+[EVAL] algo=a2c_tuned mean_reward=-115.97 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=5 mean_reward=-115.97
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-116.00
+[EVAL] algo=a2c_tuned episode=2 reward=-116.00
+[EVAL] algo=a2c_tuned episode=3 reward=-116.00
+[EVAL] algo=a2c_tuned episode=4 reward=-115.94
+[EVAL] algo=a2c_tuned episode=5 reward=-115.99
+[EVAL] algo=a2c_tuned episode=6 reward=-115.91
+[EVAL] algo=a2c_tuned episode=7 reward=-116.00
+[EVAL] algo=a2c_tuned episode=8 reward=-115.94
+[EVAL] algo=a2c_tuned episode=9 reward=-115.74
+[EVAL] algo=a2c_tuned episode=10 reward=-115.99
+[EVAL] algo=a2c_tuned episode=11 reward=-115.98
+[EVAL] algo=a2c_tuned episode=12 reward=-115.99
+[EVAL] algo=a2c_tuned episode=13 reward=-115.91
+[EVAL] algo=a2c_tuned episode=14 reward=-115.98
+[EVAL] algo=a2c_tuned episode=15 reward=-116.00
+[EVAL] algo=a2c_tuned episode=16 reward=-115.98
+[EVAL] algo=a2c_tuned episode=17 reward=-115.98
+[EVAL] algo=a2c_tuned episode=18 reward=-115.89
+[EVAL] algo=a2c_tuned episode=19 reward=-115.99
+[EVAL] algo=a2c_tuned episode=20 reward=-116.00
+[EVAL] algo=a2c_tuned episode=21 reward=-115.83
+[EVAL] algo=a2c_tuned episode=22 reward=-115.99
+[EVAL] algo=a2c_tuned episode=23 reward=-116.00
+[EVAL] algo=a2c_tuned episode=24 reward=-115.93
+[EVAL] algo=a2c_tuned episode=25 reward=-115.99
+[EVAL] algo=a2c_tuned episode=26 reward=-115.89
+[EVAL] algo=a2c_tuned episode=27 reward=-115.98
+[EVAL] algo=a2c_tuned episode=28 reward=-115.99
+[EVAL] algo=a2c_tuned episode=29 reward=-115.82
+[EVAL] algo=a2c_tuned episode=30 reward=-116.00
+[EVAL] algo=a2c_tuned mean_reward=-115.95 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=6 mean_reward=-115.95
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-115.95
+[EVAL] algo=a2c_tuned episode=2 reward=-116.00
+[EVAL] algo=a2c_tuned episode=3 reward=-115.88
+[EVAL] algo=a2c_tuned episode=4 reward=-115.89
+[EVAL] algo=a2c_tuned episode=5 reward=-115.98
+[EVAL] algo=a2c_tuned episode=6 reward=-116.00
+[EVAL] algo=a2c_tuned episode=7 reward=-115.95
+[EVAL] algo=a2c_tuned episode=8 reward=-116.00
+[EVAL] algo=a2c_tuned episode=9 reward=-115.99
+[EVAL] algo=a2c_tuned episode=10 reward=-116.00
+[EVAL] algo=a2c_tuned episode=11 reward=-115.98
+[EVAL] algo=a2c_tuned episode=12 reward=-115.89
+[EVAL] algo=a2c_tuned episode=13 reward=-115.98
+[EVAL] algo=a2c_tuned episode=14 reward=-116.00
+[EVAL] algo=a2c_tuned episode=15 reward=-115.98
+[EVAL] algo=a2c_tuned episode=16 reward=-116.00
+[EVAL] algo=a2c_tuned episode=17 reward=-115.99
+[EVAL] algo=a2c_tuned episode=18 reward=-115.77
+[EVAL] algo=a2c_tuned episode=19 reward=-115.89
+[EVAL] algo=a2c_tuned episode=20 reward=-115.99
+[EVAL] algo=a2c_tuned episode=21 reward=-115.75
+[EVAL] algo=a2c_tuned episode=22 reward=-115.92
+[EVAL] algo=a2c_tuned episode=23 reward=-115.98
+[EVAL] algo=a2c_tuned episode=24 reward=-116.00
+[EVAL] algo=a2c_tuned episode=25 reward=-115.94
+[EVAL] algo=a2c_tuned episode=26 reward=-116.00
+[EVAL] algo=a2c_tuned episode=27 reward=-115.91
+[EVAL] algo=a2c_tuned episode=28 reward=-115.92
+[EVAL] algo=a2c_tuned episode=29 reward=-109.49
+[EVAL] algo=a2c_tuned episode=30 reward=-115.98
+[EVAL] algo=a2c_tuned mean_reward=-115.73 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=7 mean_reward=-115.73
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-116.00
+[EVAL] algo=a2c_tuned episode=2 reward=-115.72
+[EVAL] algo=a2c_tuned episode=3 reward=-116.00
+[EVAL] algo=a2c_tuned episode=4 reward=-116.00
+[EVAL] algo=a2c_tuned episode=5 reward=-115.99
+[EVAL] algo=a2c_tuned episode=6 reward=-115.88
+[EVAL] algo=a2c_tuned episode=7 reward=-116.00
+[EVAL] algo=a2c_tuned episode=8 reward=-116.00
+[EVAL] algo=a2c_tuned episode=9 reward=-116.00
+[EVAL] algo=a2c_tuned episode=10 reward=-116.00
+[EVAL] algo=a2c_tuned episode=11 reward=-116.00
+[EVAL] algo=a2c_tuned episode=12 reward=-115.98
+[EVAL] algo=a2c_tuned episode=13 reward=-115.86
+[EVAL] algo=a2c_tuned episode=14 reward=-115.99
+[EVAL] algo=a2c_tuned episode=15 reward=-115.88
+[EVAL] algo=a2c_tuned episode=16 reward=-115.98
+[EVAL] algo=a2c_tuned episode=17 reward=-116.00
+[EVAL] algo=a2c_tuned episode=18 reward=-115.99
+[EVAL] algo=a2c_tuned episode=19 reward=-116.00
+[EVAL] algo=a2c_tuned episode=20 reward=-115.99
+[EVAL] algo=a2c_tuned episode=21 reward=-115.94
+[EVAL] algo=a2c_tuned episode=22 reward=-115.99
+[EVAL] algo=a2c_tuned episode=23 reward=-115.99
+[EVAL] algo=a2c_tuned episode=24 reward=-100.00
+[EVAL] algo=a2c_tuned episode=25 reward=-115.81
+[EVAL] algo=a2c_tuned episode=26 reward=-115.88
+[EVAL] algo=a2c_tuned episode=27 reward=-115.99
+[EVAL] algo=a2c_tuned episode=28 reward=-115.98
+[EVAL] algo=a2c_tuned episode=29 reward=-115.99
+[EVAL] algo=a2c_tuned episode=30 reward=-115.97
+[EVAL] algo=a2c_tuned mean_reward=-115.43 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=8 mean_reward=-115.43
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-115.91
+[EVAL] algo=a2c_tuned episode=2 reward=-115.97
+[EVAL] algo=a2c_tuned episode=3 reward=-115.91
+[EVAL] algo=a2c_tuned episode=4 reward=-115.83
+[EVAL] algo=a2c_tuned episode=5 reward=-116.00
+[EVAL] algo=a2c_tuned episode=6 reward=-115.98
+[EVAL] algo=a2c_tuned episode=7 reward=-116.00
+[EVAL] algo=a2c_tuned episode=8 reward=-115.99
+[EVAL] algo=a2c_tuned episode=9 reward=-115.99
+[EVAL] algo=a2c_tuned episode=10 reward=-115.99
+[EVAL] algo=a2c_tuned episode=11 reward=-115.99
+[EVAL] algo=a2c_tuned episode=12 reward=-116.00
+[EVAL] algo=a2c_tuned episode=13 reward=-115.99
+[EVAL] algo=a2c_tuned episode=14 reward=-115.90
+[EVAL] algo=a2c_tuned episode=15 reward=-115.98
+[EVAL] algo=a2c_tuned episode=16 reward=-115.99
+[EVAL] algo=a2c_tuned episode=17 reward=-115.98
+[EVAL] algo=a2c_tuned episode=18 reward=-115.99
+[EVAL] algo=a2c_tuned episode=19 reward=-115.98
+[EVAL] algo=a2c_tuned episode=20 reward=-115.96
+[EVAL] algo=a2c_tuned episode=21 reward=-116.00
+[EVAL] algo=a2c_tuned episode=22 reward=-115.86
+[EVAL] algo=a2c_tuned episode=23 reward=-115.99
+[EVAL] algo=a2c_tuned episode=24 reward=-115.99
+[EVAL] algo=a2c_tuned episode=25 reward=-115.94
+[EVAL] algo=a2c_tuned episode=26 reward=-115.98
+[EVAL] algo=a2c_tuned episode=27 reward=-115.84
+[EVAL] algo=a2c_tuned episode=28 reward=-115.99
+[EVAL] algo=a2c_tuned episode=29 reward=-115.98
+[EVAL] algo=a2c_tuned episode=30 reward=-115.95
+[EVAL] algo=a2c_tuned mean_reward=-115.96 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=9 mean_reward=-115.96
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=a2c_tuned episode=1 reward=-116.00
+[EVAL] algo=a2c_tuned episode=2 reward=-115.44
+[EVAL] algo=a2c_tuned episode=3 reward=-116.00
+[EVAL] algo=a2c_tuned episode=4 reward=-115.98
+[EVAL] algo=a2c_tuned episode=5 reward=-115.82
+[EVAL] algo=a2c_tuned episode=6 reward=-116.00
+[EVAL] algo=a2c_tuned episode=7 reward=-115.99
+[EVAL] algo=a2c_tuned episode=8 reward=-116.00
+[EVAL] algo=a2c_tuned episode=9 reward=-115.90
+[EVAL] algo=a2c_tuned episode=10 reward=-115.99
+[EVAL] algo=a2c_tuned episode=11 reward=-115.99
+[EVAL] algo=a2c_tuned episode=12 reward=-115.99
+[EVAL] algo=a2c_tuned episode=13 reward=-115.81
+[EVAL] algo=a2c_tuned episode=14 reward=-115.92
+[EVAL] algo=a2c_tuned episode=15 reward=-115.99
+[EVAL] algo=a2c_tuned episode=16 reward=-115.87
+[EVAL] algo=a2c_tuned episode=17 reward=-116.00
+[EVAL] algo=a2c_tuned episode=18 reward=-115.93
+[EVAL] algo=a2c_tuned episode=19 reward=-116.00
+[EVAL] algo=a2c_tuned episode=20 reward=-116.00
+[EVAL] algo=a2c_tuned episode=21 reward=-115.98
+[EVAL] algo=a2c_tuned episode=22 reward=-115.98
+[EVAL] algo=a2c_tuned episode=23 reward=-116.00
+[EVAL] algo=a2c_tuned episode=24 reward=-115.89
+[EVAL] algo=a2c_tuned episode=25 reward=-115.95
+[EVAL] algo=a2c_tuned episode=26 reward=-116.00
+[EVAL] algo=a2c_tuned episode=27 reward=-115.21
+[EVAL] algo=a2c_tuned episode=28 reward=-115.97
+[EVAL] algo=a2c_tuned episode=29 reward=-116.00
+[EVAL] algo=a2c_tuned episode=30 reward=-115.93
+[EVAL] algo=a2c_tuned mean_reward=-115.92 over 30 episodes
+[CHUNK RESULT] algo=a2c_tuned chunk=10 mean_reward=-115.92
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=a2c_tuned chunk_means (len=10):
+  chunk 01: -115.93
+  chunk 02: -115.96
+  chunk 03: -115.94
+  chunk 04: -115.95
+  chunk 05: -115.97
+  chunk 06: -115.95
+  chunk 07: -115.73
+  chunk 08: -115.43
+  chunk 09: -115.96
+  chunk 10: -115.92
+[SUMMARY] algo=a2c_tuned overall_mean_of_chunk_means=-115.88

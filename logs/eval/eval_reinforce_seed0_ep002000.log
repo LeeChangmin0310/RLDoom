@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=reinforce seed=0 ckpt=checkpoints/reinforce_seed0_ep002000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+reinforce eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=reinforce episode=1 reward=589.76
+reinforce eval_10ep:  10%|█         | 1/10 [00:02<00:18,  2.03s/it][EVAL] algo=reinforce episode=2 reward=146.74
+reinforce eval_10ep:  20%|██        | 2/10 [00:02<00:11,  1.39s/it][EVAL] algo=reinforce episode=3 reward=110.70
+reinforce eval_10ep:  30%|███       | 3/10 [00:03<00:08,  1.17s/it][EVAL] algo=reinforce episode=4 reward=390.40
+reinforce eval_10ep:  40%|████      | 4/10 [00:05<00:07,  1.22s/it][EVAL] algo=reinforce episode=5 reward=107.46
+reinforce eval_10ep:  50%|█████     | 5/10 [00:05<00:05,  1.07s/it][EVAL] algo=reinforce episode=6 reward=113.45
+reinforce eval_10ep:  60%|██████    | 6/10 [00:06<00:03,  1.01it/s][EVAL] algo=reinforce episode=7 reward=452.89
+reinforce eval_10ep:  70%|███████   | 7/10 [00:08<00:03,  1.17s/it][EVAL] algo=reinforce episode=8 reward=357.25
+reinforce eval_10ep:  80%|████████  | 8/10 [00:09<00:02,  1.22s/it][EVAL] algo=reinforce episode=9 reward=578.70
+reinforce eval_10ep:  90%|█████████ | 9/10 [00:11<00:01,  1.37s/it][EVAL] algo=reinforce episode=10 reward=316.18
+reinforce eval_10ep: 100%|██████████| 10/10 [00:12<00:00,  1.35s/it]reinforce eval_10ep: 100%|██████████| 10/10 [00:12<00:00,  1.27s/it]
+[EVAL] algo=reinforce mean_reward=316.35 over 10 episodes
+[SUMMARY] algo=reinforce simple_mean_reward=316.35 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=344.95
+[EVAL] algo=reinforce episode=2 reward=149.58
+[EVAL] algo=reinforce episode=3 reward=332.96
+[EVAL] algo=reinforce episode=4 reward=101.71
+[EVAL] algo=reinforce episode=5 reward=429.14
+[EVAL] algo=reinforce episode=6 reward=399.68
+[EVAL] algo=reinforce episode=7 reward=391.09
+[EVAL] algo=reinforce episode=8 reward=84.94
+[EVAL] algo=reinforce episode=9 reward=39.08
+[EVAL] algo=reinforce episode=10 reward=90.65
+[EVAL] algo=reinforce episode=11 reward=51.12
+[EVAL] algo=reinforce episode=12 reward=37.19
+[EVAL] algo=reinforce episode=13 reward=408.58
+[EVAL] algo=reinforce episode=14 reward=126.53
+[EVAL] algo=reinforce episode=15 reward=102.23
+[EVAL] algo=reinforce episode=16 reward=281.48
+[EVAL] algo=reinforce episode=17 reward=127.96
+[EVAL] algo=reinforce episode=18 reward=366.40
+[EVAL] algo=reinforce episode=19 reward=370.32
+[EVAL] algo=reinforce episode=20 reward=268.34
+[EVAL] algo=reinforce episode=21 reward=581.11
+[EVAL] algo=reinforce episode=22 reward=49.93
+[EVAL] algo=reinforce episode=23 reward=206.04
+[EVAL] algo=reinforce episode=24 reward=362.39
+[EVAL] algo=reinforce episode=25 reward=108.78
+[EVAL] algo=reinforce episode=26 reward=511.88
+[EVAL] algo=reinforce episode=27 reward=100.07
+[EVAL] algo=reinforce episode=28 reward=341.69
+[EVAL] algo=reinforce episode=29 reward=317.28
+[EVAL] algo=reinforce episode=30 reward=421.57
+[EVAL] algo=reinforce mean_reward=250.16 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=1 mean_reward=250.16
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=300.98
+[EVAL] algo=reinforce episode=2 reward=385.63
+[EVAL] algo=reinforce episode=3 reward=323.29
+[EVAL] algo=reinforce episode=4 reward=383.36
+[EVAL] algo=reinforce episode=5 reward=221.92
+[EVAL] algo=reinforce episode=6 reward=109.85
+[EVAL] algo=reinforce episode=7 reward=108.06
+[EVAL] algo=reinforce episode=8 reward=69.69
+[EVAL] algo=reinforce episode=9 reward=261.62
+[EVAL] algo=reinforce episode=10 reward=76.27
+[EVAL] algo=reinforce episode=11 reward=340.02
+[EVAL] algo=reinforce episode=12 reward=71.65
+[EVAL] algo=reinforce episode=13 reward=416.03
+[EVAL] algo=reinforce episode=14 reward=331.67
+[EVAL] algo=reinforce episode=15 reward=99.37
+[EVAL] algo=reinforce episode=16 reward=498.46
+[EVAL] algo=reinforce episode=17 reward=271.61
+[EVAL] algo=reinforce episode=18 reward=90.71
+[EVAL] algo=reinforce episode=19 reward=295.00
+[EVAL] algo=reinforce episode=20 reward=86.52
+[EVAL] algo=reinforce episode=21 reward=273.70
+[EVAL] algo=reinforce episode=22 reward=108.73
+[EVAL] algo=reinforce episode=23 reward=125.53
+[EVAL] algo=reinforce episode=24 reward=18.11
+[EVAL] algo=reinforce episode=25 reward=223.41
+[EVAL] algo=reinforce episode=26 reward=397.74
+[EVAL] algo=reinforce episode=27 reward=34.62
+[EVAL] algo=reinforce episode=28 reward=113.96
+[EVAL] algo=reinforce episode=29 reward=420.63
+[EVAL] algo=reinforce episode=30 reward=97.42
+[EVAL] algo=reinforce mean_reward=218.52 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=2 mean_reward=218.52
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=422.14
+[EVAL] algo=reinforce episode=2 reward=150.37
+[EVAL] algo=reinforce episode=3 reward=138.52
+[EVAL] algo=reinforce episode=4 reward=117.17
+[EVAL] algo=reinforce episode=5 reward=349.50
+[EVAL] algo=reinforce episode=6 reward=84.14
+[EVAL] algo=reinforce episode=7 reward=75.86
+[EVAL] algo=reinforce episode=8 reward=99.37
+[EVAL] algo=reinforce episode=9 reward=421.86
+[EVAL] algo=reinforce episode=10 reward=12.24
+[EVAL] algo=reinforce episode=11 reward=39.32
+[EVAL] algo=reinforce episode=12 reward=102.31
+[EVAL] algo=reinforce episode=13 reward=424.63
+[EVAL] algo=reinforce episode=14 reward=507.33
+[EVAL] algo=reinforce episode=15 reward=106.74
+[EVAL] algo=reinforce episode=16 reward=403.80
+[EVAL] algo=reinforce episode=17 reward=62.37
+[EVAL] algo=reinforce episode=18 reward=428.21
+[EVAL] algo=reinforce episode=19 reward=47.09
+[EVAL] algo=reinforce episode=20 reward=324.50
+[EVAL] algo=reinforce episode=21 reward=398.33
+[EVAL] algo=reinforce episode=22 reward=67.47
+[EVAL] algo=reinforce episode=23 reward=45.46
+[EVAL] algo=reinforce episode=24 reward=129.81
+[EVAL] algo=reinforce episode=25 reward=294.73
+[EVAL] algo=reinforce episode=26 reward=82.21
+[EVAL] algo=reinforce episode=27 reward=80.68
+[EVAL] algo=reinforce episode=28 reward=459.55
+[EVAL] algo=reinforce episode=29 reward=269.51
+[EVAL] algo=reinforce episode=30 reward=92.03
+[EVAL] algo=reinforce mean_reward=207.91 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=3 mean_reward=207.91
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=139.74
+[EVAL] algo=reinforce episode=2 reward=432.09
+[EVAL] algo=reinforce episode=3 reward=549.02
+[EVAL] algo=reinforce episode=4 reward=272.28
+[EVAL] algo=reinforce episode=5 reward=106.67
+[EVAL] algo=reinforce episode=6 reward=64.43
+[EVAL] algo=reinforce episode=7 reward=30.92
+[EVAL] algo=reinforce episode=8 reward=459.76
+[EVAL] algo=reinforce episode=9 reward=320.85
+[EVAL] algo=reinforce episode=10 reward=75.02
+[EVAL] algo=reinforce episode=11 reward=97.26
+[EVAL] algo=reinforce episode=12 reward=358.93
+[EVAL] algo=reinforce episode=13 reward=63.30
+[EVAL] algo=reinforce episode=14 reward=333.00
+[EVAL] algo=reinforce episode=15 reward=102.00
+[EVAL] algo=reinforce episode=16 reward=399.06
+[EVAL] algo=reinforce episode=17 reward=96.21
+[EVAL] algo=reinforce episode=18 reward=12.00
+[EVAL] algo=reinforce episode=19 reward=43.15
+[EVAL] algo=reinforce episode=20 reward=158.38
+[EVAL] algo=reinforce episode=21 reward=59.13
+[EVAL] algo=reinforce episode=22 reward=106.00
+[EVAL] algo=reinforce episode=23 reward=115.50
+[EVAL] algo=reinforce episode=24 reward=146.04
+[EVAL] algo=reinforce episode=25 reward=388.86
+[EVAL] algo=reinforce episode=26 reward=383.68
+[EVAL] algo=reinforce episode=27 reward=329.98
+[EVAL] algo=reinforce episode=28 reward=43.65
+[EVAL] algo=reinforce episode=29 reward=90.57
+[EVAL] algo=reinforce episode=30 reward=28.94
+[EVAL] algo=reinforce mean_reward=193.55 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=4 mean_reward=193.55
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=64.75
+[EVAL] algo=reinforce episode=2 reward=353.68
+[EVAL] algo=reinforce episode=3 reward=108.13
+[EVAL] algo=reinforce episode=4 reward=445.51
+[EVAL] algo=reinforce episode=5 reward=6.03
+[EVAL] algo=reinforce episode=6 reward=117.23
+[EVAL] algo=reinforce episode=7 reward=287.62
+[EVAL] algo=reinforce episode=8 reward=54.76
+[EVAL] algo=reinforce episode=9 reward=109.09
+[EVAL] algo=reinforce episode=10 reward=377.55
+[EVAL] algo=reinforce episode=11 reward=36.76
+[EVAL] algo=reinforce episode=12 reward=31.65
+[EVAL] algo=reinforce episode=13 reward=46.01
+[EVAL] algo=reinforce episode=14 reward=383.48
+[EVAL] algo=reinforce episode=15 reward=82.26
+[EVAL] algo=reinforce episode=16 reward=433.58
+[EVAL] algo=reinforce episode=17 reward=420.35
+[EVAL] algo=reinforce episode=18 reward=288.98
+[EVAL] algo=reinforce episode=19 reward=70.99
+[EVAL] algo=reinforce episode=20 reward=33.19
+[EVAL] algo=reinforce episode=21 reward=456.71
+[EVAL] algo=reinforce episode=22 reward=432.08
+[EVAL] algo=reinforce episode=23 reward=101.15
+[EVAL] algo=reinforce episode=24 reward=103.92
+[EVAL] algo=reinforce episode=25 reward=400.23
+[EVAL] algo=reinforce episode=26 reward=25.14
+[EVAL] algo=reinforce episode=27 reward=120.70
+[EVAL] algo=reinforce episode=28 reward=36.71
+[EVAL] algo=reinforce episode=29 reward=419.79
+[EVAL] algo=reinforce episode=30 reward=67.27
+[EVAL] algo=reinforce mean_reward=197.18 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=5 mean_reward=197.18
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=78.98
+[EVAL] algo=reinforce episode=2 reward=245.58
+[EVAL] algo=reinforce episode=3 reward=95.36
+[EVAL] algo=reinforce episode=4 reward=189.15
+[EVAL] algo=reinforce episode=5 reward=427.81
+[EVAL] algo=reinforce episode=6 reward=94.42
+[EVAL] algo=reinforce episode=7 reward=113.74
+[EVAL] algo=reinforce episode=8 reward=264.55
+[EVAL] algo=reinforce episode=9 reward=406.95
+[EVAL] algo=reinforce episode=10 reward=90.69
+[EVAL] algo=reinforce episode=11 reward=291.21
+[EVAL] algo=reinforce episode=12 reward=44.75
+[EVAL] algo=reinforce episode=13 reward=68.09
+[EVAL] algo=reinforce episode=14 reward=146.97
+[EVAL] algo=reinforce episode=15 reward=80.61
+[EVAL] algo=reinforce episode=16 reward=129.49
+[EVAL] algo=reinforce episode=17 reward=114.65
+[EVAL] algo=reinforce episode=18 reward=333.97
+[EVAL] algo=reinforce episode=19 reward=514.65
+[EVAL] algo=reinforce episode=20 reward=366.07
+[EVAL] algo=reinforce episode=21 reward=52.95
+[EVAL] algo=reinforce episode=22 reward=305.26
+[EVAL] algo=reinforce episode=23 reward=349.14
+[EVAL] algo=reinforce episode=24 reward=92.75
+[EVAL] algo=reinforce episode=25 reward=539.01
+[EVAL] algo=reinforce episode=26 reward=553.53
+[EVAL] algo=reinforce episode=27 reward=132.04
+[EVAL] algo=reinforce episode=28 reward=362.96
+[EVAL] algo=reinforce episode=29 reward=429.30
+[EVAL] algo=reinforce episode=30 reward=146.17
+[EVAL] algo=reinforce mean_reward=235.36 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=6 mean_reward=235.36
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=121.79
+[EVAL] algo=reinforce episode=2 reward=-3.34
+[EVAL] algo=reinforce episode=3 reward=31.25
+[EVAL] algo=reinforce episode=4 reward=160.20
+[EVAL] algo=reinforce episode=5 reward=560.49
+[EVAL] algo=reinforce episode=6 reward=280.60
+[EVAL] algo=reinforce episode=7 reward=331.05
+[EVAL] algo=reinforce episode=8 reward=117.68
+[EVAL] algo=reinforce episode=9 reward=411.17
+[EVAL] algo=reinforce episode=10 reward=79.28
+[EVAL] algo=reinforce episode=11 reward=107.83
+[EVAL] algo=reinforce episode=12 reward=99.55
+[EVAL] algo=reinforce episode=13 reward=72.52
+[EVAL] algo=reinforce episode=14 reward=377.91
+[EVAL] algo=reinforce episode=15 reward=288.03
+[EVAL] algo=reinforce episode=16 reward=127.87
+[EVAL] algo=reinforce episode=17 reward=55.83
+[EVAL] algo=reinforce episode=18 reward=96.46
+[EVAL] algo=reinforce episode=19 reward=63.22
+[EVAL] algo=reinforce episode=20 reward=421.04
+[EVAL] algo=reinforce episode=21 reward=32.42
+[EVAL] algo=reinforce episode=22 reward=341.30
+[EVAL] algo=reinforce episode=23 reward=805.44
+[EVAL] algo=reinforce episode=24 reward=30.43
+[EVAL] algo=reinforce episode=25 reward=149.89
+[EVAL] algo=reinforce episode=26 reward=160.25
+[EVAL] algo=reinforce episode=27 reward=69.07
+[EVAL] algo=reinforce episode=28 reward=744.20
+[EVAL] algo=reinforce episode=29 reward=30.92
+[EVAL] algo=reinforce episode=30 reward=364.97
+[EVAL] algo=reinforce mean_reward=217.64 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=7 mean_reward=217.64
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=358.75
+[EVAL] algo=reinforce episode=2 reward=45.85
+[EVAL] algo=reinforce episode=3 reward=74.07
+[EVAL] algo=reinforce episode=4 reward=127.44
+[EVAL] algo=reinforce episode=5 reward=446.77
+[EVAL] algo=reinforce episode=6 reward=137.55
+[EVAL] algo=reinforce episode=7 reward=18.76
+[EVAL] algo=reinforce episode=8 reward=365.77
+[EVAL] algo=reinforce episode=9 reward=401.80
+[EVAL] algo=reinforce episode=10 reward=71.64
+[EVAL] algo=reinforce episode=11 reward=68.29
+[EVAL] algo=reinforce episode=12 reward=383.66
+[EVAL] algo=reinforce episode=13 reward=122.63
+[EVAL] algo=reinforce episode=14 reward=108.91
+[EVAL] algo=reinforce episode=15 reward=360.84
+[EVAL] algo=reinforce episode=16 reward=487.91
+[EVAL] algo=reinforce episode=17 reward=241.20
+[EVAL] algo=reinforce episode=18 reward=62.89
+[EVAL] algo=reinforce episode=19 reward=424.29
+[EVAL] algo=reinforce episode=20 reward=494.84
+[EVAL] algo=reinforce episode=21 reward=106.10
+[EVAL] algo=reinforce episode=22 reward=76.36
+[EVAL] algo=reinforce episode=23 reward=327.22
+[EVAL] algo=reinforce episode=24 reward=508.97
+[EVAL] algo=reinforce episode=25 reward=408.51
+[EVAL] algo=reinforce episode=26 reward=291.36
+[EVAL] algo=reinforce episode=27 reward=60.43
+[EVAL] algo=reinforce episode=28 reward=554.24
+[EVAL] algo=reinforce episode=29 reward=490.74
+[EVAL] algo=reinforce episode=30 reward=90.57
+[EVAL] algo=reinforce mean_reward=257.28 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=8 mean_reward=257.28
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=420.49
+[EVAL] algo=reinforce episode=2 reward=118.00
+[EVAL] algo=reinforce episode=3 reward=459.41
+[EVAL] algo=reinforce episode=4 reward=438.49
+[EVAL] algo=reinforce episode=5 reward=410.75
+[EVAL] algo=reinforce episode=6 reward=816.18
+[EVAL] algo=reinforce episode=7 reward=415.97
+[EVAL] algo=reinforce episode=8 reward=336.52
+[EVAL] algo=reinforce episode=9 reward=137.70
+[EVAL] algo=reinforce episode=10 reward=81.08
+[EVAL] algo=reinforce episode=11 reward=292.34
+[EVAL] algo=reinforce episode=12 reward=86.85
+[EVAL] algo=reinforce episode=13 reward=447.79
+[EVAL] algo=reinforce episode=14 reward=355.69
+[EVAL] algo=reinforce episode=15 reward=264.13
+[EVAL] algo=reinforce episode=16 reward=739.91
+[EVAL] algo=reinforce episode=17 reward=65.56
+[EVAL] algo=reinforce episode=18 reward=98.65
+[EVAL] algo=reinforce episode=19 reward=262.69
+[EVAL] algo=reinforce episode=20 reward=62.11
+[EVAL] algo=reinforce episode=21 reward=133.32
+[EVAL] algo=reinforce episode=22 reward=414.42
+[EVAL] algo=reinforce episode=23 reward=75.46
+[EVAL] algo=reinforce episode=24 reward=96.87
+[EVAL] algo=reinforce episode=25 reward=35.04
+[EVAL] algo=reinforce episode=26 reward=390.40
+[EVAL] algo=reinforce episode=27 reward=81.15
+[EVAL] algo=reinforce episode=28 reward=122.28
+[EVAL] algo=reinforce episode=29 reward=50.87
+[EVAL] algo=reinforce episode=30 reward=317.36
+[EVAL] algo=reinforce mean_reward=267.58 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=9 mean_reward=267.58
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=reinforce episode=1 reward=145.46
+[EVAL] algo=reinforce episode=2 reward=119.56
+[EVAL] algo=reinforce episode=3 reward=436.04
+[EVAL] algo=reinforce episode=4 reward=453.48
+[EVAL] algo=reinforce episode=5 reward=61.73
+[EVAL] algo=reinforce episode=6 reward=454.27
+[EVAL] algo=reinforce episode=7 reward=113.59
+[EVAL] algo=reinforce episode=8 reward=86.08
+[EVAL] algo=reinforce episode=9 reward=460.58
+[EVAL] algo=reinforce episode=10 reward=419.42
+[EVAL] algo=reinforce episode=11 reward=89.90
+[EVAL] algo=reinforce episode=12 reward=461.77
+[EVAL] algo=reinforce episode=13 reward=357.16
+[EVAL] algo=reinforce episode=14 reward=319.57
+[EVAL] algo=reinforce episode=15 reward=380.99
+[EVAL] algo=reinforce episode=16 reward=53.99
+[EVAL] algo=reinforce episode=17 reward=327.29
+[EVAL] algo=reinforce episode=18 reward=432.36
+[EVAL] algo=reinforce episode=19 reward=537.68
+[EVAL] algo=reinforce episode=20 reward=752.63
+[EVAL] algo=reinforce episode=21 reward=426.07
+[EVAL] algo=reinforce episode=22 reward=422.96
+[EVAL] algo=reinforce episode=23 reward=413.91
+[EVAL] algo=reinforce episode=24 reward=436.00
+[EVAL] algo=reinforce episode=25 reward=327.05
+[EVAL] algo=reinforce episode=26 reward=439.21
+[EVAL] algo=reinforce episode=27 reward=414.68
+[EVAL] algo=reinforce episode=28 reward=113.96
+[EVAL] algo=reinforce episode=29 reward=120.98
+[EVAL] algo=reinforce episode=30 reward=129.78
+[EVAL] algo=reinforce mean_reward=323.61 over 30 episodes
+[CHUNK RESULT] algo=reinforce chunk=10 mean_reward=323.61
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=reinforce chunk_means (len=10):
+  chunk 01: 250.16
+  chunk 02: 218.52
+  chunk 03: 207.91
+  chunk 04: 193.55
+  chunk 05: 197.18
+  chunk 06: 235.36
+  chunk 07: 217.64
+  chunk 08: 257.28
+  chunk 09: 267.58
+  chunk 10: 323.61
+[SUMMARY] algo=reinforce overall_mean_of_chunk_means=236.88

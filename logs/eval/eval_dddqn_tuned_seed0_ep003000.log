@@ -1,0 +1,376 @@
+[RUN_EVAL] algo=dddqn_tuned seed=0 ckpt=checkpoints/dddqn_tuned_seed0_ep003000.pth
+/home/cia/disk1/bci_intern/AAAI2026/RLDoom/eval.py:155: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(args.checkpoint, map_location=device)
+pci id for fd 8: 1a03:2000, driver (null)
+MESA-LOADER: failed to open ast: /usr/lib/dri/ast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+pci id for fd 9: 1a03:2000, driver (null)
+kmsro: driver missing
+========== Simple evaluation ==========
+dddqn_tuned eval_10ep:   0%|          | 0/10 [00:00<?, ?it/s][EVAL] algo=dddqn_tuned episode=1 reward=15.89
+dddqn_tuned eval_10ep:  10%|█         | 1/10 [00:01<00:13,  1.46s/it][EVAL] algo=dddqn_tuned episode=2 reward=-74.08
+dddqn_tuned eval_10ep:  20%|██        | 2/10 [00:02<00:09,  1.15s/it][EVAL] algo=dddqn_tuned episode=3 reward=5.26
+dddqn_tuned eval_10ep:  30%|███       | 3/10 [00:03<00:06,  1.03it/s][EVAL] algo=dddqn_tuned episode=4 reward=-44.39
+dddqn_tuned eval_10ep:  40%|████      | 4/10 [00:04<00:06,  1.09s/it][EVAL] algo=dddqn_tuned episode=5 reward=-13.33
+dddqn_tuned eval_10ep:  50%|█████     | 5/10 [00:05<00:04,  1.02it/s][EVAL] algo=dddqn_tuned episode=6 reward=34.83
+dddqn_tuned eval_10ep:  60%|██████    | 6/10 [00:06<00:04,  1.09s/it][EVAL] algo=dddqn_tuned episode=7 reward=-45.44
+dddqn_tuned eval_10ep:  70%|███████   | 7/10 [00:07<00:03,  1.21s/it][EVAL] algo=dddqn_tuned episode=8 reward=-56.62
+dddqn_tuned eval_10ep:  80%|████████  | 8/10 [00:09<00:02,  1.25s/it][EVAL] algo=dddqn_tuned episode=9 reward=-21.05
+dddqn_tuned eval_10ep:  90%|█████████ | 9/10 [00:10<00:01,  1.09s/it][EVAL] algo=dddqn_tuned episode=10 reward=-29.45
+dddqn_tuned eval_10ep: 100%|██████████| 10/10 [00:10<00:00,  1.02s/it]dddqn_tuned eval_10ep: 100%|██████████| 10/10 [00:10<00:00,  1.09s/it]
+[EVAL] algo=dddqn_tuned mean_reward=-22.84 over 10 episodes
+[SUMMARY] algo=dddqn_tuned simple_mean_reward=-22.84 (10 episodes)
+========== Repeated evaluation: 30 episodes x 10 chunks ==========
+
+[CHUNK] 1/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=-115.94
+[EVAL] algo=dddqn_tuned episode=2 reward=-87.30
+[EVAL] algo=dddqn_tuned episode=3 reward=-67.94
+[EVAL] algo=dddqn_tuned episode=4 reward=-31.74
+[EVAL] algo=dddqn_tuned episode=5 reward=-27.05
+[EVAL] algo=dddqn_tuned episode=6 reward=-30.18
+[EVAL] algo=dddqn_tuned episode=7 reward=66.41
+[EVAL] algo=dddqn_tuned episode=8 reward=-81.23
+[EVAL] algo=dddqn_tuned episode=9 reward=-57.18
+[EVAL] algo=dddqn_tuned episode=10 reward=-8.01
+[EVAL] algo=dddqn_tuned episode=11 reward=105.66
+[EVAL] algo=dddqn_tuned episode=12 reward=-25.89
+[EVAL] algo=dddqn_tuned episode=13 reward=-38.44
+[EVAL] algo=dddqn_tuned episode=14 reward=-37.22
+[EVAL] algo=dddqn_tuned episode=15 reward=-29.94
+[EVAL] algo=dddqn_tuned episode=16 reward=-46.78
+[EVAL] algo=dddqn_tuned episode=17 reward=-35.54
+[EVAL] algo=dddqn_tuned episode=18 reward=-43.85
+[EVAL] algo=dddqn_tuned episode=19 reward=-2.02
+[EVAL] algo=dddqn_tuned episode=20 reward=-22.20
+[EVAL] algo=dddqn_tuned episode=21 reward=-38.56
+[EVAL] algo=dddqn_tuned episode=22 reward=-49.91
+[EVAL] algo=dddqn_tuned episode=23 reward=-39.76
+[EVAL] algo=dddqn_tuned episode=24 reward=-39.05
+[EVAL] algo=dddqn_tuned episode=25 reward=-27.77
+[EVAL] algo=dddqn_tuned episode=26 reward=-29.93
+[EVAL] algo=dddqn_tuned episode=27 reward=-64.71
+[EVAL] algo=dddqn_tuned episode=28 reward=5.32
+[EVAL] algo=dddqn_tuned episode=29 reward=8.91
+[EVAL] algo=dddqn_tuned episode=30 reward=-78.98
+[EVAL] algo=dddqn_tuned mean_reward=-32.36 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=1 mean_reward=-32.36
+
+[CHUNK] 2/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=19.19
+[EVAL] algo=dddqn_tuned episode=2 reward=-35.31
+[EVAL] algo=dddqn_tuned episode=3 reward=-28.62
+[EVAL] algo=dddqn_tuned episode=4 reward=-58.64
+[EVAL] algo=dddqn_tuned episode=5 reward=-44.39
+[EVAL] algo=dddqn_tuned episode=6 reward=-44.38
+[EVAL] algo=dddqn_tuned episode=7 reward=16.74
+[EVAL] algo=dddqn_tuned episode=8 reward=-35.97
+[EVAL] algo=dddqn_tuned episode=9 reward=3.86
+[EVAL] algo=dddqn_tuned episode=10 reward=3.34
+[EVAL] algo=dddqn_tuned episode=11 reward=11.35
+[EVAL] algo=dddqn_tuned episode=12 reward=-29.69
+[EVAL] algo=dddqn_tuned episode=13 reward=30.29
+[EVAL] algo=dddqn_tuned episode=14 reward=-21.69
+[EVAL] algo=dddqn_tuned episode=15 reward=-70.50
+[EVAL] algo=dddqn_tuned episode=16 reward=17.58
+[EVAL] algo=dddqn_tuned episode=17 reward=-31.18
+[EVAL] algo=dddqn_tuned episode=18 reward=-58.50
+[EVAL] algo=dddqn_tuned episode=19 reward=-46.34
+[EVAL] algo=dddqn_tuned episode=20 reward=-37.75
+[EVAL] algo=dddqn_tuned episode=21 reward=-16.69
+[EVAL] algo=dddqn_tuned episode=22 reward=14.98
+[EVAL] algo=dddqn_tuned episode=23 reward=88.60
+[EVAL] algo=dddqn_tuned episode=24 reward=-34.96
+[EVAL] algo=dddqn_tuned episode=25 reward=-82.83
+[EVAL] algo=dddqn_tuned episode=26 reward=-75.95
+[EVAL] algo=dddqn_tuned episode=27 reward=-5.25
+[EVAL] algo=dddqn_tuned episode=28 reward=99.68
+[EVAL] algo=dddqn_tuned episode=29 reward=-35.82
+[EVAL] algo=dddqn_tuned episode=30 reward=86.27
+[EVAL] algo=dddqn_tuned mean_reward=-13.42 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=2 mean_reward=-13.42
+
+[CHUNK] 3/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=-47.24
+[EVAL] algo=dddqn_tuned episode=2 reward=6.82
+[EVAL] algo=dddqn_tuned episode=3 reward=-14.29
+[EVAL] algo=dddqn_tuned episode=4 reward=-9.04
+[EVAL] algo=dddqn_tuned episode=5 reward=-55.81
+[EVAL] algo=dddqn_tuned episode=6 reward=60.19
+[EVAL] algo=dddqn_tuned episode=7 reward=-20.50
+[EVAL] algo=dddqn_tuned episode=8 reward=-62.62
+[EVAL] algo=dddqn_tuned episode=9 reward=-25.75
+[EVAL] algo=dddqn_tuned episode=10 reward=15.02
+[EVAL] algo=dddqn_tuned episode=11 reward=-27.83
+[EVAL] algo=dddqn_tuned episode=12 reward=-9.50
+[EVAL] algo=dddqn_tuned episode=13 reward=-22.11
+[EVAL] algo=dddqn_tuned episode=14 reward=-49.12
+[EVAL] algo=dddqn_tuned episode=15 reward=19.14
+[EVAL] algo=dddqn_tuned episode=16 reward=-24.59
+[EVAL] algo=dddqn_tuned episode=17 reward=-40.96
+[EVAL] algo=dddqn_tuned episode=18 reward=6.49
+[EVAL] algo=dddqn_tuned episode=19 reward=-38.55
+[EVAL] algo=dddqn_tuned episode=20 reward=-66.27
+[EVAL] algo=dddqn_tuned episode=21 reward=-31.21
+[EVAL] algo=dddqn_tuned episode=22 reward=-56.57
+[EVAL] algo=dddqn_tuned episode=23 reward=-41.66
+[EVAL] algo=dddqn_tuned episode=24 reward=-21.69
+[EVAL] algo=dddqn_tuned episode=25 reward=-35.30
+[EVAL] algo=dddqn_tuned episode=26 reward=-31.04
+[EVAL] algo=dddqn_tuned episode=27 reward=-37.19
+[EVAL] algo=dddqn_tuned episode=28 reward=-23.44
+[EVAL] algo=dddqn_tuned episode=29 reward=-74.82
+[EVAL] algo=dddqn_tuned episode=30 reward=-44.52
+[EVAL] algo=dddqn_tuned mean_reward=-26.80 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=3 mean_reward=-26.80
+
+[CHUNK] 4/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=-2.83
+[EVAL] algo=dddqn_tuned episode=2 reward=-34.30
+[EVAL] algo=dddqn_tuned episode=3 reward=-17.33
+[EVAL] algo=dddqn_tuned episode=4 reward=10.77
+[EVAL] algo=dddqn_tuned episode=5 reward=-65.19
+[EVAL] algo=dddqn_tuned episode=6 reward=-33.50
+[EVAL] algo=dddqn_tuned episode=7 reward=20.54
+[EVAL] algo=dddqn_tuned episode=8 reward=18.94
+[EVAL] algo=dddqn_tuned episode=9 reward=18.36
+[EVAL] algo=dddqn_tuned episode=10 reward=-49.96
+[EVAL] algo=dddqn_tuned episode=11 reward=5.53
+[EVAL] algo=dddqn_tuned episode=12 reward=-44.38
+[EVAL] algo=dddqn_tuned episode=13 reward=9.19
+[EVAL] algo=dddqn_tuned episode=14 reward=17.49
+[EVAL] algo=dddqn_tuned episode=15 reward=34.35
+[EVAL] algo=dddqn_tuned episode=16 reward=3.94
+[EVAL] algo=dddqn_tuned episode=17 reward=-50.49
+[EVAL] algo=dddqn_tuned episode=18 reward=48.51
+[EVAL] algo=dddqn_tuned episode=19 reward=-25.78
+[EVAL] algo=dddqn_tuned episode=20 reward=-35.03
+[EVAL] algo=dddqn_tuned episode=21 reward=-7.38
+[EVAL] algo=dddqn_tuned episode=22 reward=-35.69
+[EVAL] algo=dddqn_tuned episode=23 reward=-37.60
+[EVAL] algo=dddqn_tuned episode=24 reward=-6.04
+[EVAL] algo=dddqn_tuned episode=25 reward=-58.24
+[EVAL] algo=dddqn_tuned episode=26 reward=-48.30
+[EVAL] algo=dddqn_tuned episode=27 reward=54.21
+[EVAL] algo=dddqn_tuned episode=28 reward=7.16
+[EVAL] algo=dddqn_tuned episode=29 reward=-1.65
+[EVAL] algo=dddqn_tuned episode=30 reward=50.75
+[EVAL] algo=dddqn_tuned mean_reward=-8.47 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=4 mean_reward=-8.47
+
+[CHUNK] 5/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=-51.27
+[EVAL] algo=dddqn_tuned episode=2 reward=4.91
+[EVAL] algo=dddqn_tuned episode=3 reward=-50.75
+[EVAL] algo=dddqn_tuned episode=4 reward=-26.55
+[EVAL] algo=dddqn_tuned episode=5 reward=26.90
+[EVAL] algo=dddqn_tuned episode=6 reward=-40.01
+[EVAL] algo=dddqn_tuned episode=7 reward=-52.72
+[EVAL] algo=dddqn_tuned episode=8 reward=-36.49
+[EVAL] algo=dddqn_tuned episode=9 reward=-6.63
+[EVAL] algo=dddqn_tuned episode=10 reward=-72.30
+[EVAL] algo=dddqn_tuned episode=11 reward=-17.41
+[EVAL] algo=dddqn_tuned episode=12 reward=-58.51
+[EVAL] algo=dddqn_tuned episode=13 reward=-45.26
+[EVAL] algo=dddqn_tuned episode=14 reward=-78.49
+[EVAL] algo=dddqn_tuned episode=15 reward=11.61
+[EVAL] algo=dddqn_tuned episode=16 reward=-44.98
+[EVAL] algo=dddqn_tuned episode=17 reward=-33.10
+[EVAL] algo=dddqn_tuned episode=18 reward=14.63
+[EVAL] algo=dddqn_tuned episode=19 reward=-33.12
+[EVAL] algo=dddqn_tuned episode=20 reward=-33.62
+[EVAL] algo=dddqn_tuned episode=21 reward=14.52
+[EVAL] algo=dddqn_tuned episode=22 reward=-29.84
+[EVAL] algo=dddqn_tuned episode=23 reward=21.70
+[EVAL] algo=dddqn_tuned episode=24 reward=-22.75
+[EVAL] algo=dddqn_tuned episode=25 reward=-36.66
+[EVAL] algo=dddqn_tuned episode=26 reward=13.42
+[EVAL] algo=dddqn_tuned episode=27 reward=-6.29
+[EVAL] algo=dddqn_tuned episode=28 reward=-17.60
+[EVAL] algo=dddqn_tuned episode=29 reward=-0.18
+[EVAL] algo=dddqn_tuned episode=30 reward=-9.97
+[EVAL] algo=dddqn_tuned mean_reward=-23.23 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=5 mean_reward=-23.23
+
+[CHUNK] 6/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=16.18
+[EVAL] algo=dddqn_tuned episode=2 reward=-40.15
+[EVAL] algo=dddqn_tuned episode=3 reward=-36.81
+[EVAL] algo=dddqn_tuned episode=4 reward=-46.19
+[EVAL] algo=dddqn_tuned episode=5 reward=-70.54
+[EVAL] algo=dddqn_tuned episode=6 reward=-47.48
+[EVAL] algo=dddqn_tuned episode=7 reward=-46.02
+[EVAL] algo=dddqn_tuned episode=8 reward=-49.71
+[EVAL] algo=dddqn_tuned episode=9 reward=-13.81
+[EVAL] algo=dddqn_tuned episode=10 reward=24.61
+[EVAL] algo=dddqn_tuned episode=11 reward=-29.21
+[EVAL] algo=dddqn_tuned episode=12 reward=-24.51
+[EVAL] algo=dddqn_tuned episode=13 reward=-51.69
+[EVAL] algo=dddqn_tuned episode=14 reward=-16.49
+[EVAL] algo=dddqn_tuned episode=15 reward=-43.64
+[EVAL] algo=dddqn_tuned episode=16 reward=-27.62
+[EVAL] algo=dddqn_tuned episode=17 reward=-45.57
+[EVAL] algo=dddqn_tuned episode=18 reward=79.52
+[EVAL] algo=dddqn_tuned episode=19 reward=-112.58
+[EVAL] algo=dddqn_tuned episode=20 reward=-24.79
+[EVAL] algo=dddqn_tuned episode=21 reward=6.13
+[EVAL] algo=dddqn_tuned episode=22 reward=9.77
+[EVAL] algo=dddqn_tuned episode=23 reward=-55.48
+[EVAL] algo=dddqn_tuned episode=24 reward=18.33
+[EVAL] algo=dddqn_tuned episode=25 reward=-85.20
+[EVAL] algo=dddqn_tuned episode=26 reward=-67.09
+[EVAL] algo=dddqn_tuned episode=27 reward=-17.10
+[EVAL] algo=dddqn_tuned episode=28 reward=-28.40
+[EVAL] algo=dddqn_tuned episode=29 reward=-45.28
+[EVAL] algo=dddqn_tuned episode=30 reward=-25.56
+[EVAL] algo=dddqn_tuned mean_reward=-29.88 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=6 mean_reward=-29.88
+
+[CHUNK] 7/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=29.52
+[EVAL] algo=dddqn_tuned episode=2 reward=-42.07
+[EVAL] algo=dddqn_tuned episode=3 reward=-31.89
+[EVAL] algo=dddqn_tuned episode=4 reward=-29.08
+[EVAL] algo=dddqn_tuned episode=5 reward=34.97
+[EVAL] algo=dddqn_tuned episode=6 reward=-53.31
+[EVAL] algo=dddqn_tuned episode=7 reward=-55.87
+[EVAL] algo=dddqn_tuned episode=8 reward=-22.31
+[EVAL] algo=dddqn_tuned episode=9 reward=30.76
+[EVAL] algo=dddqn_tuned episode=10 reward=-48.45
+[EVAL] algo=dddqn_tuned episode=11 reward=-38.06
+[EVAL] algo=dddqn_tuned episode=12 reward=-39.99
+[EVAL] algo=dddqn_tuned episode=13 reward=-15.58
+[EVAL] algo=dddqn_tuned episode=14 reward=18.80
+[EVAL] algo=dddqn_tuned episode=15 reward=13.79
+[EVAL] algo=dddqn_tuned episode=16 reward=-97.40
+[EVAL] algo=dddqn_tuned episode=17 reward=-33.34
+[EVAL] algo=dddqn_tuned episode=18 reward=-0.20
+[EVAL] algo=dddqn_tuned episode=19 reward=-81.09
+[EVAL] algo=dddqn_tuned episode=20 reward=16.94
+[EVAL] algo=dddqn_tuned episode=21 reward=-41.94
+[EVAL] algo=dddqn_tuned episode=22 reward=-35.07
+[EVAL] algo=dddqn_tuned episode=23 reward=10.31
+[EVAL] algo=dddqn_tuned episode=24 reward=-51.99
+[EVAL] algo=dddqn_tuned episode=25 reward=-17.85
+[EVAL] algo=dddqn_tuned episode=26 reward=-47.93
+[EVAL] algo=dddqn_tuned episode=27 reward=17.59
+[EVAL] algo=dddqn_tuned episode=28 reward=-23.88
+[EVAL] algo=dddqn_tuned episode=29 reward=-6.04
+[EVAL] algo=dddqn_tuned episode=30 reward=-20.64
+[EVAL] algo=dddqn_tuned mean_reward=-22.04 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=7 mean_reward=-22.04
+
+[CHUNK] 8/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=-26.11
+[EVAL] algo=dddqn_tuned episode=2 reward=-4.60
+[EVAL] algo=dddqn_tuned episode=3 reward=-16.81
+[EVAL] algo=dddqn_tuned episode=4 reward=1.89
+[EVAL] algo=dddqn_tuned episode=5 reward=-14.50
+[EVAL] algo=dddqn_tuned episode=6 reward=-36.38
+[EVAL] algo=dddqn_tuned episode=7 reward=-24.77
+[EVAL] algo=dddqn_tuned episode=8 reward=-26.22
+[EVAL] algo=dddqn_tuned episode=9 reward=-39.74
+[EVAL] algo=dddqn_tuned episode=10 reward=20.25
+[EVAL] algo=dddqn_tuned episode=11 reward=3.33
+[EVAL] algo=dddqn_tuned episode=12 reward=-42.38
+[EVAL] algo=dddqn_tuned episode=13 reward=-0.72
+[EVAL] algo=dddqn_tuned episode=14 reward=-32.16
+[EVAL] algo=dddqn_tuned episode=15 reward=-29.34
+[EVAL] algo=dddqn_tuned episode=16 reward=-5.89
+[EVAL] algo=dddqn_tuned episode=17 reward=21.96
+[EVAL] algo=dddqn_tuned episode=18 reward=6.38
+[EVAL] algo=dddqn_tuned episode=19 reward=-2.76
+[EVAL] algo=dddqn_tuned episode=20 reward=-6.29
+[EVAL] algo=dddqn_tuned episode=21 reward=0.38
+[EVAL] algo=dddqn_tuned episode=22 reward=-31.53
+[EVAL] algo=dddqn_tuned episode=23 reward=7.32
+[EVAL] algo=dddqn_tuned episode=24 reward=3.19
+[EVAL] algo=dddqn_tuned episode=25 reward=-43.83
+[EVAL] algo=dddqn_tuned episode=26 reward=-16.26
+[EVAL] algo=dddqn_tuned episode=27 reward=-74.22
+[EVAL] algo=dddqn_tuned episode=28 reward=17.75
+[EVAL] algo=dddqn_tuned episode=29 reward=-51.99
+[EVAL] algo=dddqn_tuned episode=30 reward=3.36
+[EVAL] algo=dddqn_tuned mean_reward=-14.69 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=8 mean_reward=-14.69
+
+[CHUNK] 9/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=-30.13
+[EVAL] algo=dddqn_tuned episode=2 reward=-20.30
+[EVAL] algo=dddqn_tuned episode=3 reward=-6.36
+[EVAL] algo=dddqn_tuned episode=4 reward=-45.67
+[EVAL] algo=dddqn_tuned episode=5 reward=25.54
+[EVAL] algo=dddqn_tuned episode=6 reward=-36.45
+[EVAL] algo=dddqn_tuned episode=7 reward=-6.23
+[EVAL] algo=dddqn_tuned episode=8 reward=19.76
+[EVAL] algo=dddqn_tuned episode=9 reward=-8.27
+[EVAL] algo=dddqn_tuned episode=10 reward=-53.00
+[EVAL] algo=dddqn_tuned episode=11 reward=-14.61
+[EVAL] algo=dddqn_tuned episode=12 reward=-13.22
+[EVAL] algo=dddqn_tuned episode=13 reward=-19.57
+[EVAL] algo=dddqn_tuned episode=14 reward=-42.65
+[EVAL] algo=dddqn_tuned episode=15 reward=-27.87
+[EVAL] algo=dddqn_tuned episode=16 reward=13.93
+[EVAL] algo=dddqn_tuned episode=17 reward=-21.43
+[EVAL] algo=dddqn_tuned episode=18 reward=-16.88
+[EVAL] algo=dddqn_tuned episode=19 reward=-19.50
+[EVAL] algo=dddqn_tuned episode=20 reward=-25.18
+[EVAL] algo=dddqn_tuned episode=21 reward=20.78
+[EVAL] algo=dddqn_tuned episode=22 reward=1.92
+[EVAL] algo=dddqn_tuned episode=23 reward=-37.45
+[EVAL] algo=dddqn_tuned episode=24 reward=-59.59
+[EVAL] algo=dddqn_tuned episode=25 reward=-7.79
+[EVAL] algo=dddqn_tuned episode=26 reward=-89.51
+[EVAL] algo=dddqn_tuned episode=27 reward=14.65
+[EVAL] algo=dddqn_tuned episode=28 reward=-62.64
+[EVAL] algo=dddqn_tuned episode=29 reward=-30.61
+[EVAL] algo=dddqn_tuned episode=30 reward=-17.66
+[EVAL] algo=dddqn_tuned mean_reward=-20.53 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=9 mean_reward=-20.53
+
+[CHUNK] 10/10: running 30 episodes...
+[EVAL] algo=dddqn_tuned episode=1 reward=-22.62
+[EVAL] algo=dddqn_tuned episode=2 reward=-31.16
+[EVAL] algo=dddqn_tuned episode=3 reward=5.80
+[EVAL] algo=dddqn_tuned episode=4 reward=-41.63
+[EVAL] algo=dddqn_tuned episode=5 reward=32.66
+[EVAL] algo=dddqn_tuned episode=6 reward=-7.11
+[EVAL] algo=dddqn_tuned episode=7 reward=7.54
+[EVAL] algo=dddqn_tuned episode=8 reward=-14.17
+[EVAL] algo=dddqn_tuned episode=9 reward=-70.11
+[EVAL] algo=dddqn_tuned episode=10 reward=-17.80
+[EVAL] algo=dddqn_tuned episode=11 reward=-42.10
+[EVAL] algo=dddqn_tuned episode=12 reward=-55.58
+[EVAL] algo=dddqn_tuned episode=13 reward=-30.25
+[EVAL] algo=dddqn_tuned episode=14 reward=-38.85
+[EVAL] algo=dddqn_tuned episode=15 reward=-56.70
+[EVAL] algo=dddqn_tuned episode=16 reward=-36.97
+[EVAL] algo=dddqn_tuned episode=17 reward=-1.03
+[EVAL] algo=dddqn_tuned episode=18 reward=20.07
+[EVAL] algo=dddqn_tuned episode=19 reward=-10.09
+[EVAL] algo=dddqn_tuned episode=20 reward=-11.50
+[EVAL] algo=dddqn_tuned episode=21 reward=-26.71
+[EVAL] algo=dddqn_tuned episode=22 reward=-23.93
+[EVAL] algo=dddqn_tuned episode=23 reward=-34.73
+[EVAL] algo=dddqn_tuned episode=24 reward=-42.62
+[EVAL] algo=dddqn_tuned episode=25 reward=18.28
+[EVAL] algo=dddqn_tuned episode=26 reward=-49.07
+[EVAL] algo=dddqn_tuned episode=27 reward=-33.51
+[EVAL] algo=dddqn_tuned episode=28 reward=-40.63
+[EVAL] algo=dddqn_tuned episode=29 reward=-45.20
+[EVAL] algo=dddqn_tuned episode=30 reward=-44.69
+[EVAL] algo=dddqn_tuned mean_reward=-24.81 over 30 episodes
+[CHUNK RESULT] algo=dddqn_tuned chunk=10 mean_reward=-24.81
+
+========== Repeated-eval summary ==========
+[SUMMARY] algo=dddqn_tuned chunk_means (len=10):
+  chunk 01: -32.36
+  chunk 02: -13.42
+  chunk 03: -26.80
+  chunk 04: -8.47
+  chunk 05: -23.23
+  chunk 06: -29.88
+  chunk 07: -22.04
+  chunk 08: -14.69
+  chunk 09: -20.53
+  chunk 10: -24.81
+[SUMMARY] algo=dddqn_tuned overall_mean_of_chunk_means=-21.62
