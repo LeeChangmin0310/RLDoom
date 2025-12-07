@@ -551,7 +551,7 @@ All original Doom assets belong to their respective copyright holders.
         <img src="https://github.com/LeeChangmin0310.png?size=120" width="96" height="96" alt="LeeChangmin0310 avatar"/><br/>
         <sub><b>Changmin Lee</b></sub><br/>
         <sub>@LeeChangmin0310</sub><br/>
-        <sub>Maintainer</sub>
+        <sub>Maintainer</sub><!--<br/><sub>Core Contributor</sub>!-->
       </a>
     </td>
     <td align="center" valign="top" width="160">
