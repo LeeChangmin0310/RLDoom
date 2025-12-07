@@ -1,4 +1,4 @@
-# RLDoom: Comparative Deep RL Algorithms on VizDoom Deadly Corridor!
+# RLDoom: Comparative Deep RL Algorithms on VizDoom Deadly Corridor
 
 **TL;DR.** This repository implements a **comparative benchmark** of classic and modern Deep RL algorithms on the **VizDoom Deadly Corridor** scenario, using a **unified environment wrapper, YAML-based configs, and wandb logging**.
 
