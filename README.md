@@ -1,6 +1,6 @@
-# RLDoom: Comparative Deep RL Algorithms on VizDoom Deadly Corridor
+# RLDoom: Comparing Deep RL Algorithms on VizDoom Deadly Corridor
 
-**TL;DR.** This repository implements a **comparative benchmark** of classic and modern Deep RL algorithms on the **VizDoom Deadly Corridor** scenario, using a **unified environment wrapper, YAML-based configs, and wandb logging**.
+**TL;DR.** This repository implements a **comparative benchmark** of classic and modern Deep RL algorithms on the **VizDoom Deadly Corridor** task, using a **unified environment wrapper, YAML-based configs, and wandb logging**.
 
 All agents share:
 
@@ -9,6 +9,11 @@ All agents share:
 - The **same logging / checkpointing pipeline**
 
 so that we can focus on **algorithmic differences** in sample efficiency and final performance.
+
+<p align="center">
+  <!-- Replace this path with your actual GIF file -->
+  <img src="images/doom_corridor_demo.gif" alt="RLDoom Deadly Corridor demo" width="480"/>
+</p>
 
 ---
 
@@ -24,7 +29,7 @@ All algorithms act on the **same discrete 7-action space** and stacked grayscale
 - **Rainbow-style DQN (Rainbow-lite)**
   - Dueling Q-head
   - Double DQN target update
-  - Prioritized Experience Replay (PER) via a dedicated buffer
+  - Prioritized Experience Replay (PER) via a dedicated buffer  
   - No noisy nets / no distributional head (simplified Rainbow variant)
 
 ### On-policy (policy gradient & actor-critic)
@@ -35,7 +40,7 @@ All algorithms act on the **same discrete 7-action space** and stacked grayscale
 - **PPO** (Proximal Policy Optimization)
 - **TRPO** (Trust Region Policy Optimization, simplified with a KL penalty)
 
-The goal is a **clean, reproducible toy benchmark** that can run on a lab server (SSH + tmux) without touching global system packages.
+The goal is a **clean, reproducible benchmark** that can run on a lab server (SSH + tmux) without touching global system packages.
 
 ---
 
@@ -43,7 +48,7 @@ The goal is a **clean, reproducible toy benchmark** that can run on a lab server
 
 - **Scenario:** VizDoom – *Deadly Corridor*
 - **Goal:** Reach the vest at the end of the corridor **without dying**.
-- **Map:** narrow corridor with 6 monsters on both sides.
+- **Map:** narrow corridor with monsters on both sides.
 - **Reward (shaped):**
   - `+dX` for getting closer to the vest
   - `-dX` for moving away
@@ -53,13 +58,13 @@ The goal is a **clean, reproducible toy benchmark** that can run on a lab server
 
 We use **7 discrete actions** (one-hot):
 
-- MOVE_LEFT
-- MOVE_RIGHT
-- ATTACK
-- MOVE_FORWARD
-- MOVE_BACKWARD
-- TURN_LEFT
-- TURN_RIGHT
+- MOVE_LEFT  
+- MOVE_RIGHT  
+- ATTACK  
+- MOVE_FORWARD  
+- MOVE_BACKWARD  
+- TURN_LEFT  
+- TURN_RIGHT  
 
 ### Preprocessing & Frame Stacking
 
@@ -80,7 +85,7 @@ This ensures all algorithms see **identical observations**.
 
 ```text
 RLDoom/
-  train.py                 # Main training entrypoint
+  train.py                 # Main training entrypoint (single algo/seed)
   eval.py                  # Evaluation entrypoint
   requirements.txt         # Python dependencies
 
@@ -94,6 +99,7 @@ RLDoom/
     configs/
       __init__.py
       deadly_corridor.yaml # YAML config (env, train, logging, algo-specific)
+      # make_config(algo, seed) → flat cfg object
 
     envs/
       __init__.py
@@ -137,7 +143,8 @@ RLDoom/
   scripts/
     run_train.sh           # tmux-friendly single-algorithm launcher
     run_eval.sh            # tmux-friendly evaluation launcher
-    launch_queue.py        # Helper to launch multiple algorithms on different GPUs
+    launch_queue.py        # Multi-GPU job launcher for training
+    launch_eval_queue.py   # Multi-GPU job launcher for evaluation
 
   checkpoints/             # Saved model checkpoints (created at runtime)
   logs/                    # Text logs + wandb local cache (created at runtime)
@@ -151,37 +158,13 @@ RLDoom/
 Create and activate a dedicated conda environment:
 
 ```bash
-git clone <THIS_REPO_URL> RLDoom
+git clone https://github.com/LeeChangmin0310/RLDoom.git
 cd RLDoom
 
 conda create -n doomrl python=3.9 -y
 conda activate doomrl
 
 pip install -r requirements.txt
-```
-
-Typical `requirements.txt` (simplified):
-
-```txt
-torch==2.5.1+cu121
-torchvision==0.20.1+cu121
-
-vizdoom==1.2.4
-gymnasium==1.1.1
-
-numpy==1.26.4
-scipy==1.13.1
-scikit-image==0.22.0
-imageio
-tifffile
-pillow
-
-opencv-python        # for cv2, used in preprocessing
-
-matplotlib==3.9.4
-tqdm
-pyyaml
-wandb==0.23.0
 ```
 
 Check that the environment Python is used:
@@ -222,7 +205,7 @@ All configuration is centralized in:
 
 ```text
 rldoom/configs/deadly_corridor.yaml
-rldoom/configs/__init__.py  (make_config)
+rldoom/configs/__init__.py  # make_config
 ```
 
 ### YAML layout (high-level example)
@@ -236,10 +219,10 @@ env:
   frame_skip: 4
 
 train:
-  num_episodes: 2000
+  num_episodes: 3000
   max_steps_per_episode: 3000
   checkpoint_dir: "checkpoints"
-  checkpoint_interval: 100
+  checkpoint_interval: 150
   logs_dir: "logs"
 
 defaults:
@@ -254,7 +237,8 @@ logging:
 
 algos:
   dqn:
-    # algo-specific hyperparameters...
+    type: "offpolicy"
+    # ...
   ddqn:
   dddqn:
   rainbow:
@@ -263,6 +247,7 @@ algos:
   a3c:
   ppo:
   trpo:
+  # optionally: reinforce_tuned / a2c_tuned / dddqn_tuned / ppo_tuned
 ```
 
 `make_config(algo, seed)` flattens this into a simple object:
@@ -288,7 +273,7 @@ cfg.feature_dim
 cfg.gamma
 cfg.grad_clip
 
-# algo-specific
+# algo-specific examples
 cfg.lr
 cfg.buffer_size
 cfg.batch_size
@@ -297,14 +282,13 @@ cfg.eps_start
 cfg.eps_end
 cfg.eps_decay
 cfg.target_update_every
-...
 ```
 
 All agents and trainers use this same `cfg` object.
 
 ---
 
-## Logged metrics (wandb)
+## Logged Metrics (wandb)
 
 Every algorithm logs per episode:
 
@@ -318,13 +302,13 @@ Algorithm-specific losses:
 * **Off-policy (DQN, DDQN, DDDQN, Rainbow)**
 
   * `loss`: TD loss (total, identical to `value_loss`)
-  * `value_loss`: same scalar for clarity
+  * `value_loss`: same scalar, logged explicitly
 
 * **REINFORCE**
 
   * `loss`: total loss (policy + value baseline term)
   * `policy_loss`
-  * `value_loss` (baseline fitting; optional, can be disabled)
+  * `value_loss` (baseline fitting; optional)
 
 * **A2C**
 
@@ -384,7 +368,7 @@ and initializes wandb accordingly.
 
 ## Training
 
-### Command-line
+### Single run (command-line)
 
 From the project root:
 
@@ -420,11 +404,9 @@ python train.py --algo trpo --seed 0
   * `train_offpolicy(agent, cfg, logger)` for DQN / DDQN / DDDQN / Rainbow
   * `train_onpolicy(agent, cfg, logger)` for REINFORCE / A2C / A3C / PPO / TRPO
 
-Both trainers use **tqdm** to show progress over episodes without spamming the terminal.
+Both trainers use **tqdm** to show progress over episodes.
 
-### tmux-friendly script
-
-`scripts/run_train.sh` example:
+### tmux-friendly script (`scripts/run_train.sh`)
 
 ```bash
 #!/usr/bin/env bash
@@ -435,16 +417,23 @@ conda activate doomrl
 
 cd /home/cia/disk1/bci_intern/AAAI2026/RLDoom
 
-export CUDA_VISIBLE_DEVICES=0
+# Optional: load wandb env vars from .env
+if [ -f ".env" ]; then
+  set -a
+  source .env
+  set +a
+fi
+
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}
 export WANDB_DIR="${PWD}/logs/wandb"
 
 mkdir -p logs checkpoints
 
-# Choose algorithm via env or hard-code
-ALGO=${ALGO:-dddqn}
-SEED=${SEED:-0}
+ALGO=${1:-dddqn}
+SEED=${2:-0}
 
-python train.py --algo "${ALGO}" --seed "${SEED}" 2>&1 | tee "logs/train_${ALGO}_s${SEED}.log"
+python train.py --algo "${ALGO}" --seed "${SEED}" \
+  2>&1 | tee "logs/train_${ALGO}_seed${SEED}.log"
 ```
 
 Usage:
@@ -453,24 +442,31 @@ Usage:
 chmod +x scripts/run_train.sh
 
 tmux new -s doomrl
-ALGO=dddqn SEED=0 bash scripts/run_train.sh
+CUDA_VISIBLE_DEVICES=0 ./scripts/run_train.sh dddqn 0
 # detach: Ctrl+b, d
 # attach: tmux attach -t doomrl
 ```
 
-### Multi-algorithm launcher
+### Multi-algorithm / multi-GPU launcher (`scripts/launch_queue.py`)
 
-`scripts/launch_queue.py` (example usage):
+`launch_queue.py` assigns different algorithms to different GPUs and runs them in parallel:
 
-* Assigns different GPUs to different algorithms
-* Launches multiple training runs (e.g., DQN / DDQN / REINFORCE / PPO / TRPO) in parallel
-* Designed to be run inside tmux on a shared lab server
+* Specify a job list: `JOBS = [(algo, seed), ...]`
+* Specify available GPUs: `GPUS = ["1", "2", "3"]`
+* Each job is launched as: `bash scripts/run_train.sh <algo> <seed>` with `CUDA_VISIBLE_DEVICES` set internally.
+
+Example usage:
+
+```bash
+tmux new -s doomrl_queue
+python scripts/launch_queue.py
+```
 
 ---
 
 ## Evaluation
 
-Run evaluation with a saved checkpoint:
+### Single-checkpoint evaluation
 
 ```bash
 conda activate doomrl
@@ -478,64 +474,54 @@ cd /home/cia/disk1/bci_intern/AAAI2026/RLDoom
 
 python eval.py \
   --algo dddqn \
-  --checkpoint checkpoints/dddqn_ep000500.pth \
+  --checkpoint checkpoints/dddqn_seed0_ep001500.pth \
   --episodes 10
 ```
 
 `eval.py`:
 
-* Loads the same `cfg = make_config(algo, seed)`
-* Disables wandb (`cfg.use_wandb = False`)
-* Builds the agent and loads weights
-* Creates `env = make_env(cfg)` (headless VizDoom, safe over SSH)
-* Runs evaluation episodes with **deterministic actions** (`epsilon=0` or greedy policy)
-* Uses `tqdm` to show progress over evaluation episodes
-* Prints per-episode return, e.g.:
+* Loads `cfg = make_config(algo, seed)` and disables wandb
+* Builds the agent and loads weights (`.pth` checkpoint)
+* Creates the Deadly Corridor environment
+* Runs deterministic evaluation episodes (`deterministic=True` in `agent.act`)
+* Prints per-episode return and mean return
 
-```text
-[EVAL] algo=dddqn episode=1 return=123.45
-...
-```
+The script also supports **repeated evaluation**:
 
-You can also use `scripts/run_eval.sh` to wrap this in tmux.
+* `--chunk_episodes`: number of episodes per chunk (e.g., 30)
+* `--n_chunks`: number of chunks (e.g., 10)
+
+This yields 10 mean returns over 30 episodes each, useful for more stable comparison.
 
 ---
 
-## Project Story: What This Repo is For
+## Scope & Extensibility
 
-The point is **not** to build the most powerful Doom agent, but to:
+This repository is intended as a **simple, comparable setup** for:
 
-* Fix the **environment** (Deadly Corridor, same preprocessing, same action space)
-* Fix the **hardware constraints** (single GPU lab server, headless)
-* Fix the **logging & metrics pipeline** (wandb, same reward definition)
+* Testing classic value-based methods (DQN family, Rainbow-lite)
+* Comparing policy-gradient / actor-critic methods (REINFORCE, A2C/A3C, PPO, TRPO)
+* Running controlled experiments on the **same Doom task**, with unified logging and preprocessing
 
-and then systematically compare:
+Adding a new algorithm typically means:
 
-1. **Value-based methods**
+1. Implementing a new `Agent` class under `rldoom/agents/`.
+2. Adding a corresponding entry under `algos:` in `rldoom/configs/deadly_corridor.yaml`.
 
-   * DQN → DDQN → DDDQN → Rainbow-lite
-   * How do Double / Dueling / PER tricks affect:
+---
 
-     * sample efficiency
-     * stability
-     * final performance?
+## Reference Hardware (used in our experiments)
 
-2. **Policy gradient & actor-critic**
+Our experiments were mainly run on a **NAS server** with:
 
-   * REINFORCE vs A2C/A3C vs PPO vs TRPO
-   * How do trust-region and clipping-based methods behave in a sparse-ish, death-penalized environment?
+* **OS:** Ubuntu 22.04 LTS
+* **CPU/RAM:** multi-core CPU with several 512 GB RAM
+* **GPUs:**
 
-3. **Fairness**
+  * 2 × NVIDIA RTX A5000 (24 GB each)
+  * 1 × NVIDIA GeForce RTX 3090 (24 GB)
 
-   * Same reward function
-   * Same frame preprocessing and stacking
-   * Similar training horizon (`num_episodes`)
-   * Shared hyperparameter style (LR, batch size, rollout length) in YAML
-
-The repo is structured so that **adding another algorithm** (e.g., SAC or DQN+NoisyNets) is just:
-
-* implementing a new `Agent` class under `rldoom/agents/`,
-* adding a corresponding entry under `algos:` in the YAML.
+The code itself does **not** depend on this exact setup: any machine with a recent GPU (or even CPU, at slower speed) and a working VizDoom installation should be able to run the experiments.
 
 ---
 
@@ -544,7 +530,7 @@ The repo is structured so that **adding another algorithm** (e.g., SAC or DQN+No
 This project builds on:
 
 * Thomas Simonini, **“Dueling Double Deep Q-Learning with PER — Doom Deadly Corridor”**
-* Mnih et al., **“Human-level control through deep reinforcement learning,”** Nature, 2015.
+* Mnih et al., **“Human-level control through deep reinforcement learning,”** *Nature*, 2015.
 * Van Hasselt et al., **“Deep Reinforcement Learning with Double Q-learning,”** AAAI, 2016.
 * Wang et al., **“Dueling Network Architectures for Deep Reinforcement Learning,”** ICML, 2016.
 * Schaul et al., **“Prioritized Experience Replay,”** ICLR, 2016.
